@@ -2,14 +2,13 @@
 
 public class CollisionChecker : MonoBehaviour
 {
-    [SerializeField]
-    private Color _obstacleColor = Color.black;
-
-    private Cake _cake = null;
+    //[SerializeField]
+    private Color32 _obstacleColor = new Color32(123, 63, 0, 255);
+    private Painter _painter = null;
 
     private void Awake()
     {
-        _cake = FindObjectOfType<Cake>();
+        _painter = FindObjectOfType<Painter>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,10 +16,10 @@ public class CollisionChecker : MonoBehaviour
         if (other.tag == Tags.T_OBSTACLE)
         {
             gameObject.SetActive(false);
-            var material = other.GetComponent<MeshRenderer>().material;
-            material.color = _obstacleColor;
+            other.GetComponent<MeshRenderer>().material.color = _obstacleColor;
+            other.GetComponent<Piece>().State = PieceState.Colored;
             GameManager.GetInstance().AddScore();
-            _cake.RotateMe();
+            _painter.RotateAndCheckCake();
         }
     }
 }
