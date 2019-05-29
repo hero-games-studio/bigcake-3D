@@ -6,6 +6,7 @@ public class GameManager
     private static object _lock = new object();
 
     private int _score = 0;
+    private Vector3 _shootStartDefault = new Vector3(0, -0.25f, -4.0f);
     private Vector3 _shootStart = new Vector3(0, -0.25f, -4.0f);
 
     public Vector3 ShootStart {
@@ -36,6 +37,11 @@ public class GameManager
     public void AddScore(int point = 10)
     {
         _score += point;
+    }
+
+    public void ResetShootStartPosition()
+    {
+        _shootStart = _shootStartDefault;
     }
 
     public int GetScore() => _score;

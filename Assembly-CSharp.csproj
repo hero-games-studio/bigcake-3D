@@ -66,8 +66,10 @@
     <Compile Include="Assets\BigCake3D\Scripts\CollisionChecker.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\GameManager.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Holder.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Obstacle.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Painter.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Piece.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\SceneController.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\UiManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/All Projects/Unity Projects/Big Cake 3D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

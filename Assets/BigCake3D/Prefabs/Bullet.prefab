@@ -91,7 +91,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8205664870280369784
 Rigidbody:
@@ -107,7 +107,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!114 &3180047336844684861
 MonoBehaviour:
@@ -121,4 +121,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c317ac273f53944c9cb3105af58ed0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacleColor: {r: 1, g: 0.7599125, b: 0, a: 1}

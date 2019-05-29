@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Painter : MonoBehaviour
@@ -12,15 +13,24 @@ public class Painter : MonoBehaviour
     [SerializeField]
     private Transform _shooter = null;
 
+    [SerializeField]
+    private GameObject _obstacle = null;
+
     private int _currentIndex = 0;
-    private Vector3 _force = new Vector3(0, 0, 15000);
+    private Vector3 _force = new Vector3(0, 0, 12500);
     private List<GameObject> _bullets = new List<GameObject>();
     private float _inTime = 1.0f;
-
     private Cake _cake = null;
-    [SerializeField] private Cake[] _cakes = null;
+
+    [SerializeField]
+    private Cake[] _cakes = null;
+
     private int _currentCakeIndex = 0;
     private Vector3 _startPosIncrease = new Vector3(0.0f, 0.5f, 0.0f);
+
+    private float _currentCakeLayerYPos = 0.0f;
+    private Vector3 _startFallPos = new Vector3(0, 10, 0);
+    private static readonly float _inTimeBound = 0.2f;
 
     private void Awake()
     {
@@ -54,7 +64,7 @@ public class Painter : MonoBehaviour
 
     private void CheckInTimeAndShoot()
     {
-        if (_inTime >= 0.15f)
+        if (_inTime >= _inTimeBound)
         {
             Shoot();
             _inTime = 0.0f;
@@ -112,11 +122,13 @@ public class Painter : MonoBehaviour
         if (_cake != null && _cake.CheckChilds())
         {
             GameManager.GetInstance().ShootStart += _startPosIncrease;
+            _currentCakeLayerYPos += _startPosIncrease.y;
         }
 
         if (_currentCakeIndex < _cakes.Length)
         {
             _cake = _cakes[_currentCakeIndex++];
+            StartCoroutine(FallLayerDown());
             _cake.gameObject.SetActive(true);
         }
         else
@@ -125,9 +137,23 @@ public class Painter : MonoBehaviour
         }
     }
 
+    private IEnumerator FallLayerDown()
+    {
+        _cake.transform.position = _startFallPos;
+        Vector3 target = new Vector3(0, _currentCakeLayerYPos, 0);
+        for (float time = 0; time < 1.0f; time += Time.deltaTime)
+        {
+            _cake.transform.position = Vector3.Lerp(_cake.transform.position, target, time);
+            _obstacle.transform.position = Vector3.Lerp(_obstacle.transform.position, target, time);
+            yield return null;
+        }
+        _cake.transform.position = target;
+        _obstacle.transform.position = target;
+    }
+
     public void RotateAndCheckCake()
     {
-        _cake.RotateMe();
+        StartCoroutine(_cake.RotateMe());
         if (_cake.CheckChilds())
         {
             GetActiveCakePart();
