@@ -1,11 +1,10 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
+public class SceneController
 {
     public static void RestartLevel()
     {
-        GameManager.GetInstance().ResetShootStartPosition();
+        Shooter.Instance.ResetShootStartPosition();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

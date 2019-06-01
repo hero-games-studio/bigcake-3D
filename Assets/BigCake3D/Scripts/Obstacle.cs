@@ -1,23 +1,17 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 _increaseRotationScale = new Vector3(0.0f, 2.0f, 0.0f);
+    private float _increaseRotationScale = 60.0f;
 
-    private void LateUpdate()
+    private void Update()
     {
-        StartCoroutine(RotateTheObstacles());
+        RotateObstacles();
     }
 
-    private IEnumerator RotateTheObstacles()
+    private void RotateObstacles()
     {
-        for (float time = 0; time < 1.0f; time += Time.deltaTime)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                Quaternion.Euler(transform.eulerAngles + _increaseRotationScale), time * 0.1f);
-            yield return null;
-        }
+        transform.RotateAround(Vector3.zero, Vector3.up, _increaseRotationScale * Time.deltaTime);
     }
 }

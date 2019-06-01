@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class Cake : MonoBehaviour
 {
+    #region Variables
     private readonly float _speed = 2.5f;
     private Vector3 _rotateScale = new Vector3(0.0f, -30.0f, 0.0f);
     private List<Piece> _childsPieces = new List<Piece>();
+    #endregion
 
+    #region All Methods
     private void Awake()
     {
         _childsPieces = GetComponentsInChildren<Piece>().ToList();
@@ -40,4 +43,5 @@ public class Cake : MonoBehaviour
         }
         transform.rotation = targetRotation;
     }
+    #endregion
 }
