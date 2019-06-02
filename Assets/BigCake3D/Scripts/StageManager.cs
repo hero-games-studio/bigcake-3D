@@ -14,6 +14,8 @@ public class StageManager : MonoBehaviour
     public List<Stage> _stages;
     public int _currentStageIndex = 0;
 
+    [SerializeField]
+    private UiManager _uiManager = null;
     #endregion
 
     [System.Serializable]
@@ -52,20 +54,39 @@ public class StageManager : MonoBehaviour
 
             if (_stages[_currentStageIndex].currentIndex >= _stages[_currentStageIndex].cakes.Count - 1)
             {
-                ResetPositionVariables();
-                _stages[_currentStageIndex++].stage.gameObject.SetActive(false);
-                _stages[_currentStageIndex].stage.gameObject.SetActive(true);
+                Painter.Instance.MissionStage = true;
+                _uiManager.ShowMissionState((_currentStageIndex + 1).ToString());
             }
             else
             {
                 Shooter.Instance.ShootStartPosition += _startPosIncrease;
                 _stages[_currentStageIndex].currentIndex++;
                 _currentCakeLayerYPos += _startPosIncrease.y;
+                InitializeCurrentStage();
             }
-            _cake = _stages[_currentStageIndex].GetCurrentCake();
-            _cake.gameObject.SetActive(true);
-            StartCoroutine(FallLayerDown());
         }
+    }
+
+    private void InitializeCurrentStage()
+    {
+        _cake = _stages[_currentStageIndex].GetCurrentCake();
+        _cake.gameObject.SetActive(true);
+        StartCoroutine(FallLayerDown());
+    }
+
+    public void NextStage()
+    {
+        GetNextStage();
+        _uiManager.HideMissionState();
+        InitializeCurrentStage();
+        Painter.Instance.MissionStage = false;
+    }
+
+    private void GetNextStage()
+    {
+        ResetPositionVariables();
+        _stages[_currentStageIndex++].stage.gameObject.SetActive(false);
+        _stages[_currentStageIndex].stage.gameObject.SetActive(true);
     }
 
     private IEnumerator FallLayerDown()

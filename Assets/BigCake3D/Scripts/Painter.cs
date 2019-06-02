@@ -20,6 +20,8 @@ public class Painter : MonoSingleton<Painter>
     private List<GameObject> _bullets = new List<GameObject>();
     private float _prevTime = 1.0f;
     private static readonly float _inTimeBound = 0.2f;
+
+    public bool MissionStage { get; set; } = false;
     #endregion
 
     #region All Methods
@@ -35,7 +37,10 @@ public class Painter : MonoSingleton<Painter>
 
     private void Update()
     {
-        GetInputs();
+        if (!MissionStage)
+        {
+            GetInputs();
+        }
     }
 
     private void GetInputs()
