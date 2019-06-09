@@ -4,7 +4,6 @@ public class Piece : MonoBehaviour
 {
     public PieceState State = PieceState.UnColored;
     private MeshRenderer _meshRenderer = null;
-    private Color32 _obstacleColor = new Color32(123, 63, 0, 255);
     private UiManager _uiManager = null;
 
     private void Awake()
@@ -15,9 +14,20 @@ public class Piece : MonoBehaviour
 
     public void SetColored()
     {
-        _meshRenderer.material.color = _obstacleColor;
+        _meshRenderer.material = Painter.Instance.PieceColoredMaterial;
         State = PieceState.Colored;
         ScoreManager.Instance.AddScore();
         _uiManager.UpdateScoreText();
+    }
+
+    public void SetUnColored(bool nearMiss = false)
+    {
+        _meshRenderer.material = Painter.Instance.PieceUnColoredMaterial;
+        State = PieceState.UnColored;
+        _uiManager.UpdateScoreText();
+        if (nearMiss)
+        {
+            _uiManager.UpdateNearMissSlider();
+        }
     }
 }

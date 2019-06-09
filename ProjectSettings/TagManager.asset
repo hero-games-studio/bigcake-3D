@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - Ball
   - Piece
+  - NearMiss
+  - Boundary
   layers:
   - Default
   - TransparentFX

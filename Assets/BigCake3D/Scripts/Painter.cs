@@ -15,18 +15,33 @@ public class Painter : MonoSingleton<Painter>
     [SerializeField]
     private StageManager _stageManager = null;
 
+    [Header("Topping")]
+    [SerializeField]
+    private GameObject _toppingPrefab = null;
+
+    public Transform ToppingTransform { get; set; }
+
     private int _currentIndex = 0;
-    private Vector3 _force = new Vector3(0, 0, 12500);
+    private Vector3 _force = new Vector3(0, 0, 350.0f);
     private List<GameObject> _bullets = new List<GameObject>();
     private float _prevTime = 1.0f;
     private static readonly float _inTimeBound = 0.2f;
 
+    [HideInInspector]
     public bool MissionStage { get; set; } = false;
+
+    [Header("Piece Material")]
+    public Material PieceUnColoredMaterial = null;
+    public Material PieceColoredMaterial = null;
     #endregion
 
     #region All Methods
     private void Awake()
     {
+        MissionStage = false;
+        ToppingTransform = Instantiate(_toppingPrefab).transform;
+        ResetToppingPosition();
+
         for (int i = 0; i < _maxSpawnCount; i++)
         {
             _bullets.Add(Spawn());
@@ -35,17 +50,20 @@ public class Painter : MonoSingleton<Painter>
         }
     }
 
+    public void ResetToppingPosition()
+    {
+        ToppingTransform.position = new Vector3(0.0f, 75.0f, 0.0f);
+        ToppingTransform.gameObject.SetActive(false);
+    }
+
     private void Update()
     {
-        if (!MissionStage)
-        {
-            GetInputs();
-        }
+        GetInputs();
     }
 
     private void GetInputs()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
+        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !MissionStage)
         {
             CheckInTimeAndShoot();
         }
@@ -71,7 +89,7 @@ public class Painter : MonoSingleton<Painter>
         _bullets[_currentIndex].transform.position = Shooter.Instance.ShootStartPosition;
         _bullets[_currentIndex].SetActive(true);
         _bullets[_currentIndex++].GetComponent<Rigidbody>()
-            .AddForce(_force * Time.deltaTime);
+            .velocity = _force * Time.deltaTime;
     }
 
     public void RotateAndCheck()

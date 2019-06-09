@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System;
 
-public class StageManager : MonoBehaviour
+public class StageManager : MonoSingleton<StageManager>
 {
     #region Variables
     private Vector3 _startPosIncrease = new Vector3(0.0f, 0.5f, 0.0f);
@@ -55,7 +56,7 @@ public class StageManager : MonoBehaviour
             if (_stages[_currentStageIndex].currentIndex >= _stages[_currentStageIndex].cakes.Count - 1)
             {
                 Painter.Instance.MissionStage = true;
-                _uiManager.ShowMissionState((_currentStageIndex + 1).ToString());
+                StartCoroutine(AddTopping());
             }
             else
             {
@@ -67,7 +68,33 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    private void InitializeCurrentStage()
+    private IEnumerator AddTopping()
+    {
+        Painter.Instance.ToppingTransform.gameObject.SetActive(true);
+        Vector3 target = new Vector3(0, _currentCakeLayerYPos, 0);
+        for (float time = 0; time < 1.0f; time += Time.deltaTime)
+        {
+            Painter.Instance.ToppingTransform.position =
+                Vector3.Lerp(Painter.Instance.ToppingTransform.position, target, time);
+            yield return null;
+        }
+        Painter.Instance.ToppingTransform.position = target;
+
+        _uiManager.ShowMissionState((_currentStageIndex + 1).ToString());
+    }
+
+    public void ResetCurrentStage()
+    {
+        var pieces = _cake.GetComponentsInChildren<Piece>();
+        foreach (Piece piece in pieces)
+        {
+            piece.SetUnColored();
+            Painter.Instance.RotateAndCheck();
+        }
+        InitializeCurrentStage();
+    }
+
+    public void InitializeCurrentStage()
     {
         _cake = _stages[_currentStageIndex].GetCurrentCake();
         _cake.gameObject.SetActive(true);
@@ -84,6 +111,7 @@ public class StageManager : MonoBehaviour
 
     private void GetNextStage()
     {
+        Painter.Instance.ResetToppingPosition();
         ResetPositionVariables();
         _stages[_currentStageIndex++].stage.gameObject.SetActive(false);
         _stages[_currentStageIndex].stage.gameObject.SetActive(true);
@@ -112,6 +140,18 @@ public class StageManager : MonoBehaviour
         {
             GetActiveCakePart();
         }
+    }
+
+    public void ClearCurrentLayer()
+    {
+        var pieces = _cake.GetComponentsInChildren<Piece>();
+        foreach (Piece piece in pieces)
+        {
+            piece.SetColored();
+            Painter.Instance.RotateAndCheck();
+        }
+        Painter.Instance.MissionStage = false;
+        ScoreManager.Instance.ResetNearMiss();
     }
     #endregion
 }

@@ -3,8 +3,11 @@
 public class Shooter : MonoSingleton<Shooter>
 {
     #region Shooter
-    private Vector3 _shootStartPositionDefault = new Vector3(0, -0.25f, -4.0f);
-    private Vector3 _shootStartPosition = new Vector3(0, -0.25f, -4.0f);
+    [SerializeField]
+    private Vector3 _shootStartPositionDefault = new Vector3(0, -0.25f, -3.5f);
+
+    [SerializeField]
+    private Vector3 _shootStartPosition = new Vector3(0, -0.25f, -3.5f);
 
     public Vector3 ShootStartPosition
     {
