@@ -1,16 +1,21 @@
 fileFormatVersion: 2
-guid: 899bdd695e999a2469fcfc4dde47459c
+guid: 0f0b7084c9b7c344db3b5c88c0579975
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: New_Game_Object
-    100002: //RootNode
-    400000: New_Game_Object
-    400002: //RootNode
+    100000: //RootNode
+    100002: slice_2_0
+    100004: slice_2_1
+    400000: //RootNode
+    400002: slice_2_0
+    400004: slice_2_1
     2100000: Default_Prototype
-    2300000: New_Game_Object
-    3300000: New_Game_Object
-    4300000: New_Game_Object
+    2300000: slice_2_0
+    2300002: slice_2_1
+    3300000: slice_2_0
+    3300002: slice_2_1
+    4300000: slice_2_0
+    4300002: slice_2_1
   externalObjects: {}
   materials:
     importMaterials: 1

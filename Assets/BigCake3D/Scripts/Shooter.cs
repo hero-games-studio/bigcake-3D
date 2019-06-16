@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Shooter : MonoSingleton<Shooter>
 {
     #region Shooter
     [SerializeField]
-    private Vector3 _shootStartPositionDefault = new Vector3(0, -0.25f, -3.5f);
+    private Vector3 _shootStartPositionDefault = new Vector3(0, -0.375f, -1.5f);//new Vector3(0, -0.3f, -3.5f);
 
     [SerializeField]
-    private Vector3 _shootStartPosition = new Vector3(0, -0.25f, -3.5f);
+    private Vector3 _shootStartPosition = new Vector3(0, -0.375f, -1.5f); //new Vector3(0, -0.3f, -3.5f);
+
+    private float _multiple = 5.0f;
 
     public Vector3 ShootStartPosition
     {
@@ -26,9 +29,15 @@ public class Shooter : MonoSingleton<Shooter>
         _shootStartPosition = _shootStartPositionDefault;
     }
 
-    public void ChangePosition()
+    public IEnumerator ChangePosition(Vector3 targetPosition)
     {
-        transform.position = ShootStartPosition;
+        var position = transform.position;
+        for (float timer = 0.0f; timer < 1.0f; timer += Time.deltaTime * _multiple)
+        {
+            transform.position = Vector3.Lerp(position, targetPosition, timer);
+            yield return null;
+        }
+        transform.position = targetPosition;
     }
     #endregion
 }

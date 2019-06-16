@@ -9,7 +9,7 @@ public class Piece : MonoBehaviour
     private void Awake()
     {
         _uiManager = FindObjectOfType<UiManager>();
-        _meshRenderer = GetComponent<MeshRenderer>();
+        _meshRenderer = GetComponentInChildren<Renderer>() as MeshRenderer;
     }
 
     public void SetColored()

@@ -65,7 +65,7 @@ public class UiManager : MonoBehaviour
     {
         Painter.Instance.MissionStage = true;
         _nearMissButton.interactable = false;
-        StageManager.Instance.ClearCurrentLayer();
+        //StageManager.Instance.ResetCurrentLayer();
         UpdateNearMissSlider();
     }
 

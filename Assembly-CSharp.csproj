@@ -63,7 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BigCake3D\Scripts\Cake.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\CakeLayer.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\CakePart.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\CollisionChecker.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Cream.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\GameManager.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Holder.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\MonoSingleton.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="Assets\BigCake3D\Scripts\SceneController.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Shooter.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Stage.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\StageManager.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\UiManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

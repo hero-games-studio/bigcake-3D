@@ -1,19 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Painter : MonoSingleton<Painter>
 {
     #region Variables
-    [Header("Bullet")]
-    [SerializeField]
-    private GameObject _bullet = null;
-    [SerializeField]
-    private int _maxSpawnCount = 35;
-    [SerializeField]
-    private Transform _bulletParent = null;
+    [Header("Painting")]
 
     [SerializeField]
-    private StageManager _stageManager = null;
+    private Vector3 _paintingStartPosition = new Vector3(0, -0.375f, -1.85f);
+
+    [SerializeField]
+    private Vector3 _shooterDefaultPosition = new Vector3(0, -0.375f, -3.5f);
 
     [Header("Topping")]
     [SerializeField]
@@ -21,11 +18,6 @@ public class Painter : MonoSingleton<Painter>
 
     public Transform ToppingTransform { get; set; }
 
-    private int _currentIndex = 0;
-    private Vector3 _force = new Vector3(0, 0, 350.0f);
-    private List<GameObject> _bullets = new List<GameObject>();
-    private float _prevTime = 1.0f;
-    private static readonly float _inTimeBound = 0.2f;
 
     [HideInInspector]
     public bool MissionStage { get; set; } = false;
@@ -33,6 +25,8 @@ public class Painter : MonoSingleton<Painter>
     [Header("Piece Material")]
     public Material PieceUnColoredMaterial = null;
     public Material PieceColoredMaterial = null;
+
+    private bool isPainting = false;
     #endregion
 
     #region All Methods
@@ -41,13 +35,6 @@ public class Painter : MonoSingleton<Painter>
         MissionStage = false;
         ToppingTransform = Instantiate(_toppingPrefab).transform;
         ResetToppingPosition();
-
-        for (int i = 0; i < _maxSpawnCount; i++)
-        {
-            _bullets.Add(Spawn());
-            _bullets[i].transform.SetParent(_bulletParent);
-            _bullets[i].SetActive(false);
-        }
     }
 
     public void ResetToppingPosition()
@@ -65,36 +52,35 @@ public class Painter : MonoSingleton<Painter>
     {
         if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !MissionStage)
         {
-            CheckInTimeAndShoot();
+            if (!isPainting)
+            {
+                isPainting = true;
+                StartPainting();
+            }
         }
-    }
-
-    private void CheckInTimeAndShoot()
-    {
-        if (Time.time - _prevTime >= _inTimeBound)
+        else if (Input.GetMouseButtonUp(0) && !MissionStage)
         {
-            Shoot();
-            _prevTime = Time.time;
+            isPainting = false;
+            StartCoroutine(TurnBack());
         }
     }
 
-    private GameObject Spawn() => Instantiate(_bullet);
 
-    private void Shoot()
+    private void StartPainting()
     {
-        if (_currentIndex >= _bullets.Count)
-        {
-            _currentIndex = 0;
-        }
-        _bullets[_currentIndex].transform.position = Shooter.Instance.ShootStartPosition;
-        _bullets[_currentIndex].SetActive(true);
-        _bullets[_currentIndex++].GetComponent<Rigidbody>()
-            .velocity = _force * Time.deltaTime;
+        StartCoroutine(StartApproach());
     }
 
-    public void RotateAndCheck()
+    private IEnumerator StartApproach()
     {
-        _stageManager.RotateAndCheckCake();
+        StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition));
+        yield return null;
+    }
+
+    private IEnumerator TurnBack()
+    {
+        StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition));
+        yield return null;
     }
     #endregion
 }
