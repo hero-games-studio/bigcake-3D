@@ -5,44 +5,20 @@ using UnityEngine;
 public class Stage
 {
     public GameObject stage;
-
-    public int currentLayerIndex;
-    public List<CakeLayer> layers;
-
-    public CakeLayer GetCurrentCakeLayer() => layers[currentLayerIndex];
-
-    public CakePart GetCurrentCakePart()
-    {
-        return (GetCurrentCakeLayer().cream != null && GetCurrentCakeLayer().cake.IsPartCompelete()) ?
-            GetCurrentCakeLayer().cream : GetCurrentCakeLayer().cake as CakePart;
-    }
-
-    public bool IsLayerComplete()
-    {
-        if (!GetCurrentCakeLayer().cake.IsPartCompelete())
-        {
-            return false;
-        }
-        else
-        {
-            if (GetCurrentCakeLayer().cream != null)
-            {
-                return GetCurrentCakeLayer().cream.IsPartCompelete();
-            }
-            else
-            {
-                return true;
-            }
-        }
-    }
+    public GameObject obstacle;
+    public int currentPartIndex;
+    public List<CakePart> cakeParts;
+    public bool CheckCurrentPart() => cakeParts[currentPartIndex].IsPartCompelete();
+    public CakePart GetCurrentCakePart() => cakeParts[currentPartIndex] as CakePart;
 
     public void ResetStage()
     {
-        foreach (var item in layers)
+        foreach (CakePart cakePart in cakeParts)
         {
-            item.ResetLayer();
+            cakePart.ResetPart();
+            cakePart.gameObject.SetActive(false);
         }
-        currentLayerIndex = 0;
-        stage.SetActive(false);
+        currentPartIndex = 0;
+        stage.gameObject.SetActive(false);
     }
 }

@@ -63,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BigCake3D\Scripts\Cake.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\CakeLayer.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\CakePart.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\CollisionChecker.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Cream.cs" />

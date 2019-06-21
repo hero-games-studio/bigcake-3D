@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class CakePart : MonoBehaviour
 {
@@ -44,6 +45,14 @@ public class CakePart : MonoBehaviour
             yield return null;
         }
         transform.rotation = targetRotation;
+    }
+
+    public void ResetPart()
+    {
+        foreach (Piece piece in _childsPieces)
+        {
+            piece.SetUnColored();
+        }
     }
     #endregion
 }

@@ -372,6 +372,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1884916631}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &87882609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2545065064098158810, guid: a272024fa92f6c243a7d428f3b120129,
+    type: 3}
+  m_PrefabInstance: {fileID: 1231066847}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8236f052fca34244bc95dc034b74216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &88046692
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +805,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cake_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8369241758173396252, guid: a272024fa92f6c243a7d428f3b120129,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4775028733474253973, guid: a272024fa92f6c243a7d428f3b120129,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -897,6 +914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CreamLayer_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
@@ -1081,17 +1103,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stages:
   - stage: {fileID: 1760608053}
-    currentLayerIndex: 0
-    layers:
-    - cake: {fileID: 2545065064098158810}
-      cream: {fileID: 8201826964399367837}
-    - cake: {fileID: 450929190}
-      cream: {fileID: 1494986717}
-    - cake: {fileID: 188245133}
-      cream: {fileID: 0}
-  fallDownTargetPosition: {x: 0, y: -0.4, z: 0}
-  fallDownDefaultTargetPosition: {x: 0, y: -0.4, z: 0}
-  fallDownIncreaseTargetPosition: {x: 0, y: 0.2, z: 0}
+    obstacle: {fileID: 629022639}
+    currentPartIndex: 0
+    cakeParts:
+    - {fileID: 2545065064098158810}
+    - {fileID: 8201826964399367837}
+    - {fileID: 450929190}
+    - {fileID: 1494986717}
+    - {fileID: 188245133}
+  - stage: {fileID: 1018986035}
+    obstacle: {fileID: 206966581}
+    currentPartIndex: 0
+    cakeParts:
+    - {fileID: 891154134}
+    - {fileID: 2132490440}
+    - {fileID: 1397553235}
+    - {fileID: 2082487521}
+    - {fileID: 1911342158}
+    - {fileID: 910035152}
+    - {fileID: 87882609}
+  fallingDown: 0
+  currentStage:
+    stage: {fileID: 0}
+    obstacle: {fileID: 0}
+    currentPartIndex: 0
+    cakeParts: []
+  cakeStartPosition: {x: 0, y: -0.4, z: 0}
+  currentCakePosition: {x: 0, y: -0.4, z: 0}
+  cakePositionStepSize: {x: 0, y: 0.2, z: 0}
+  obstaclePosition: {x: 0, y: 0, z: 0}
+  obstacleStartPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &285044415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,6 +1759,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreamLayer_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2267,6 +2313,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreamLayer_0
       objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2698,7 +2749,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.02734375, y: -0.04296875, z: 0, w: 10}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2727,6 +2778,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cake_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8369241758173396252, guid: a272024fa92f6c243a7d428f3b120129,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4775028733474253973, guid: a272024fa92f6c243a7d428f3b120129,
         type: 3}
@@ -2955,6 +3011,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreamLayer_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3024,6 +3085,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreamLayer_0
       objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3081,12 +3147,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ab82eacd8d87794a9d1b7e7e10d5404, type: 3}
+--- !u!114 &891154134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2545065064098158810, guid: a272024fa92f6c243a7d428f3b120129,
+    type: 3}
+  m_PrefabInstance: {fileID: 333113513}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8236f052fca34244bc95dc034b74216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &898641414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
     type: 3}
   m_PrefabInstance: {fileID: 1086250319}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &910035152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6640480057280586636, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+    type: 3}
+  m_PrefabInstance: {fileID: 860046078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b0d9bc4c46a7a449212ecb6787ae93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &940744185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3361,6 +3451,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cake_0
       objectReference: {fileID: 0}
+    - target: {fileID: 8369241758173396252, guid: a272024fa92f6c243a7d428f3b120129,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4775028733474253973, guid: a272024fa92f6c243a7d428f3b120129,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3511,6 +3606,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreamLayer_0
       objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3579,6 +3679,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CreamLayer_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
@@ -3849,6 +3954,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreamLayer_3
       objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3992,6 +4102,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreamLayer_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4060,6 +4175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CreamLayer_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
@@ -4477,6 +4597,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1031470476}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1397553235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2545065064098158810, guid: a272024fa92f6c243a7d428f3b120129,
+    type: 3}
+  m_PrefabInstance: {fileID: 430341057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8236f052fca34244bc95dc034b74216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1432770322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4810,6 +4942,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cake_3
       objectReference: {fileID: 0}
+    - target: {fileID: 8369241758173396252, guid: a272024fa92f6c243a7d428f3b120129,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4775028733474253973, guid: a272024fa92f6c243a7d428f3b120129,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5016,6 +5153,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cake_5
       objectReference: {fileID: 0}
+    - target: {fileID: 8369241758173396252, guid: a272024fa92f6c243a7d428f3b120129,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4775028733474253973, guid: a272024fa92f6c243a7d428f3b120129,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5084,6 +5226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cake_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8369241758173396252, guid: a272024fa92f6c243a7d428f3b120129,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4775028733474253973, guid: a272024fa92f6c243a7d428f3b120129,
         type: 3}
@@ -5231,6 +5378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CreamLayer_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
@@ -5403,6 +5555,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CreamLayer_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640480057280586637, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
         type: 3}
@@ -5712,6 +5869,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890814256}
   m_CullTransparentMesh: 0
+--- !u!114 &1911342158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2545065064098158810, guid: a272024fa92f6c243a7d428f3b120129,
+    type: 3}
+  m_PrefabInstance: {fileID: 940744185}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8236f052fca34244bc95dc034b74216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1917107331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7657934874439332356, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
@@ -5917,6 +6086,18 @@ Transform:
   m_Father: {fileID: 1322636499}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2082487521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6640480057280586636, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+    type: 3}
+  m_PrefabInstance: {fileID: 1788343399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b0d9bc4c46a7a449212ecb6787ae93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2099438904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4775028733474253973, guid: a272024fa92f6c243a7d428f3b120129,
@@ -6080,6 +6261,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120357829}
   m_CullTransparentMesh: 0
+--- !u!114 &2132490440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6640480057280586636, guid: 1ab82eacd8d87794a9d1b7e7e10d5404,
+    type: 3}
+  m_PrefabInstance: {fileID: 534840258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b0d9bc4c46a7a449212ecb6787ae93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2545065064098158810 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2545065064098158810, guid: a272024fa92f6c243a7d428f3b120129,
@@ -6239,6 +6432,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5143716201670059381, guid: 2adbb30d48127b440a7a9531189d492c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143716201670059386, guid: 2adbb30d48127b440a7a9531189d492c,
+        type: 3}
+      propertyPath: _shootStartPositionStepSize.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143716201670059386, guid: 2adbb30d48127b440a7a9531189d492c,
+        type: 3}
+      propertyPath: _shootStartPositionStepSize.y
+      value: 0.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2adbb30d48127b440a7a9531189d492c, type: 3}
 --- !u!4 &5166601253222938389 stripped
@@ -6350,6 +6558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cake_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8369241758173396252, guid: a272024fa92f6c243a7d428f3b120129,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4775028733474253973, guid: a272024fa92f6c243a7d428f3b120129,
         type: 3}

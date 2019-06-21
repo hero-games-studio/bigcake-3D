@@ -7,10 +7,10 @@ public class Painter : MonoSingleton<Painter>
     [Header("Painting")]
 
     [SerializeField]
-    private Vector3 _paintingStartPosition = new Vector3(0, -0.375f, -1.85f);
+    private Vector3 _paintingStartPosition = new Vector3(0, 0, -1.85f);
 
     [SerializeField]
-    private Vector3 _shooterDefaultPosition = new Vector3(0, -0.375f, -3.5f);
+    private Vector3 _shooterDefaultPosition = new Vector3(0, 0, -3.5f);
 
     [Header("Topping")]
     [SerializeField]
@@ -52,7 +52,7 @@ public class Painter : MonoSingleton<Painter>
     {
         if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !MissionStage)
         {
-            if (!isPainting)
+            if (!isPainting && !StageManager.Instance.fallingDown)
             {
                 isPainting = true;
                 StartPainting();
@@ -73,13 +73,13 @@ public class Painter : MonoSingleton<Painter>
 
     private IEnumerator StartApproach()
     {
-        StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition));
+        StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition, false));
         yield return null;
     }
 
     private IEnumerator TurnBack()
     {
-        StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition));
+        StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
         yield return null;
     }
     #endregion

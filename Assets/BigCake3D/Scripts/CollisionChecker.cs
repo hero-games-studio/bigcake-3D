@@ -8,13 +8,13 @@ public class CollisionChecker : MonoBehaviour
         if (other.tag == Tags.T_PIECE)
         {
             other.GetComponentInParent<Piece>().SetColored();
-            StageManager.Instance.RotateCakePart();
+            StageManager.Instance.RotateAndCheckCakePart();
         }
 
         if (other.tag == Tags.T_OBSTACLE)
         {
             ScoreManager.Instance.ResetNearMiss();
-            //StageManager.Instance.ResetCurrentPart();
+            StageManager.Instance.ResetCurrentPart();
         }
 
 
