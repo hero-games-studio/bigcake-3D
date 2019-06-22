@@ -73,11 +73,11 @@ public class Painter : MonoSingleton<Painter>
 
     private IEnumerator StartApproach()
     {
-        StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition, false));
+        StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition, true));
         yield return null;
     }
 
-    private IEnumerator TurnBack()
+    public IEnumerator TurnBack()
     {
         StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
         yield return null;

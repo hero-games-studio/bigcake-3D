@@ -21,6 +21,8 @@ public class StageManager : MonoSingleton<StageManager>
     [SerializeField] private Vector3 cakePositionStepSize = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField] private Vector3 obstaclePosition = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField] private Vector3 obstacleStartPosition = new Vector3(0.0f, 0.0f, 0.0f);
+
+    [SerializeField] private UiManager uiManager = null;
     #endregion
 
     #region Methods 
@@ -41,6 +43,10 @@ public class StageManager : MonoSingleton<StageManager>
         }
         tr.position = target;
         fallingDown = false;
+        if (!obstacle)
+        {
+            Shooter.Instance.GoOneStepUp();
+        }
     }
 
     private void PrepareCurrentStage()
@@ -52,7 +58,6 @@ public class StageManager : MonoSingleton<StageManager>
 
     private void PrepareCurrentPart()
     {
-        Shooter.Instance.GoOneStepUp();
         StartCoroutine(FallDown(currentStage.obstacle.transform, obstaclePosition, true));
         currentStage.GetCurrentCakePart().gameObject.SetActive(true);
         StartCoroutine(FallDown(currentStage.GetCurrentCakePart().transform, currentCakePosition, false));
@@ -73,6 +78,8 @@ public class StageManager : MonoSingleton<StageManager>
     public void ResetCurrentPart()
     {
         currentStage.GetCurrentCakePart().ResetPart();
+        StopAllCoroutines();
+        StartCoroutine(Painter.Instance.TurnBack());
     }
 
     private void GetNextPart()
@@ -94,10 +101,17 @@ public class StageManager : MonoSingleton<StageManager>
     {
         currentCakePosition += isCake ? cakePositionStepSize : cakePositionStepSize * 0.5f;
         obstaclePosition += isCake ? cakePositionStepSize : cakePositionStepSize * 0.5f;
+        Shooter.Instance.IncreaseSqueezePosition();
         isCake = !isCake;
     }
 
     private void GetNextStage()
+    {
+        Painter.Instance.MissionStage = true;
+        uiManager.ShowMissionState((currentStageIndex + 1).ToString());
+    }
+
+    public void PrepareNextStage()
     {
         ResetPositions();
         currentStage.stage.SetActive(false);
@@ -109,6 +123,7 @@ public class StageManager : MonoSingleton<StageManager>
             ResetAllStages();
         }
         PrepareCurrentStage();
+        uiManager.HideMissionState();
     }
 
     private void ResetAllStages()
@@ -124,6 +139,8 @@ public class StageManager : MonoSingleton<StageManager>
     {
         obstaclePosition = obstacleStartPosition;
         currentCakePosition = cakeStartPosition;
+        Shooter.Instance.ResetShootStartPosition();
+        Shooter.Instance.ResetSqueezePosition();
     }
     #endregion
 }

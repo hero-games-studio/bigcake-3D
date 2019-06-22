@@ -41,12 +41,15 @@ public class UiManager : MonoBehaviour
 
     public void ShowMissionState(string stageNumber)
     {
+        StopAllCoroutines();
+        StartCoroutine(Painter.Instance.TurnBack());
         _missionStatePanel.SetActive(true);
         _levelNumberText.text = stageNumber;
     }
 
     public void HideMissionState()
     {
+        Painter.Instance.MissionStage = false;
         _missionStatePanel.SetActive(false);
     }
 
@@ -65,7 +68,6 @@ public class UiManager : MonoBehaviour
     {
         Painter.Instance.MissionStage = true;
         _nearMissButton.interactable = false;
-        //StageManager.Instance.ResetCurrentLayer();
         UpdateNearMissSlider();
     }
 

@@ -10,4 +10,5 @@ public class Tags
 public  class AnimatorParameters
 {
     public static readonly int P_NEARMISS = Animator.StringToHash("NearMiss");
+    public static readonly int P_ISSQUEEZE = Animator.StringToHash("IsSqueeze");
 }

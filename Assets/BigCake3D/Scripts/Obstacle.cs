@@ -7,7 +7,10 @@ public class Obstacle : MonoBehaviour
 
     private void Update()
     {
-        RotateObstacles();
+        if (!Painter.Instance.MissionStage)
+        {
+            RotateObstacles();
+        }
     }
 
     private void RotateObstacles()
