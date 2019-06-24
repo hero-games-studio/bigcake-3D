@@ -7,12 +7,16 @@ public class CollisionChecker : MonoBehaviour
     {
         if (other.tag == Tags.T_PIECE)
         {
-            if (other.GetComponentInParent<Piece>().GetComponentInParent<Cream>() != null)
+            Piece piece = other.GetComponentInParent<Piece>();
+            if (piece.State == PieceState.UnColored)
             {
-                other.GetComponent<Renderer>().enabled = true;
+                if (piece.GetComponentInParent<Cream>() != null)
+                {
+                    other.GetComponent<Renderer>().enabled = true;
+                }
+                piece.SetColored();
+                StageManager.Instance.RotateAndCheckCakePart();
             }
-            other.GetComponentInParent<Piece>().SetColored();
-            StageManager.Instance.RotateAndCheckCakePart();
         }
 
         if (other.tag == Tags.T_OBSTACLE)

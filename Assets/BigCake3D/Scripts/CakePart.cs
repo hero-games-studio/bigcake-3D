@@ -9,11 +9,14 @@ public class CakePart : MonoBehaviour
     protected readonly float _speed = 2.5f;
     protected Vector3 _rotateScale = new Vector3(0.0f, -20.0f, 0.0f);
     protected List<Piece> _childsPieces = new List<Piece>();
+
+    private Transform parentTransform = null;
     #endregion
 
     #region Builtin Methods
     private void Awake()
     {
+        parentTransform = transform.parent;
         _childsPieces = GetComponentsInChildren<Piece>().ToList();
     }
     #endregion
@@ -37,19 +40,32 @@ public class CakePart : MonoBehaviour
 
     public IEnumerator RotateMe()
     {
-        var targetRotation = Quaternion.Euler(transform.eulerAngles + _rotateScale);
+        var targetRotation = Quaternion.Euler(parentTransform.eulerAngles + _rotateScale);
         for (float time = 0; time < 0.15f; time += _speed * Time.deltaTime)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, time);
+            parentTransform.rotation = Quaternion.Slerp(parentTransform.rotation, targetRotation, time);
             yield return null;
         }
-        transform.rotation = targetRotation;
+        parentTransform.rotation = targetRotation;
     }
 
     public void ResetPart()
     {
+        if (this as Cream)
+        {
+            foreach (var piece in _childsPieces)
+            {
+                piece.GetComponentInChildren<Renderer>().enabled = false;
+            }
+        }
         foreach (Piece piece in _childsPieces)
         {
+            /* Engele çarptığında boyanan dilimlerden alınan puanın skordan düşürülmesi
+            if (piece.State == PieceState.Colored)
+            {
+                ScoreManager.Instance.AddScore(-10);
+            }
+            */
             piece.SetUnColored();
         }
     }

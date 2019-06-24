@@ -50,7 +50,7 @@ public class Painter : MonoSingleton<Painter>
 
     private void GetInputs()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !MissionStage)
+        if (Input.GetMouseButton(0) && !MissionStage)
         {
             if (!isPainting && !StageManager.Instance.fallingDown)
             {
@@ -58,11 +58,14 @@ public class Painter : MonoSingleton<Painter>
                 StartApproach();
             }
         }
-
-        if (Input.GetMouseButtonUp(0) && !MissionStage)
+        else if (Input.GetMouseButtonUp(0) && !MissionStage)
         {
             isPainting = false;
             TurnBack();
+        }
+        else
+        {
+            Shooter.Instance.StopSqueeze();
         }
     }
 
@@ -73,6 +76,7 @@ public class Painter : MonoSingleton<Painter>
 
     public void TurnBack()
     {
+        Shooter.Instance.StopSqueeze();
         StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
     }
     #endregion

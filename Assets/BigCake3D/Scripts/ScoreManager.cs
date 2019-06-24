@@ -11,6 +11,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     public void AddScore(int point = 10)
     {
         _score += point;
+        _uiManager.UpdateScoreText();
     }
 
     public int GetScore() => _score;
@@ -22,8 +23,8 @@ public class ScoreManager : MonoSingleton<ScoreManager>
 
     public void AddNearMiss(float point = 1)
     {
-        _uiManager.UpdateNearMissSlider(true);
         _nearMiss = _nearMiss >= 10.0f ? 10.0f : _nearMiss + point;
+        _uiManager.UpdateNearMissSlider(true);
     }
 
     public float GetNearMiss() => _nearMiss;
@@ -31,6 +32,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     public void ResetNearMiss()
     {
         _nearMiss = 0.0f;
+        _uiManager.UpdateNearMissSlider();
     }
     #endregion
 }

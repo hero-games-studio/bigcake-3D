@@ -64,8 +64,8 @@ public class Shooter : MonoSingleton<Shooter>
 
     public void StopSqueeze()
     {
-        creamSqueezeAnimator.SetBool(AnimatorParameters.P_ISSQUEEZE, false);
         creamSqueezeModel.SetActive(false);
+        creamSqueezeAnimator.SetBool(AnimatorParameters.P_ISSQUEEZE, false);
     }
 
     public void GoOneStepUp()

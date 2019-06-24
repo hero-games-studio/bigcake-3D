@@ -25,7 +25,6 @@ public class StageManager : MonoSingleton<StageManager>
     [SerializeField] private UiManager uiManager = null;
 
     private WaitForSeconds delayNearMiss = new WaitForSeconds(0.75f);
-    private bool nearMiss = false;
     #endregion
 
     #region Methods 
@@ -85,12 +84,9 @@ public class StageManager : MonoSingleton<StageManager>
 
         if (currentStage.GetCurrentCakePart().IsPartCompelete())
         {
-            if (nearMiss)
-            {
-                nearMiss = false;
-                Painter.Instance.MissionStage = false;
-                Shooter.Instance.StopSqueeze();
-            }
+            Painter.Instance.TurnBack();
+            Painter.Instance.MissionStage = false;
+
             GetNextPart();
         }
     }
@@ -136,7 +132,6 @@ public class StageManager : MonoSingleton<StageManager>
 
     public IEnumerator ClearCurrentPartWithNearMiss()
     {
-        nearMiss = true;
         Shooter.Instance.StartSqueeze();
         yield return delayNearMiss;
     }
@@ -155,6 +150,8 @@ public class StageManager : MonoSingleton<StageManager>
         }
         PrepareCurrentStage();
         uiManager.HideMissionState();
+        uiManager.UpdatePregressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
+     currentStageIndex + 1, currentStageIndex + 2);
     }
 
     private void ResetAllStages()

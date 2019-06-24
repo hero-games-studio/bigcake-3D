@@ -1373,7 +1373,7 @@ PrefabInstance:
     - target: {fileID: 6546449989265165762, guid: e1e81fc93aa013d4182c4c522394cef1,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6546449989265165762, guid: e1e81fc93aa013d4182c4c522394cef1,
         type: 3}
@@ -2770,50 +2770,6 @@ Transform:
   m_Father: {fileID: 1760608054}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &687042126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 687042128}
-  - component: {fileID: 687042127}
-  m_Layer: 0
-  m_Name: Boundary
-  m_TagString: Boundary
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &687042127
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687042126}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 20, y: 25, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &687042128
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687042126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 11, z: 15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,7 +2843,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3691,7 +3647,7 @@ Transform:
   m_Children:
   - {fileID: 2096028130}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &995184985
 GameObject:
@@ -4861,6 +4817,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Effect_07_1
       objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: UVModule.tilesX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: UVModule.tilesY
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 96
+      objectReference: {fileID: 0}
     - target: {fileID: 425998, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.1157126
@@ -4907,15 +4887,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10835442, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 2.3510647e-38
+      value: 1.0071063e-37
       objectReference: {fileID: 0}
     - target: {fileID: 10835442, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 2.3510647e-38
+      value: 9.781817e-38
       objectReference: {fileID: 0}
     - target: {fileID: 10835442, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 8.53e-43
       objectReference: {fileID: 0}
     - target: {fileID: 10835442, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_BoundingSphereOverride.x
@@ -4932,30 +4912,6 @@ PrefabInstance:
     - target: {fileID: 427984, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: UVModule.tilesX
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: UVModule.tilesY
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 19909284, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_MaxParticleSize
@@ -5539,7 +5495,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534884546
 GameObject:
@@ -6989,7 +6945,7 @@ Transform:
   m_Children:
   - {fileID: 173169656}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2060221975
 PrefabInstance:
@@ -7071,6 +7027,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Effect_07_0
       objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: UVModule.tilesX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: UVModule.tilesY
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 96
+      objectReference: {fileID: 0}
     - target: {fileID: 425998, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1157126
@@ -7117,11 +7097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10835442, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: NaN
+      value: 2.3510647e-38
       objectReference: {fileID: 0}
     - target: {fileID: 10835442, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 0
+      value: 2.3510647e-38
       objectReference: {fileID: 0}
     - target: {fileID: 10835442, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_BoundingSphereOverride.z
@@ -7129,7 +7109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10835442, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 1.53e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 427984, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_LocalScale.x
@@ -7162,30 +7142,6 @@ PrefabInstance:
     - target: {fileID: 427984, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.319
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: UVModule.tilesX
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: UVModule.tilesY
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842988, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 19909284, guid: 1625b0df15965450c86850dd6d345e87, type: 3}
       propertyPath: m_MaxParticleSize
