@@ -23,6 +23,9 @@ public class StageManager : MonoSingleton<StageManager>
     [SerializeField] private Vector3 obstacleStartPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
     [SerializeField] private UiManager uiManager = null;
+
+    private WaitForSeconds delayNearMiss = new WaitForSeconds(0.75f);
+    private bool nearMiss = false;
     #endregion
 
     #region Methods 
@@ -30,6 +33,8 @@ public class StageManager : MonoSingleton<StageManager>
     private void Awake()
     {
         PrepareCurrentStage();
+        uiManager.UpdatePregressBar(0,
+            currentStageIndex + 1, currentStageIndex + 2);
     }
 
     private IEnumerator FallDown(Transform tr, Vector3 target, bool obstacle)
@@ -60,6 +65,14 @@ public class StageManager : MonoSingleton<StageManager>
     {
         StartCoroutine(FallDown(currentStage.obstacle.transform, obstaclePosition, true));
         currentStage.GetCurrentCakePart().gameObject.SetActive(true);
+        if (currentStage.GetCurrentCakePart() as Cream)
+        {
+            foreach (Piece piece in
+                currentStage.GetCurrentCakePart().GetComponentsInChildren<Piece>())
+            {
+                piece.GetComponentInChildren<MeshRenderer>().enabled = false;
+            }
+        }
         StartCoroutine(FallDown(currentStage.GetCurrentCakePart().transform, currentCakePosition, false));
     }
 
@@ -69,8 +82,15 @@ public class StageManager : MonoSingleton<StageManager>
         {
             StartCoroutine(currentStage.GetCurrentCakePart().RotateMe());
         }
+
         if (currentStage.GetCurrentCakePart().IsPartCompelete())
         {
+            if (nearMiss)
+            {
+                nearMiss = false;
+                Painter.Instance.MissionStage = false;
+                Shooter.Instance.StopSqueeze();
+            }
             GetNextPart();
         }
     }
@@ -79,7 +99,7 @@ public class StageManager : MonoSingleton<StageManager>
     {
         currentStage.GetCurrentCakePart().ResetPart();
         StopAllCoroutines();
-        StartCoroutine(Painter.Instance.TurnBack());
+        Painter.Instance.TurnBack();
     }
 
     private void GetNextPart()
@@ -95,6 +115,8 @@ public class StageManager : MonoSingleton<StageManager>
             IncreaseCakePartPosititon();
             PrepareCurrentPart();
         }
+        uiManager.UpdatePregressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
+            currentStageIndex + 1, currentStageIndex + 2);
     }
 
     private void IncreaseCakePartPosititon()
@@ -107,12 +129,21 @@ public class StageManager : MonoSingleton<StageManager>
 
     private void GetNextStage()
     {
+        ParticleManager.Instance.PlayFireworks();
         Painter.Instance.MissionStage = true;
         uiManager.ShowMissionState((currentStageIndex + 1).ToString());
     }
 
+    public IEnumerator ClearCurrentPartWithNearMiss()
+    {
+        nearMiss = true;
+        Shooter.Instance.StartSqueeze();
+        yield return delayNearMiss;
+    }
+
     public void PrepareNextStage()
     {
+        ParticleManager.Instance.StopFireworks();
         ResetPositions();
         currentStage.stage.SetActive(false);
         currentStage.ResetStage();

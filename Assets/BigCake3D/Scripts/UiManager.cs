@@ -25,6 +25,17 @@ public class UiManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI _levelNumberText = null;
+
+    [Header("ProgressBar")]
+    [SerializeField]
+    private Slider progressBarSlider = null;
+
+    [SerializeField]
+    private TextMeshProUGUI currentLevelText = null;
+
+    [SerializeField]
+    private TextMeshProUGUI nextLevelText = null;
+
     #endregion
 
     #region All Methods
@@ -39,10 +50,17 @@ public class UiManager : MonoBehaviour
         _scoreText.text = ScoreManager.Instance.GetScore().ToString();
     }
 
+    public void UpdatePregressBar(float barValue, int currentLevel, int nextLevel)
+    {
+        progressBarSlider.value = barValue;
+        currentLevelText.text = currentLevel.ToString();
+        nextLevelText.text = nextLevel.ToString();
+    }
+
     public void ShowMissionState(string stageNumber)
     {
         StopAllCoroutines();
-        StartCoroutine(Painter.Instance.TurnBack());
+        Painter.Instance.TurnBack();
         _missionStatePanel.SetActive(true);
         _levelNumberText.text = stageNumber;
     }
@@ -68,7 +86,9 @@ public class UiManager : MonoBehaviour
     {
         Painter.Instance.MissionStage = true;
         _nearMissButton.interactable = false;
+        ScoreManager.Instance.ResetNearMiss();
         UpdateNearMissSlider();
+        StartCoroutine(StageManager.Instance.ClearCurrentPartWithNearMiss());
     }
 
     private void ResetNearMissTrigger() =>

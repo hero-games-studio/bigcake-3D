@@ -18,7 +18,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     #endregion
 
     #region Near Miss
-    private float _nearMiss = 0;
+    private float _nearMiss = 0.0f;
 
     public void AddNearMiss(float point = 1)
     {

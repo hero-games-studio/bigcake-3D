@@ -55,32 +55,25 @@ public class Painter : MonoSingleton<Painter>
             if (!isPainting && !StageManager.Instance.fallingDown)
             {
                 isPainting = true;
-                StartPainting();
+                StartApproach();
             }
         }
-        else if (Input.GetMouseButtonUp(0) && !MissionStage)
+
+        if (Input.GetMouseButtonUp(0) && !MissionStage)
         {
             isPainting = false;
-            StartCoroutine(TurnBack());
+            TurnBack();
         }
     }
 
-
-    private void StartPainting()
-    {
-        StartCoroutine(StartApproach());
-    }
-
-    private IEnumerator StartApproach()
+    private void StartApproach()
     {
         StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition, true));
-        yield return null;
     }
 
-    public IEnumerator TurnBack()
+    public void TurnBack()
     {
         StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
-        yield return null;
     }
     #endregion
 }
