@@ -7,7 +7,7 @@ public class CakePart : MonoBehaviour
 {
     #region Variables
     protected readonly float _speed = 2.5f;
-    protected Vector3 _rotateScale = new Vector3(0.0f, -20.0f, 0.0f);
+    protected Vector3 _rotateScale = new Vector3(0.0f, -15.0f, 0.0f);
     protected List<Piece> _childsPieces = new List<Piece>();
 
     private Transform parentTransform = null;
@@ -58,14 +58,9 @@ public class CakePart : MonoBehaviour
                 piece.GetComponentInChildren<Renderer>().enabled = false;
             }
         }
+
         foreach (Piece piece in _childsPieces)
         {
-            /* Engele çarptığında boyanan dilimlerden alınan puanın skordan düşürülmesi
-            if (piece.State == PieceState.Colored)
-            {
-                ScoreManager.Instance.AddScore(-10);
-            }
-            */
             piece.SetUnColored();
         }
     }
