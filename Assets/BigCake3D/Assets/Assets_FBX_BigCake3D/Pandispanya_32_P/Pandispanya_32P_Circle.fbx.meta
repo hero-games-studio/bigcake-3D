@@ -3,12 +3,16 @@ guid: ff8dff1efa4449e4f8c74c2445fdbf23
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
+<<<<<<< HEAD
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Ara_Cikolata
     second: {fileID: 2100000, guid: 126279a90c4d2424eaafe93ed8f91309, type: 2}
+=======
+  externalObjects: {}
+>>>>>>> 06821d3056c76ba8bcdc5b2540bced9793202e6e
   materials:
     importMaterials: 1
     materialName: 0
@@ -85,7 +89,11 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+<<<<<<< HEAD
     globalScale: 100
+=======
+    globalScale: 1
+>>>>>>> 06821d3056c76ba8bcdc5b2540bced9793202e6e
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
