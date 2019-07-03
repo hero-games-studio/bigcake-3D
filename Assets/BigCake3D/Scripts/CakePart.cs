@@ -7,7 +7,7 @@ public class CakePart : MonoBehaviour
 {
     #region Variables
     protected readonly float _speed = 2.5f;
-    protected Vector3 _rotateScale = new Vector3(0.0f, -15.0f, 0.0f);
+    protected Vector3 _rotateScale = new Vector3(0.0f, -12.5f, 0.0f);
     protected List<Piece> _childsPieces = new List<Piece>();
 
     private Transform parentTransform = null;
@@ -16,6 +16,7 @@ public class CakePart : MonoBehaviour
     #region Builtin Methods
     private void Awake()
     {
+        _rotateScale.y = -1.0f * ((360.0f / transform.childCount) + 4.5f);
         parentTransform = transform.parent;
         _childsPieces = GetComponentsInChildren<Piece>().ToList();
     }

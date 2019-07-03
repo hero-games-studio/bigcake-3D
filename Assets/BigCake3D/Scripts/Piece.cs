@@ -6,10 +6,12 @@ public class Piece : MonoBehaviour
     private MeshRenderer _meshRenderer = null;
     private UiManager _uiManager = null;
 
+    public MeshRenderer PieceMeshRenderer { get { return _meshRenderer; } }
+
     private void Awake()
     {
         _uiManager = FindObjectOfType<UiManager>();
-        _meshRenderer = GetComponentInChildren<Renderer>() as MeshRenderer;
+        _meshRenderer = GetComponent<Renderer>() as MeshRenderer;
     }
 
     public void SetColored()

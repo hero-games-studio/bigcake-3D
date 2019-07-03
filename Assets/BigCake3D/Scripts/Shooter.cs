@@ -71,7 +71,7 @@ public class Shooter : MonoSingleton<Shooter>
     public void GoOneStepUp()
     {
         _shootStartPosition = new Vector3(_shootStartPosition.x,
-            StageManager.Instance.currentStage.GetCurrentCakePart().transform.position.y,
+            StageManager.Instance.currentStage.GetCurrentCakePart().transform.position.y + 0.15f,
             _shootStartPosition.z);
 
         transform.position = _shootStartPosition;

@@ -18,7 +18,7 @@ public class StageManager : MonoSingleton<StageManager>
     [Header("Positions")]
     [SerializeField] private Vector3 obstaclePosition = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField] private Vector3 obstacleStartPosition = new Vector3(0.0f, 0.0f, 0.0f);
-    
+
     [Header("Scripts")]
     [SerializeField] private UiManager uiManager = null;
     [SerializeField] private RotateDemoEffect rotateDemoEffect = null;
@@ -45,11 +45,11 @@ public class StageManager : MonoSingleton<StageManager>
             yield return null;
         }
         tr.position = target;
-        fallingDown = false;
         if (!obstacle)
         {
             Shooter.Instance.GoOneStepUp();
         }
+        fallingDown = false;
     }
 
     private void PrepareCurrentStage()
@@ -68,10 +68,10 @@ public class StageManager : MonoSingleton<StageManager>
             foreach (Piece piece in
                 currentStage.GetCurrentCakePart().GetComponentsInChildren<Piece>())
             {
-                piece.GetComponentInChildren<MeshRenderer>().enabled = false;
+                piece.PieceMeshRenderer.enabled = false;
             }
         }
-        StartCoroutine(FallDown(currentStage.GetCurrentCakePart().transform, 
+        StartCoroutine(FallDown(currentStage.GetCurrentCakePart().transform,
             currentStage.GetCurrentCakePart().transform.position, false));
     }
 
@@ -118,7 +118,7 @@ public class StageManager : MonoSingleton<StageManager>
 
     private void IncreaseCakePartPosititon()
     {
-        obstaclePosition.y = currentStage.GetCurrentCakePart().transform.position.y;
+        obstaclePosition.y = currentStage.GetCurrentCakePart().transform.position.y + 0.1f;
         Shooter.Instance.IncreaseSqueezePosition();
         isCake = !isCake;
     }

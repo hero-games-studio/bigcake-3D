@@ -2,17 +2,16 @@
 
 public class CollisionChecker : MonoBehaviour
 {
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == Tags.T_PIECE)
         {
-            Piece piece = other.GetComponentInParent<Piece>();
+            Piece piece = other.GetComponent<Piece>();
             if (piece.State == PieceState.UnColored)
             {
-                if (piece.GetComponentInParent<Cream>() != null)
+                if (other.GetComponentInParent<Cream>() != null)
                 {
-                    other.GetComponent<Renderer>().enabled = true;
+                    piece.PieceMeshRenderer.enabled = true;
                 }
                 piece.SetColored();
                 StageManager.Instance.RotateAndCheckCakePart();
@@ -24,7 +23,6 @@ public class CollisionChecker : MonoBehaviour
             ScoreManager.Instance.ResetNearMiss();
             StageManager.Instance.ResetCurrentPart();
         }
-
 
         if (other.tag == Tags.T_NEARMISS)
         {
