@@ -106,6 +106,7 @@ public class StageManager : MonoSingleton<StageManager>
 
     private void GetNextPart()
     {
+        rotateDemoEffect.transform.position = currentStage.GetCurrentCakePart().transform.position;
         rotateDemoEffect.StartShineDemo();
         currentStage.currentPartIndex++;
         if (currentStage.currentPartIndex >= currentStage.cakeParts.Count)
@@ -126,7 +127,6 @@ public class StageManager : MonoSingleton<StageManager>
     {
         obstaclePosition.y = currentStage.GetCurrentCakePart().transform.position.y + 0.1f;
         cakePosition += isCake ? cakePositionStepSize : creamPositionStepSize;
-        Shooter.Instance.IncreaseSqueezePosition();
         isCake = !isCake;
     }
 
@@ -174,7 +174,7 @@ public class StageManager : MonoSingleton<StageManager>
     {
         obstaclePosition = obstacleStartPosition;
         Shooter.Instance.ResetShootStartPosition();
-        Shooter.Instance.ResetSqueezePosition();
+        //Shooter.Instance.ResetSqueezePosition();
     }
     #endregion
 }

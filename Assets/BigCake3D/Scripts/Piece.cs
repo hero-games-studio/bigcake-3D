@@ -23,10 +23,13 @@ public class Piece : MonoBehaviour
         if (State == PieceState.UnColored)
         {
             ScoreManager.Instance.AddScore();
-            _meshRenderer.material = Painter.Instance.PieceColoredMaterial;
-            _meshRenderer.enabled = true;
-            StartCoroutine(ScaleLerp());
-            State = PieceState.Colored;
+            if (Painter.Instance.isPainting)
+            {
+                _meshRenderer.material = Painter.Instance.PieceColoredMaterial;
+                _meshRenderer.enabled = true;
+                StartCoroutine(ScaleLerp());
+                State = PieceState.Colored;
+            }
             _uiManager.UpdateScoreText();
         }
         StageManager.Instance.RotateAndCheckCakePart();
@@ -35,7 +38,7 @@ public class Piece : MonoBehaviour
     private IEnumerator ScaleLerp()
     {
         transform.localScale = new Vector3(0.0f, transform.localScale.y, 0.0f);
-        for (float time = 0.0f; time < 1.0f; time += Time.deltaTime * 1.5f)
+        for (float time = 0.0f; time < 1.0f; time += Time.deltaTime * 1.35f)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, pieceScale, time);
             yield return null;

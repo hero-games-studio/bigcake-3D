@@ -13,20 +13,10 @@ public class Shooter : MonoSingleton<Shooter>
     [SerializeField]
     private Vector3 _shootStartPosition = new Vector3(0, -0.375f, -1.5f);
 
-    [SerializeField]
-    private Vector3 creamSqueezeStartPosition = new Vector3(0, -0.375f, -1.5f);
-
-    [SerializeField]
-    private Vector3 creamSqueezePositionStepSize = new Vector3(0, -0.083f, 0);
-
     private float _multiple = 5.0f;
-    private Animator creamSqueezeAnimator = null;
 
-    private void Awake()
-    {
-        creamSqueezeModel.SetActive(false);
-        creamSqueezeAnimator = creamSqueezeModel.GetComponentInChildren<Animator>();
-    }
+    [SerializeField]
+    private Animator creamSqueezeAnimator = null;
 
     public void ResetShootStartPosition()
     {
@@ -58,12 +48,8 @@ public class Shooter : MonoSingleton<Shooter>
     public void StartSqueeze()
     {
         creamSqueezeModel.SetActive(true);
-        creamSqueezeModel.transform.position =
-            new Vector3(creamSqueezeModel.transform.position.x,
-            StageManager.Instance.currentStage.GetCurrentCakePart().transform.position.y,
-            creamSqueezeModel.transform.position.z);
         creamSqueezeAnimator.SetBool(AnimatorParameters.P_ISSQUEEZE, true);
-        Invoke("StartPainting", 0.5f);
+        Invoke("StartPainting", 0.4f);
     }
 
     private void StartPainting()
@@ -80,16 +66,10 @@ public class Shooter : MonoSingleton<Shooter>
     public void GoOneStepUp()
     {
         _shootStartPosition = new Vector3(_shootStartPosition.x,
-            StageManager.Instance.currentStage.GetCurrentCakePart().transform.position.y + 0.15f,
+            StageManager.Instance.currentStage.GetCurrentCakePart().transform.position.y + 0.05f,
             _shootStartPosition.z);
 
         transform.position = _shootStartPosition;
     }
-
-    public void IncreaseSqueezePosition() =>
-        creamSqueezeStartPosition.y += creamSqueezePositionStepSize.y;
-
-    public void ResetSqueezePosition() =>
-        creamSqueezeStartPosition = new Vector3(0, 0, 0);
     #endregion
 }

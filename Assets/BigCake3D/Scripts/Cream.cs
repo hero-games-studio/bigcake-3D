@@ -1,6 +1,3 @@
-﻿using UnityEngine;
-
-public class Cream : CakePart
+﻿public class Cream : CakePart
 {
-	
 }

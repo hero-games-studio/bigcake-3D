@@ -6,9 +6,9 @@ using UnityEngine;
 public class CakePart : MonoBehaviour
 {
     #region Variables
-    protected readonly float _speed = 2.5f;
-    protected Vector3 _rotateScale = new Vector3(0.0f, -10.0f, 0.0f);
-    protected List<Piece> _childsPieces = new List<Piece>();
+    protected readonly float speed = 1.75f;
+    protected Vector3 rotateScale = new Vector3(0.0f, -11.5f, 0.0f);
+    protected List<Piece> childsPieces = new List<Piece>();
 
     private Transform parentTransform = null;
     #endregion
@@ -16,8 +16,9 @@ public class CakePart : MonoBehaviour
     #region Builtin Methods
     private void Awake()
     {
+        rotateScale.y = this as Cake ? -11.3f : -20.0f;
         parentTransform = transform.parent;
-        _childsPieces = GetComponentsInChildren<Piece>().ToList();
+        childsPieces = GetComponentsInChildren<Piece>().ToList();
     }
     #endregion
 
@@ -26,7 +27,7 @@ public class CakePart : MonoBehaviour
     {
         bool allColored = true;
 
-        foreach (Piece piece in _childsPieces)
+        foreach (Piece piece in childsPieces)
         {
             if (piece.State == PieceState.UnColored)
             {
@@ -40,8 +41,8 @@ public class CakePart : MonoBehaviour
 
     public IEnumerator RotateMe()
     {
-        var targetRotation = Quaternion.Euler(parentTransform.eulerAngles + _rotateScale);
-        for (float time = 0; time < 0.15f; time += _speed * Time.deltaTime)
+        var targetRotation = Quaternion.Euler(parentTransform.eulerAngles + rotateScale);
+        for (float time = 0; time < 0.15f; time += speed * Time.deltaTime)
         {
             parentTransform.rotation = Quaternion.Slerp(parentTransform.rotation, targetRotation, time);
             yield return null;
@@ -51,23 +52,10 @@ public class CakePart : MonoBehaviour
 
     public void ResetPart()
     {
-        
-        foreach (var piece in _childsPieces)
+        foreach (var piece in childsPieces)
         {
             piece.SetUnColored();
         }
-        /*if (this as Cream)
-        {
-            foreach (var piece in _childsPieces)
-            {
-                piece.PieceMeshRenderer.enabled = false;
-            }
-        }
-
-        foreach (Piece piece in _childsPieces)
-        {
-            piece.SetUnColored();
-        }*/
     }
     #endregion
 }

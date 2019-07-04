@@ -16,8 +16,8 @@ public class CollisionChecker : MonoBehaviour
         {
             if (Time.time - previousTime > boundTime)
             {
-                previousTime = Time.time;
                 piece.SetColored();
+                previousTime = Time.time;
             }
         }
     }
