@@ -60,6 +60,7 @@ public class Painter : MonoSingleton<Painter>
         }
         else if (Input.GetMouseButtonUp(0) && !MissionStage)
         {
+            isPainting = false;
             TurnBack();
         }
         else
@@ -71,12 +72,10 @@ public class Painter : MonoSingleton<Painter>
     private void StartApproach()
     {
         StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition, true));
-        isPainting = true;
     }
 
     public void TurnBack()
     {
-        isPainting = false;
         Shooter.Instance.StopSqueeze();
         StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
     }

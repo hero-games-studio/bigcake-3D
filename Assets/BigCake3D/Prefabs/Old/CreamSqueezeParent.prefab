@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 2079510713967329938}
   - component: {fileID: 6670178722834569048}
   - component: {fileID: 1282275511638032049}
-  - component: {fileID: 7131464283503640939}
   - component: {fileID: 2300979039401047300}
+  - component: {fileID: 7131464283503640939}
   m_Layer: 0
   m_Name: CreamSqueeze
   m_TagString: Untagged
@@ -145,18 +145,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7131464283503640939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3941924593955828256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c317ac273f53944c9cb3105af58ed0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2300979039401047300
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -173,3 +161,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7131464283503640939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941924593955828256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c317ac273f53944c9cb3105af58ed0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundTime: 0.05

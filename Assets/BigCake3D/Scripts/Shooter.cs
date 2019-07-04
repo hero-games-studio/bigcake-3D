@@ -58,8 +58,17 @@ public class Shooter : MonoSingleton<Shooter>
     public void StartSqueeze()
     {
         creamSqueezeModel.SetActive(true);
-        creamSqueezeModel.transform.position = creamSqueezeStartPosition;
+        creamSqueezeModel.transform.position =
+            new Vector3(creamSqueezeModel.transform.position.x,
+            StageManager.Instance.currentStage.GetCurrentCakePart().transform.position.y,
+            creamSqueezeModel.transform.position.z);
         creamSqueezeAnimator.SetBool(AnimatorParameters.P_ISSQUEEZE, true);
+        Invoke("StartPainting", 0.5f);
+    }
+
+    private void StartPainting()
+    {
+        Painter.Instance.isPainting = true;
     }
 
     public void StopSqueeze()

@@ -3,10 +3,13 @@
 public class CollisionChecker : MonoBehaviour
 {
     private bool isCollideWithPiece = false;
-    private float boundTime = 0.2f;
+
+    [SerializeField]
+    private float boundTime = 0.1f;
     private float previousTime = 0.0f;
 
-    private Piece piece;
+    private Piece piece = null;
+
     private void Update()
     {
         if (isCollideWithPiece && Painter.Instance.isPainting)
@@ -14,9 +17,7 @@ public class CollisionChecker : MonoBehaviour
             if (Time.time - previousTime > boundTime)
             {
                 previousTime = Time.time;
-                piece.PieceMeshRenderer.enabled = true;
                 piece.SetColored();
-                StageManager.Instance.RotateAndCheckCakePart();
             }
         }
     }
@@ -28,13 +29,6 @@ public class CollisionChecker : MonoBehaviour
             piece = other.GetComponent<Piece>();
 
             isCollideWithPiece = true;
-            /*if (piece.State == PieceState.UnColored)
-            {
-                if (other.GetComponentInParent<Cream>() != null)
-                {*/
-                                         /* }*/
-
-            //}
         }
 
         if (other.tag == Tags.T_OBSTACLE)

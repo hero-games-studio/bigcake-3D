@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
@@ -8,23 +9,44 @@ public class Piece : MonoBehaviour
 
     public MeshRenderer PieceMeshRenderer { get { return _meshRenderer; } }
 
+    private Vector3 pieceScale;
+
     private void Awake()
     {
+        pieceScale = transform.localScale;
         _uiManager = FindObjectOfType<UiManager>();
         _meshRenderer = GetComponent<Renderer>() as MeshRenderer;
     }
 
     public void SetColored()
     {
-        _meshRenderer.material = Painter.Instance.PieceColoredMaterial;
-        State = PieceState.Colored;
-        ScoreManager.Instance.AddScore();
-        _uiManager.UpdateScoreText();
+        if (State == PieceState.UnColored)
+        {
+            ScoreManager.Instance.AddScore();
+            _meshRenderer.material = Painter.Instance.PieceColoredMaterial;
+            _meshRenderer.enabled = true;
+            StartCoroutine(ScaleLerp());
+            State = PieceState.Colored;
+            _uiManager.UpdateScoreText();
+        }
+        StageManager.Instance.RotateAndCheckCakePart();
+    }
+
+    private IEnumerator ScaleLerp()
+    {
+        transform.localScale = new Vector3(0.0f, transform.localScale.y, 0.0f);
+        for (float time = 0.0f; time < 1.0f; time += Time.deltaTime * 1.5f)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, pieceScale, time);
+            yield return null;
+        }
+        transform.localScale = pieceScale;
     }
 
     public void SetUnColored(bool nearMiss = false)
     {
         _meshRenderer.material = Painter.Instance.PieceUnColoredMaterial;
+        _meshRenderer.enabled = false;
         State = PieceState.UnColored;
         _uiManager.UpdateScoreText();
         if (nearMiss)

@@ -19,6 +19,10 @@ public class StageManager : MonoSingleton<StageManager>
     [SerializeField] private Vector3 obstaclePosition = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField] private Vector3 obstacleStartPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
+    [SerializeField] private Vector3 cakePosition = new Vector3(0.0f, 0.0f, 0.0f);
+    [SerializeField] private Vector3 cakeStartPosition = new Vector3(0.0f, 0.0f, 0.0f);
+    [SerializeField] private Vector3 cakePositionStepSize = new Vector3(0.0f, 0.0f, 0.0f);
+    [SerializeField] private Vector3 creamPositionStepSize = new Vector3(0.0f, 0.0f, 0.0f);
 
     [Header("Scripts")]
     [SerializeField] private UiManager uiManager = null;
@@ -121,6 +125,7 @@ public class StageManager : MonoSingleton<StageManager>
     private void IncreaseCakePartPosititon()
     {
         obstaclePosition.y = currentStage.GetCurrentCakePart().transform.position.y + 0.1f;
+        cakePosition += isCake ? cakePositionStepSize : creamPositionStepSize;
         Shooter.Instance.IncreaseSqueezePosition();
         isCake = !isCake;
     }
