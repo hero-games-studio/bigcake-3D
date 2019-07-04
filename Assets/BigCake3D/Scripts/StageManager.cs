@@ -19,6 +19,7 @@ public class StageManager : MonoSingleton<StageManager>
     [SerializeField] private Vector3 obstaclePosition = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField] private Vector3 obstacleStartPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
+
     [Header("Scripts")]
     [SerializeField] private UiManager uiManager = null;
     [SerializeField] private RotateDemoEffect rotateDemoEffect = null;
@@ -45,6 +46,7 @@ public class StageManager : MonoSingleton<StageManager>
             yield return null;
         }
         tr.position = target;
+
         if (!obstacle)
         {
             Shooter.Instance.GoOneStepUp();

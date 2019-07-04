@@ -16,7 +16,7 @@ public class CakePart : MonoBehaviour
     #region Builtin Methods
     private void Awake()
     {
-        _rotateScale.y = -1.0f * ((360.0f / transform.childCount) + 4.5f);
+        _rotateScale.y = -1.0f * (360.0f / transform.childCount);
         parentTransform = transform.parent;
         _childsPieces = GetComponentsInChildren<Piece>().ToList();
     }
@@ -25,6 +25,7 @@ public class CakePart : MonoBehaviour
     #region Custom Methods
     public bool IsPartCompelete()
     {
+        Debug.Log(_childsPieces.Count);
         bool allColored = true;
 
         foreach (Piece piece in _childsPieces)
@@ -52,18 +53,22 @@ public class CakePart : MonoBehaviour
 
     public void ResetPart()
     {
-        if (this as Cream)
+        foreach (var piece in _childsPieces)
+        {
+            piece.PieceMeshRenderer.enabled = false;
+        }
+        /*if (this as Cream)
         {
             foreach (var piece in _childsPieces)
             {
-                piece.GetComponentInChildren<Renderer>().enabled = false;
+                piece.PieceMeshRenderer.enabled = false;
             }
         }
 
         foreach (Piece piece in _childsPieces)
         {
             piece.SetUnColored();
-        }
+        }*/
     }
     #endregion
 }

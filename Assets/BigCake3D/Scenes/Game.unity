@@ -657,9 +657,9 @@ MonoBehaviour:
     - {fileID: 2118635694}
     - {fileID: 647155519}
     - {fileID: 1711929526}
-    - {fileID: 1374404640}
-    - {fileID: 1316233534}
     - {fileID: 342050106}
+    - {fileID: 1316233534}
+    - {fileID: 1374404640}
   fallingDown: 0
   currentStage:
     stage: {fileID: 0}
@@ -1148,6 +1148,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1483615271}
     m_Modifications:
+    - target: {fileID: 6079621050008929238, guid: f2859bc510e1bec4a9e149b03e437d84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3582498300438168961, guid: f2859bc510e1bec4a9e149b03e437d84,
         type: 3}
       propertyPath: m_Name
@@ -1228,15 +1233,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.24540243
       objectReference: {fileID: 0}
-    - target: {fileID: 6079621050008929238, guid: f2859bc510e1bec4a9e149b03e437d84,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7062909731342643653, guid: f2859bc510e1bec4a9e149b03e437d84,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7062909731342643653, guid: f2859bc510e1bec4a9e149b03e437d84,
         type: 3}
@@ -1901,6 +1901,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 482022460}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 26ee34e581971bd449126018fc889a30,
+        type: 3}
+      propertyPath: m_Name
+      value: Mum
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 26ee34e581971bd449126018fc889a30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1955,11 +1960,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 26ee34e581971bd449126018fc889a30,
-        type: 3}
-      propertyPath: m_Name
-      value: Mum
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26ee34e581971bd449126018fc889a30, type: 3}
@@ -2490,6 +2490,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1483615271}
     m_Modifications:
+    - target: {fileID: 6079621050008929238, guid: f2859bc510e1bec4a9e149b03e437d84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079621050008929238, guid: f2859bc510e1bec4a9e149b03e437d84,
+        type: 3}
+      propertyPath: m_Name
+      value: CreamLayer_Prefab_3
+      objectReference: {fileID: 0}
     - target: {fileID: 3582498300438168961, guid: f2859bc510e1bec4a9e149b03e437d84,
         type: 3}
       propertyPath: m_Name
@@ -2570,20 +2580,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.24540243
       objectReference: {fileID: 0}
-    - target: {fileID: 6079621050008929238, guid: f2859bc510e1bec4a9e149b03e437d84,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6079621050008929238, guid: f2859bc510e1bec4a9e149b03e437d84,
-        type: 3}
-      propertyPath: m_Name
-      value: CreamLayer_Prefab_3
-      objectReference: {fileID: 0}
     - target: {fileID: 7062909731342643653, guid: f2859bc510e1bec4a9e149b03e437d84,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7062909731342643653, guid: f2859bc510e1bec4a9e149b03e437d84,
         type: 3}
@@ -3897,9 +3897,9 @@ Transform:
   - {fileID: 2118635693}
   - {fileID: 386664542}
   - {fileID: 1711929525}
-  - {fileID: 858563932}
-  - {fileID: 1316233533}
   - {fileID: 465490482}
+  - {fileID: 1316233533}
+  - {fileID: 858563932}
   - {fileID: 482022460}
   m_Father: {fileID: 1727049776}
   m_RootOrder: 1
@@ -4288,6 +4288,7 @@ MonoBehaviour:
     type: 2}
   PieceColoredMaterial: {fileID: 2100000, guid: 33aab1b02abb8c0429f374355edfee66,
     type: 2}
+  isPainting: 0
 --- !u!4 &1671398148
 Transform:
   m_ObjectHideFlags: 0

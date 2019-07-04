@@ -2,24 +2,44 @@
 
 public class CollisionChecker : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private bool isCollideWithPiece = false;
+    private float boundTime = 0.2f;
+    private float previousTime = 0.0f;
+
+    private Piece piece;
+    private void Update()
     {
-        if (other.tag == Tags.T_PIECE)
+        if (isCollideWithPiece && Painter.Instance.isPainting)
         {
-            Piece piece = other.GetComponent<Piece>();
-            if (piece.State == PieceState.UnColored)
+            if (Time.time - previousTime > boundTime)
             {
-                if (other.GetComponentInParent<Cream>() != null)
-                {
-                    piece.PieceMeshRenderer.enabled = true;
-                }
+                previousTime = Time.time;
+                piece.PieceMeshRenderer.enabled = true;
                 piece.SetColored();
                 StageManager.Instance.RotateAndCheckCakePart();
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == Tags.T_PIECE)
+        {
+            piece = other.GetComponent<Piece>();
+
+            isCollideWithPiece = true;
+            /*if (piece.State == PieceState.UnColored)
+            {
+                if (other.GetComponentInParent<Cream>() != null)
+                {*/
+                                         /* }*/
+
+            //}
+        }
 
         if (other.tag == Tags.T_OBSTACLE)
         {
+            isCollideWithPiece = false;
             ScoreManager.Instance.ResetNearMiss();
             StageManager.Instance.ResetCurrentPart();
         }

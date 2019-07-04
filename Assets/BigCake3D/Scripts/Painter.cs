@@ -26,7 +26,8 @@ public class Painter : MonoSingleton<Painter>
     public Material PieceUnColoredMaterial = null;
     public Material PieceColoredMaterial = null;
 
-    private bool isPainting = false;
+    [HideInInspector] public bool isPainting = false;
+
     #endregion
 
     #region All Methods
@@ -54,13 +55,11 @@ public class Painter : MonoSingleton<Painter>
         {
             if (!isPainting && !StageManager.Instance.fallingDown)
             {
-                isPainting = true;
                 StartApproach();
             }
         }
         else if (Input.GetMouseButtonUp(0) && !MissionStage)
         {
-            isPainting = false;
             TurnBack();
         }
         else
@@ -72,10 +71,12 @@ public class Painter : MonoSingleton<Painter>
     private void StartApproach()
     {
         StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition, true));
+        isPainting = true;
     }
 
     public void TurnBack()
     {
+        isPainting = false;
         Shooter.Instance.StopSqueeze();
         StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
     }
