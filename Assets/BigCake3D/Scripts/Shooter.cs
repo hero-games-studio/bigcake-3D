@@ -49,7 +49,7 @@ public class Shooter : MonoSingleton<Shooter>
     {
         creamSqueezeModel.SetActive(true);
         creamSqueezeAnimator.SetBool(AnimatorParameters.P_ISSQUEEZE, true);
-        Invoke("StartPainting", 0.4f);
+        Invoke("StartPainting", 0.3f);
     }
 
     private void StartPainting()
@@ -59,6 +59,7 @@ public class Shooter : MonoSingleton<Shooter>
 
     public void StopSqueeze()
     {
+        Painter.Instance.isPainting = false;
         creamSqueezeModel.SetActive(false);
         creamSqueezeAnimator.SetBool(AnimatorParameters.P_ISSQUEEZE, false);
     }

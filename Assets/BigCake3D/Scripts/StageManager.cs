@@ -67,6 +67,11 @@ public class StageManager : MonoSingleton<StageManager>
 
     private void PrepareCurrentPart()
     {
+        if (Painter.Instance.nearMiss)
+        {
+            Painter.Instance.nearMiss = false;
+            currentStage.obstacle.SetActive(true);
+        }
         StartCoroutine(FallDown(currentStage.obstacle.transform, obstaclePosition, true));
         currentStage.GetCurrentCakePart().gameObject.SetActive(true);
         if (currentStage.GetCurrentCakePart() as Cream)
@@ -139,6 +144,7 @@ public class StageManager : MonoSingleton<StageManager>
 
     public IEnumerator ClearCurrentPartWithNearMiss()
     {
+        currentStage.obstacle.SetActive(false);
         Shooter.Instance.StartSqueeze();
         yield return delayNearMiss;
     }
@@ -174,7 +180,6 @@ public class StageManager : MonoSingleton<StageManager>
     {
         obstaclePosition = obstacleStartPosition;
         Shooter.Instance.ResetShootStartPosition();
-        //Shooter.Instance.ResetSqueezePosition();
     }
     #endregion
 }
