@@ -25,6 +25,7 @@ public class Painter : MonoSingleton<Painter>
     [Header("Piece Material")]
     public Material PieceUnColoredMaterial = null;
     public Material PieceColoredMaterial = null;
+    public Material PieceColoredMaterialWhite = null;
 
     [HideInInspector] public bool isPainting = false;
 

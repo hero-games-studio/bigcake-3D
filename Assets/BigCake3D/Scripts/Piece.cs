@@ -25,7 +25,8 @@ public class Piece : MonoBehaviour
             ScoreManager.Instance.AddScore();
             if (Painter.Instance.isPainting)
             {
-                _meshRenderer.material = Painter.Instance.PieceColoredMaterial;
+                _meshRenderer.material = GetComponentInParent<Cream>() != null ?
+                    Painter.Instance.PieceColoredMaterialWhite : Painter.Instance.PieceColoredMaterial;
                 _meshRenderer.enabled = true;
                 StartCoroutine(ScaleLerp());
                 State = PieceState.Colored;

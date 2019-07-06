@@ -6,6 +6,7 @@ public class Stage
 {
     public GameObject stage;
     public GameObject obstacle;
+    public GameObject topping;
     public int currentPartIndex;
     public List<CakePart> cakeParts;
     public bool CheckCurrentPart() => cakeParts[currentPartIndex].IsPartCompelete();

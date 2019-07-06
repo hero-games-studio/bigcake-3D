@@ -40,10 +40,13 @@ public class StageManager : MonoSingleton<StageManager>
             currentStageIndex + 1, currentStageIndex + 2);
     }
 
-    private IEnumerator FallDown(Transform tr, Vector3 target, bool obstacle)
+    private IEnumerator FallDown(Transform tr, Vector3 target, bool obstacle, bool topping = false)
     {
         fallingDown = true;
-        var pos = obstacle ? tr.position : new Vector3(tr.position.x, 6.0f, tr.position.z);
+        
+        var pos = obstacle ? tr.position : topping ?
+            new Vector3(tr.position.x, 50.0f, tr.position.z) : new Vector3(tr.position.x, 6.0f, tr.position.z);
+        tr.gameObject.SetActive(true);
         for (float time = 0.0f; time < 1.0f; time += Time.deltaTime)
         {
             tr.position = Vector3.Lerp(pos, target, time);
@@ -116,8 +119,9 @@ public class StageManager : MonoSingleton<StageManager>
         currentStage.currentPartIndex++;
         if (currentStage.currentPartIndex >= currentStage.cakeParts.Count)
         {
-            ResetPositions();
-            GetNextStage();
+            currentStage.topping.SetActive(true);
+            FallDown(currentStage.topping.transform, currentStage.topping.transform.position, false, true);
+            Invoke("ExecNextStage", 1.5f);
         }
         else
         {
@@ -126,6 +130,12 @@ public class StageManager : MonoSingleton<StageManager>
         }
         uiManager.UpdatePregressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
             currentStageIndex + 1, currentStageIndex + 2);
+    }
+
+    private void ExecNextStage()
+    {
+        ResetPositions();
+        GetNextStage();
     }
 
     private void IncreaseCakePartPosititon()
