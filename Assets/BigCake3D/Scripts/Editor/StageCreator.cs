@@ -17,10 +17,10 @@ public class StageCreator : EditorWindow
     #endregion
 
     #region Builtin Methods
-    [MenuItem("Big Cake 3D/StageCreator")]
+    [MenuItem("Tools/Stage Creator")]
     private static void Init()
     {
-        StageCreator stageCreator = (StageCreator)EditorWindow.GetWindow(typeof(StageCreator));
+        StageCreator stageCreator = (StageCreator)GetWindow(typeof(StageCreator));
         stageCreator.Show();
     }
 
@@ -62,7 +62,7 @@ public class StageCreator : EditorWindow
         GameObject cakeLayers = new GameObject();
         GameObject obstacle = Instantiate(obstacles);
 
-        obstacle.transform.parent = obstacleParent.transform;
+        obstacle.transform.SetParent(obstacleParent.transform);
         cakeLayers.transform.SetParent(stage.transform);
         obstacleParent.transform.SetParent(stage.transform);
 
@@ -85,6 +85,7 @@ public class StageCreator : EditorWindow
             cake.transform.SetParent(cakeLayers.transform);
             cream.transform.SetParent(cakeLayers.transform);
         }
+        startPosition = new Vector3(0.0f, 0.1f, 0.0f);
     }
     #endregion
 }
