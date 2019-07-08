@@ -5,17 +5,18 @@ public class Piece : MonoBehaviour
 {
     public PieceState State = PieceState.UnColored;
     private MeshRenderer _meshRenderer = null;
+    private Collider _collider = null;
     private UiManager _uiManager = null;
 
     public MeshRenderer PieceMeshRenderer { get { return _meshRenderer; } }
 
     private Vector3 pieceScale;
-
     private void Awake()
     {
         pieceScale = transform.localScale;
         _uiManager = FindObjectOfType<UiManager>();
         _meshRenderer = GetComponent<Renderer>() as MeshRenderer;
+        _collider = GetComponent<Collider>();
     }
 
     /*
@@ -29,15 +30,25 @@ public class Piece : MonoBehaviour
             ScoreManager.Instance.AddScore();
             if (Painter.Instance.isPainting)
             {
-                _meshRenderer.material = GetComponentInParent<Cream>() != null ?
-                    Painter.Instance.PieceColoredMaterialWhite : Painter.Instance.PieceColoredMaterial;
+                if (transform.parent.GetComponentInParent<Cream>() != null)
+                {
+                    _meshRenderer.material = Painter.Instance.PieceColoredMaterialWhite;
+                }
+                _collider.enabled = false;
                 _meshRenderer.enabled = true;
+                foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+                {
+                    renderer.enabled = true;
+                }
                 StartCoroutine(ScaleLerp());
                 State = PieceState.Colored;
             }
             _uiManager.UpdateScoreText();
         }
-        StageManager.Instance.RotateAndCheckCakePart();
+        else
+        {
+            StageManager.Instance.RotateAndCheckCakePart();
+        }
     }
 
     /*
@@ -47,6 +58,7 @@ public class Piece : MonoBehaviour
      */
     private IEnumerator ScaleLerp()
     {
+        StageManager.Instance.RotateAndCheckCakePart();
         transform.localScale = new Vector3(0.0f, transform.localScale.y, 0.0f);
         for (float time = 0.0f; time < 1.0f; time += Time.deltaTime * 1.35f)
         {
@@ -62,8 +74,16 @@ public class Piece : MonoBehaviour
      */
     public void SetUnColored(bool nearMiss = false)
     {
-        _meshRenderer.material = Painter.Instance.PieceUnColoredMaterial;
+        if (transform.parent.GetComponentInParent<Cream>() != null)
+        {
+            _meshRenderer.material = Painter.Instance.PieceUnColoredMaterial;
+        }
+        _collider.enabled = true;
         _meshRenderer.enabled = false;
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+        {
+            renderer.enabled = false;
+        }
         State = PieceState.UnColored;
         _uiManager.UpdateScoreText();
         if (nearMiss)

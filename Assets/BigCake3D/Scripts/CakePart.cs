@@ -6,7 +6,7 @@ using UnityEngine;
 public class CakePart : MonoBehaviour
 {
     #region Variables
-    protected readonly float speed = 1.75f;
+    protected readonly float speed = 2.0f;
     protected Vector3 rotateScale = new Vector3(0.0f, -11.5f, 0.0f);
     protected List<Piece> childsPieces = new List<Piece>();
 
@@ -16,7 +16,7 @@ public class CakePart : MonoBehaviour
     #region Builtin Methods
     private void Awake()
     {
-        rotateScale.y = this as Cake ? -11.3f : -20.0f;
+        rotateScale.y = this as Cake ? -15f : -20.0f;
         parentTransform = transform.parent;
         childsPieces = GetComponentsInChildren<Piece>().ToList();
     }

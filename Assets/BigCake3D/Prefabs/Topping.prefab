@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7051256081820343804}
   m_Layer: 0
-  m_Name: Toppings
+  m_Name: Topping
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4224513901877518514}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.30832124, y: 1.227493, z: 1.0717556}
+  m_LocalPosition: {x: 0, y: 3.3700004, z: 0}
   m_LocalScale: {x: 0.27323055, y: 0.2732303, z: 0.2732303}
   m_Children:
   - {fileID: 1328453693450297162}

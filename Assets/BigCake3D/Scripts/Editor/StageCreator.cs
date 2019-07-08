@@ -4,8 +4,9 @@ using UnityEditor;
 public class StageCreator : EditorWindow
 {
     #region Variables
-    private GameObject pandispanya = null;
+    private GameObject[] cakePrefabs = new GameObject[5];
     private GameObject obstacles = null;
+    private GameObject topping = null;
     private GameObject[] creamLayers = new GameObject[3];
 
     private int stageCount = 0;
@@ -28,8 +29,15 @@ public class StageCreator : EditorWindow
     {
         GUILayout.Space(20);
         EditorGUILayout.BeginVertical();
-        pandispanya = (GameObject)EditorGUILayout.ObjectField("Pandispanya Prefab : ", pandispanya, typeof(Object), true);
+        for (int i = 0; i < cakePrefabs.Length; i++)
+        {
+            cakePrefabs[i] = 
+                (GameObject)EditorGUILayout.ObjectField("Pandispanya Prefab : ", cakePrefabs[i], typeof(Object), true);
+        }
+        GUILayout.Space(15);
         obstacles = (GameObject)EditorGUILayout.ObjectField("Obstacles Prefab : ", obstacles, typeof(Object), true);
+
+        topping = (GameObject)EditorGUILayout.ObjectField("Topping Prefab : ", topping, typeof(Object), true);
 
         GUILayout.Space(15);
         EditorGUILayout.LabelField("Krema Katmanları");
@@ -58,21 +66,20 @@ public class StageCreator : EditorWindow
     private void CreateStage()
     {
         GameObject stage = new GameObject();
-        GameObject obstacleParent = new GameObject();
         GameObject cakeLayers = new GameObject();
         GameObject obstacle = Instantiate(obstacles);
 
-        obstacle.transform.SetParent(obstacleParent.transform);
         cakeLayers.transform.SetParent(stage.transform);
-        obstacleParent.transform.SetParent(stage.transform);
+        obstacle.transform.SetParent(stage.transform);
 
-        obstacleParent.name = "Obstacles";
+        obstacle.name = "Obstacles";
         cakeLayers.name = "CakeLayers";
         stage.name = "Stage_" + (stageCount + 1);
 
         for (int i = 0; i < layerCount; i++)
         {
-            GameObject cake = Instantiate(pandispanya);
+            int cakeIndex = Random.Range(0, cakePrefabs.Length);
+            GameObject cake = Instantiate(cakePrefabs[cakeIndex]);
             cake.transform.position = startPosition;
 
             int index = Random.Range(0, creamLayers.Length);
@@ -85,6 +92,8 @@ public class StageCreator : EditorWindow
             cake.transform.SetParent(cakeLayers.transform);
             cream.transform.SetParent(cakeLayers.transform);
         }
+        topping.transform.position = startPosition;
+        topping.transform.SetParent(cakeLayers.transform);
         startPosition = new Vector3(0.0f, 0.1f, 0.0f);
     }
     #endregion

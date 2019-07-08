@@ -34,6 +34,7 @@ public class Stage
             cakePart.gameObject.SetActive(false);
         }
         currentPartIndex = 0;
+        topping.SetActive(false);
         stage.gameObject.SetActive(false);
     }
 }
