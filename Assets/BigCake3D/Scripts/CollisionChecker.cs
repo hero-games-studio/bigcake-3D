@@ -34,7 +34,7 @@ public class CollisionChecker : MonoBehaviour
         if (other.tag == Tags.T_OBSTACLE)
         {
             isCollideWithPiece = false;
-            ScoreManager.Instance.ResetNearMiss();
+            ScoreManager.Instance.ResetScoreAndNearMiss();
             StageManager.Instance.ResetCurrentPart();
         }
 

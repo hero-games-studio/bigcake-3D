@@ -16,7 +16,7 @@ public class CakePart : MonoBehaviour
     #region Builtin Methods
     private void Awake()
     {
-        rotateScale.y = this as Cake ? -15f : -20.0f;
+        rotateScale.y = this as Cake ? -13.5f : -20.0f;
         parentTransform = transform.parent;
         childsPieces = GetComponentsInChildren<Piece>().ToList();
     }

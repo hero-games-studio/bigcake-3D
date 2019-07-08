@@ -26,7 +26,6 @@ public class StageManager : MonoSingleton<StageManager>
 
     [Header("Scripts")]
     [SerializeField] private UiManager uiManager = null;
-    [SerializeField] private RotateDemoEffect rotateDemoEffect = null;
 
     private WaitForSeconds delayNearMiss = new WaitForSeconds(0.75f);
     #endregion
@@ -48,7 +47,7 @@ public class StageManager : MonoSingleton<StageManager>
     private IEnumerator FallDown(Transform tr, Vector3 target, bool obstacle, bool topping = false)
     {
         fallingDown = true;
-        
+
         var pos = obstacle ? tr.position : topping ?
             new Vector3(tr.position.x, 50.0f, tr.position.z) : new Vector3(tr.position.x, 6.0f, tr.position.z);
         tr.gameObject.SetActive(true);
@@ -140,8 +139,7 @@ public class StageManager : MonoSingleton<StageManager>
      */
     private void GetNextPart()
     {
-        rotateDemoEffect.transform.position = currentStage.GetCurrentCakePart().transform.position;
-        rotateDemoEffect.StartShineDemo();
+        ParticleManager.Instance.PlayStarRing(currentStage.GetCurrentCakePart().transform.position);
         currentStage.currentPartIndex++;
         if (currentStage.currentPartIndex >= currentStage.cakeParts.Count)
         {

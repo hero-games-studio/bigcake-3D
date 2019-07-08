@@ -7,8 +7,20 @@ public class ParticleManager : MonoSingleton<ParticleManager>
     [SerializeField]
     private ParticleSystem[] fireworks = null;
 
+    [SerializeField]
+    private ParticleSystem starRing = null;
     #endregion
     #region Custom Methods
+
+    /*
+     * METOD ADI :  PlayStarRing
+     * AÇIKLAMA  :  StarRing particle effect'ini başlatır.
+     */
+    public void PlayStarRing(Vector3 target)
+    {
+        starRing.transform.parent.transform.position = target;
+        starRing.Play();
+    }
 
     /*
      * METOD ADI :  PlayFireworks

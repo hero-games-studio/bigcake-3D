@@ -11,8 +11,10 @@ public class Piece : MonoBehaviour
     public MeshRenderer PieceMeshRenderer { get { return _meshRenderer; } }
 
     private Vector3 pieceScale;
+    private float multiply = 1.35f;
     private void Awake()
     {
+        multiply = GetComponentInParent<Cream>() != null ? 0.65f : 1.35f;
         pieceScale = transform.localScale;
         _uiManager = FindObjectOfType<UiManager>();
         _meshRenderer = GetComponent<Renderer>() as MeshRenderer;
@@ -25,30 +27,27 @@ public class Piece : MonoBehaviour
      */
     public void SetColored()
     {
-        if (State == PieceState.UnColored)
+        if (Painter.Instance.isPainting)
         {
-            ScoreManager.Instance.AddScore();
-            if (Painter.Instance.isPainting)
+            if (transform.parent.GetComponentInParent<Cream>() != null)
             {
-                if (transform.parent.GetComponentInParent<Cream>() != null)
-                {
-                    _meshRenderer.material = Painter.Instance.PieceColoredMaterialWhite;
-                }
-                _collider.enabled = false;
-                _meshRenderer.enabled = true;
-                foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
-                {
-                    renderer.enabled = true;
-                }
-                StartCoroutine(ScaleLerp());
-                State = PieceState.Colored;
+                _meshRenderer.material = Painter.Instance.PieceColoredMaterialWhite;
             }
-            _uiManager.UpdateScoreText();
-        }
-        else
-        {
             StageManager.Instance.RotateAndCheckCakePart();
+            _collider.enabled = false;
+            _meshRenderer.enabled = true;
+            foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+            {
+                renderer.enabled = true;
+            }
+            if (State == PieceState.UnColored)
+            {
+                ScoreManager.Instance.AddScore();
+                StartCoroutine(ScaleLerp());
+            }
+            State = PieceState.Colored;
         }
+        _uiManager.UpdateScoreText();
     }
 
     /*
@@ -58,9 +57,8 @@ public class Piece : MonoBehaviour
      */
     private IEnumerator ScaleLerp()
     {
-        StageManager.Instance.RotateAndCheckCakePart();
         transform.localScale = new Vector3(0.0f, transform.localScale.y, 0.0f);
-        for (float time = 0.0f; time < 1.0f; time += Time.deltaTime * 1.35f)
+        for (float time = 0.0f; time < 1.0f; time += Time.deltaTime * multiply)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, pieceScale, time);
             yield return null;

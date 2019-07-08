@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ScoreManager : MonoSingleton<ScoreManager>
 {
@@ -30,7 +31,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     private float _nearMiss = 0.0f;
 
     /*
-     * METOD ADI :  AddtNearMiss
+     * METOD ADI :  AddNearMiss
      * AÇIKLAMA  :  Near miss değerine parametre olarak döndürülen değeri ekler.
      */
     public void AddNearMiss(float point = 1)
@@ -40,7 +41,18 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     }
 
     /*
-     * METOD ADI :  GettNearMiss
+     * METOD ADI :  ResetScoreAndNearMiss
+     * AÇIKLAMA  :  Near miss ve Score değerlerini sıfırlar.
+     */
+    public void ResetScoreAndNearMiss()
+    {
+        ResetNearMiss();
+        _score = 0;
+        _uiManager.UpdateScoreText();
+    }
+
+    /*
+     * METOD ADI :  GetNearMiss
      * AÇIKLAMA  :  Near miss değerini döndürür.
      */
     public float GetNearMiss() => _nearMiss;
