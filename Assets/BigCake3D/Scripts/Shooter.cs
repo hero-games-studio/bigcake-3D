@@ -18,11 +18,19 @@ public class Shooter : MonoSingleton<Shooter>
     [SerializeField]
     private Animator creamSqueezeAnimator = null;
 
+    /*
+     * METOD ADI :  ResetShootStartPosition
+     * AÇIKLAMA  :  shootStartPosition değerini sıfırlar.
+     */
     public void ResetShootStartPosition()
     {
         _shootStartPosition = _shootStartPositionDefault;
     }
 
+    /*
+     * METOD ADI :  ChangePosition
+     * AÇIKLAMA  :  Shooter objesinin pozisyonunu parametre olarak gönderilen pozisyona eşitler.
+     */
     public IEnumerator ChangePosition(Vector3 targetPosition, bool squeeze)
     {
         if (!squeeze)
@@ -45,6 +53,10 @@ public class Shooter : MonoSingleton<Shooter>
         }
     }
 
+    /*
+     * METOD ADI :  StartSqueeze
+     * AÇIKLAMA  :  SqueezeStart animasyonunu oynatır.
+     */
     public void StartSqueeze()
     {
         creamSqueezeModel.SetActive(true);
@@ -52,11 +64,19 @@ public class Shooter : MonoSingleton<Shooter>
         Invoke("StartPainting", 0.3f);
     }
 
+    /*
+     * METOD ADI :  StartPainting
+     * AÇIKLAMA  :  Painter.Instance.isPainting değerini true yapar.
+     */
     private void StartPainting()
     {
         Painter.Instance.isPainting = true;
     }
 
+    /*
+     * METOD ADI :  StopSqueeze
+     * AÇIKLAMA  :  SqueezeStop animasyonunu oynatır.
+     */
     public void StopSqueeze()
     {
         Painter.Instance.isPainting = false;
@@ -64,6 +84,10 @@ public class Shooter : MonoSingleton<Shooter>
         creamSqueezeAnimator.SetBool(AnimatorParameters.P_ISSQUEEZE, false);
     }
 
+    /*
+     * METOD ADI :  GoOneStepUp
+     * AÇIKLAMA  :  shootStartPosition değerini 1 adım yükseltir.
+     */
     public void GoOneStepUp()
     {
         _shootStartPosition = new Vector3(_shootStartPosition.x,

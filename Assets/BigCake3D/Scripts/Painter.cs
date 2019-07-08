@@ -40,6 +40,10 @@ public class Painter : MonoSingleton<Painter>
         ResetToppingPosition();
     }
 
+    /*
+     * METOD ADI :  ResetToppingPosition
+     * AÇIKLAMA  :  Topping objesinin pozisyonunu ayarlar.
+     */
     public void ResetToppingPosition()
     {
         ToppingTransform.position = new Vector3(0.0f, 75.0f, 0.0f);
@@ -51,6 +55,10 @@ public class Painter : MonoSingleton<Painter>
         GetInputs();
     }
 
+    /*
+     * METOD ADI :  GetInputs
+     * AÇIKLAMA  :  Kullanıcıdan gelen inputları kontrol eder.
+     */
     private void GetInputs()
     {
         if ((Input.GetMouseButton(0) && !MissionStage) | nearMiss)
@@ -72,11 +80,19 @@ public class Painter : MonoSingleton<Painter>
         }
     }
 
+    /*
+     * METOD ADI :  StartApproach
+     * AÇIKLAMA  :  Shooter objesini keke yaklaştırma işlemini başlatır.
+     */
     public void StartApproach()
     {
         StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition, true));
     }
 
+    /*
+     * METOD ADI :  TurnBack
+     * AÇIKLAMA  :  Shooter objesini ilk pozisyonuna geri döndürme işlemini başlatır.
+     */
     public void TurnBack()
     {
         Shooter.Instance.StopSqueeze();

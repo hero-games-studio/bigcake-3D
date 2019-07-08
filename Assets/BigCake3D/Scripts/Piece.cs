@@ -18,6 +18,10 @@ public class Piece : MonoBehaviour
         _meshRenderer = GetComponent<Renderer>() as MeshRenderer;
     }
 
+    /*
+     * METOD ADI :  SetColored
+     * AÇIKLAMA  :  Piece objesini boyanması işlemlerini yapar.     
+     */
     public void SetColored()
     {
         if (State == PieceState.UnColored)
@@ -36,6 +40,11 @@ public class Piece : MonoBehaviour
         StageManager.Instance.RotateAndCheckCakePart();
     }
 
+    /*
+     * METOD ADI :  ScaleLerp
+     * AÇIKLAMA  :  Objenin localScale değerini 0 dan objenin başlangıç localScale
+     *              değerine doğru arttırır.     
+     */
     private IEnumerator ScaleLerp()
     {
         transform.localScale = new Vector3(0.0f, transform.localScale.y, 0.0f);
@@ -47,6 +56,10 @@ public class Piece : MonoBehaviour
         transform.localScale = pieceScale;
     }
 
+    /*
+     * METOD ADI :  SetUnColored
+     * AÇIKLAMA  :  Piece objesini boyanmamış haline döndürür.     
+     */
     public void SetUnColored(bool nearMiss = false)
     {
         _meshRenderer.material = Painter.Instance.PieceUnColoredMaterial;

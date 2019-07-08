@@ -36,10 +36,15 @@ public class StageManager : MonoSingleton<StageManager>
     private void Awake()
     {
         PrepareCurrentStage();
-        uiManager.UpdatePregressBar(0,
+        uiManager.UpdateProgressBar(0,
             currentStageIndex + 1, currentStageIndex + 2);
     }
 
+    /*
+     * METOD ADI :  FallDown
+     * AÇIKLAMA  :  Parametre olarak gönderilen objenin pozisyonunu
+     *              parametre olarak target değerine eşitler.
+     */
     private IEnumerator FallDown(Transform tr, Vector3 target, bool obstacle, bool topping = false)
     {
         fallingDown = true;
@@ -61,6 +66,10 @@ public class StageManager : MonoSingleton<StageManager>
         fallingDown = false;
     }
 
+    /*
+     * METOD ADI :  PrepareCurrentStage
+     * AÇIKLAMA  :  Geçerli Stage'i ayarlayıp, stage objesini aktif eder. 
+     */
     private void PrepareCurrentStage()
     {
         currentStage = stages[currentStageIndex];
@@ -68,6 +77,10 @@ public class StageManager : MonoSingleton<StageManager>
         PrepareCurrentPart();
     }
 
+    /*
+     * METOD ADI :  PrepareCurrentPart
+     * AÇIKLAMA  :  Geçerli partı hazırlar.
+     */
     private void PrepareCurrentPart()
     {
         if (Painter.Instance.nearMiss)
@@ -89,6 +102,10 @@ public class StageManager : MonoSingleton<StageManager>
             currentStage.GetCurrentCakePart().transform.position, false));
     }
 
+    /*
+     * METOD ADI :  RotateAndCheckCakePart
+     * AÇIKLAMA  :  Objeyi döndürüp, tamamlama durumunu kotrol eder.
+     */
     public void RotateAndCheckCakePart()
     {
         if (currentStage.GetCurrentCakePart() != null)
@@ -105,6 +122,10 @@ public class StageManager : MonoSingleton<StageManager>
         }
     }
 
+    /*
+     * METOD ADI :  ResetCurrentPart
+     * AÇIKLAMA  :  Geçerli partı sıfırlar.
+     */
     public void ResetCurrentPart()
     {
         currentStage.GetCurrentCakePart().ResetPart();
@@ -112,6 +133,11 @@ public class StageManager : MonoSingleton<StageManager>
         Painter.Instance.TurnBack();
     }
 
+    /*
+     * METOD ADI :  GetNextPart
+     * AÇIKLAMA  :  Geçerli part tamamlandıktan sonra, bir sonraki partı boyamaya hazırlar.
+     *              Stage tamamlanmış ise bir sonraki Stage'ı başlatır.
+     */
     private void GetNextPart()
     {
         rotateDemoEffect.transform.position = currentStage.GetCurrentCakePart().transform.position;
@@ -128,16 +154,24 @@ public class StageManager : MonoSingleton<StageManager>
             IncreaseCakePartPosititon();
             PrepareCurrentPart();
         }
-        uiManager.UpdatePregressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
+        uiManager.UpdateProgressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
             currentStageIndex + 1, currentStageIndex + 2);
     }
 
+    /*
+     * METOD ADI :  ExecNextStage
+     * AÇIKLAMA  :  Bir sonraki Stage'i başlatmadan önce pozisyonları sıfırlar ve Stage'i başlatır.
+     */
     private void ExecNextStage()
     {
         ResetPositions();
         GetNextStage();
     }
 
+    /*
+     * METOD ADI :  IncreaseCakePartPosititon
+     * AÇIKLAMA  :  kek katmanının ve engel objelerin oluşacağı pozisyonu ayarlar
+     */
     private void IncreaseCakePartPosititon()
     {
         obstaclePosition.y = currentStage.GetCurrentCakePart().transform.position.y + 0.1f;
@@ -145,6 +179,10 @@ public class StageManager : MonoSingleton<StageManager>
         isCake = !isCake;
     }
 
+    /*
+     * METOD ADI :  GetNextStage
+     * AÇIKLAMA  :  Bir sonraki Stage'i başlatır.
+     */
     private void GetNextStage()
     {
         ParticleManager.Instance.PlayFireworks();
@@ -152,6 +190,10 @@ public class StageManager : MonoSingleton<StageManager>
         uiManager.ShowMissionState((currentStageIndex + 1).ToString());
     }
 
+    /*
+     * METOD ADI :  ClearCurrentPartWithNearMiss
+     * AÇIKLAMA  :  Nearmiss clear butonuna basıldığında geçerli olan partı tamamen boyar.
+     */
     public IEnumerator ClearCurrentPartWithNearMiss()
     {
         currentStage.obstacle.SetActive(false);
@@ -159,6 +201,10 @@ public class StageManager : MonoSingleton<StageManager>
         yield return delayNearMiss;
     }
 
+    /*
+     * METOD ADI :  PrepareNextStage
+     * AÇIKLAMA  :  Bir sonraki Stage'i oynamaya hazırlar.
+     */
     public void PrepareNextStage()
     {
         ParticleManager.Instance.StopFireworks();
@@ -173,10 +219,14 @@ public class StageManager : MonoSingleton<StageManager>
         }
         PrepareCurrentStage();
         uiManager.HideMissionState();
-        uiManager.UpdatePregressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
+        uiManager.UpdateProgressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
      currentStageIndex + 1, currentStageIndex + 2);
     }
 
+    /*
+     * METOD ADI :  ResetAllStages
+     * AÇIKLAMA  :  Bütün Stageler tamamlandığında ilk Stage'e geri dönmeden önce bütün Stage'leri sıfırlar.
+     */
     private void ResetAllStages()
     {
         ResetPositions();
@@ -186,6 +236,10 @@ public class StageManager : MonoSingleton<StageManager>
         }
     }
 
+    /*
+     * METOD ADI :  ResetPositions
+     * AÇIKLAMA  :  Pozisyonları sıfırlar.
+     */
     private void ResetPositions()
     {
         obstaclePosition = obstacleStartPosition;

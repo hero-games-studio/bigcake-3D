@@ -8,11 +8,12 @@ public class ParticleManager : MonoSingleton<ParticleManager>
     private ParticleSystem[] fireworks = null;
 
     #endregion
-
-    #region Builtin Methods
-    #endregion
-
     #region Custom Methods
+
+    /*
+     * METOD ADI :  PlayFireworks
+     * AÇIKLAMA  :  Fireworks particle effect'ini başlatır.
+     */
     public void PlayFireworks()
     {
         foreach (ParticleSystem particle in fireworks)
@@ -21,6 +22,10 @@ public class ParticleManager : MonoSingleton<ParticleManager>
         }
     }
 
+    /*
+     * METOD ADI :  StopFireworks
+     * AÇIKLAMA  :  Fireworks particle effect'ini durdurur.
+     */
     public void StopFireworks()
     {
         foreach (ParticleSystem particle in fireworks)

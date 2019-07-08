@@ -12,7 +12,10 @@ public class Obstacle : MonoBehaviour
             RotateObstacles();
         }
     }
-
+    /*
+     * METOD ADI :  RotateObstacles
+     * AÇIKLAMA  :  Engelleri pasta etrafında döndürür.
+     */
     private void RotateObstacles()
     {
         transform.Rotate(Vector3.up, _increaseRotationScale * Time.deltaTime);

@@ -23,6 +23,11 @@ public class CakePart : MonoBehaviour
     #endregion
 
     #region Custom Methods
+    /*
+     * METOD ADI :  IsPartCompelete
+     * AÇIKLAMA  :  Objenin bütün alt objelerinin boyanıp boyanmadığını
+     *              kontrol eder.
+     */
     public bool IsPartCompelete()
     {
         bool allColored = true;
@@ -39,6 +44,10 @@ public class CakePart : MonoBehaviour
         return allColored;
     }
 
+    /*
+     * METOD ADI :  RotateMe
+     * AÇIKLAMA  :  objenin yavaş bir şekilde döndürülme işlemini yapar.
+     */
     public IEnumerator RotateMe()
     {
         var targetRotation = Quaternion.Euler(parentTransform.eulerAngles + rotateScale);
@@ -50,6 +59,10 @@ public class CakePart : MonoBehaviour
         parentTransform.rotation = targetRotation;
     }
 
+    /*
+     * METOD ADI :  ResetPart
+     * AÇIKLAMA  :  Objeyi sıfırlama işlemini yapar.
+     */
     public void ResetPart()
     {
         foreach (var piece in childsPieces)
