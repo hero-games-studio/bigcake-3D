@@ -13,7 +13,7 @@ public class Shooter : MonoSingleton<Shooter>
     [SerializeField]
     private Vector3 _shootStartPosition = new Vector3(0, -0.375f, -1.5f);
 
-    private float _multiple = 5.0f;
+    private float _multiple = 7.5f;
 
     [SerializeField]
     private Animator creamSqueezeAnimator = null;
@@ -37,6 +37,10 @@ public class Shooter : MonoSingleton<Shooter>
         {
             StopSqueeze();
         }
+        else
+        {
+            StartSqueeze();
+        }
 
         var position = transform.position;
         targetPosition.y = position.y;
@@ -46,11 +50,6 @@ public class Shooter : MonoSingleton<Shooter>
             yield return null;
         }
         transform.position = targetPosition;
-
-        if (squeeze)
-        {
-            StartSqueeze();
-        }
     }
 
     /*
@@ -61,15 +60,6 @@ public class Shooter : MonoSingleton<Shooter>
     {
         creamSqueezeModel.SetActive(true);
         creamSqueezeAnimator.SetBool(AnimatorParameters.P_ISSQUEEZE, true);
-        Invoke("StartPainting", 0.3f);
-    }
-
-    /*
-     * METOD ADI :  StartPainting
-     * AÇIKLAMA  :  Painter.Instance.isPainting değerini true yapar.
-     */
-    private void StartPainting()
-    {
         Painter.Instance.isPainting = true;
     }
 

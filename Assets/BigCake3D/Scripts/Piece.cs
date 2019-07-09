@@ -27,14 +27,13 @@ public class Piece : MonoBehaviour
      */
     public void SetColored()
     {
+        _collider.enabled = false;
         if (Painter.Instance.isPainting)
         {
             if (transform.parent.GetComponentInParent<Cream>() != null)
             {
                 _meshRenderer.material = Painter.Instance.PieceColoredMaterialWhite;
             }
-            StageManager.Instance.RotateAndCheckCakePart();
-            _collider.enabled = false;
             _meshRenderer.enabled = true;
             foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
             {
@@ -46,6 +45,7 @@ public class Piece : MonoBehaviour
                 StartCoroutine(ScaleLerp());
             }
             State = PieceState.Colored;
+            StageManager.Instance.RotateAndCheckCakePart();
         }
         _uiManager.UpdateScoreText();
     }

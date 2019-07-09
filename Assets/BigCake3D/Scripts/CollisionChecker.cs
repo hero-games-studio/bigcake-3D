@@ -5,8 +5,8 @@ public class CollisionChecker : MonoBehaviour
     private bool isCollideWithPiece = false;
 
     [SerializeField]
-    private float boundTime = 0.1f;
-    private float previousTime = 0.0f;
+    private float boundTime = 0.075f;
+    private float previousTime = -0.075f;
 
     private Piece piece = null;
 
@@ -43,4 +43,15 @@ public class CollisionChecker : MonoBehaviour
             ScoreManager.Instance.AddNearMiss();
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == Tags.T_PIECE)
+        {
+            piece = other.GetComponent<Piece>();
+
+            isCollideWithPiece = true;
+        }
+    }
+
 }
