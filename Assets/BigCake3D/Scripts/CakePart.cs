@@ -8,7 +8,7 @@ public class CakePart : MonoBehaviour
 {
     #region Variables
     protected readonly float speed = 2.0f;
-    protected Vector3 rotateScale = new Vector3(0.0f, -40.0f, 0.0f);
+    protected Vector3 rotateScale = new Vector3(0.0f, -7.25f, 0.0f);
     protected List<Piece> childsPieces = new List<Piece>();
 
     private Transform parentTransform = null;
@@ -17,7 +17,6 @@ public class CakePart : MonoBehaviour
     #region Builtin Methods
     private void Awake()
     {
-        //rotateScale.y = this as Cake ? -13.5f : -20.0f;
         parentTransform = transform.parent;
         childsPieces = GetComponentsInChildren<Piece>().ToList();
     }
@@ -49,16 +48,9 @@ public class CakePart : MonoBehaviour
      * METOD ADI :  RotateMe
      * AÇIKLAMA  :  objenin yavaş bir şekilde döndürülme işlemini yapar.
      */
-    public IEnumerator RotateMe()
-    {
-         var targetRotation = Quaternion.Euler(parentTransform.eulerAngles + rotateScale);
-         for (float time = 0; time < 0.15f; time += speed * Time.deltaTime)
-         {
-             parentTransform.rotation = Quaternion.Slerp(parentTransform.rotation, targetRotation, time);
-             yield return null;
-         }
-         //parentTransform.rotation = targetRotation;
-    }
+    public void RotateMe() =>
+        parentTransform.DOLocalRotate(rotateScale, -.55f, RotateMode.LocalAxisAdd);
+
 
     /*
      * METOD ADI :  ResetPart

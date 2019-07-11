@@ -107,7 +107,7 @@ public class StageManager : MonoSingleton<StageManager>
      */
     public void RotateAndCheckCakePart()
     {
-        StartCoroutine(currentStage.GetCurrentCakePart().RotateMe());
+        currentStage.GetCurrentCakePart().RotateMe();
 
         if (currentStage.GetCurrentCakePart().IsPartCompelete())
         {

@@ -5,7 +5,7 @@ public class CollisionChecker : MonoBehaviour
     private bool isCollideWithPiece = false;
 
     [SerializeField]
-    private float boundTime = 0.075f;
+    private float boundTime = 0.45f;
     private float previousTime = -0.075f;
 
     private Piece piece = null;
