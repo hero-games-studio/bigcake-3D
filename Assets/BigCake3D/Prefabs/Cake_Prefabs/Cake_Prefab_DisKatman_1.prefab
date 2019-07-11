@@ -8484,7 +8484,7 @@ GameObject:
   - component: {fileID: 5194754117372167734}
   - component: {fileID: 9021578833566138224}
   m_Layer: 0
-  m_Name: Boncukludis12
+  m_Name: Piece_6
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8533,7 +8533,7 @@ Transform:
   - {fileID: 4461716441163015950}
   - {fileID: 210594599517032505}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 11
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1969671480001118029
 MeshFilter:
@@ -8851,7 +8851,7 @@ GameObject:
   - component: {fileID: 4824611857657832464}
   - component: {fileID: 979437309125789118}
   m_Layer: 0
-  m_Name: Boncukludis20
+  m_Name: Piece_22
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8900,7 +8900,7 @@ Transform:
   - {fileID: 9218741419779091830}
   - {fileID: 5148556343810598044}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 3
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &974250050110882852
 MeshFilter:
@@ -8987,7 +8987,7 @@ GameObject:
   - component: {fileID: 7956472234975195943}
   - component: {fileID: 5857056188518372155}
   m_Layer: 0
-  m_Name: Boncukludis14
+  m_Name: Piece_4
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9036,7 +9036,7 @@ Transform:
   - {fileID: 7130056696189046242}
   - {fileID: 5290574955081551277}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 9
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3908516245487834710
 MeshFilter:
@@ -10201,7 +10201,7 @@ GameObject:
   - component: {fileID: 8590920118503024052}
   - component: {fileID: 7814280263925846468}
   m_Layer: 0
-  m_Name: Boncukludis21
+  m_Name: Piece_21
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10250,7 +10250,7 @@ Transform:
   - {fileID: 2133642325972739884}
   - {fileID: 6237191760329696508}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 2
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4788361031533310327
 MeshFilter:
@@ -10568,7 +10568,7 @@ GameObject:
   - component: {fileID: 7904459051310316916}
   - component: {fileID: 4401276385377505179}
   m_Layer: 0
-  m_Name: Boncukludis4
+  m_Name: Piece_14
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10617,7 +10617,7 @@ Transform:
   - {fileID: 5061265690945451836}
   - {fileID: 3748237742520752598}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 19
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1258486770072963516
 MeshFilter:
@@ -18019,7 +18019,7 @@ GameObject:
   - component: {fileID: 6603528750247314695}
   - component: {fileID: 6484427323319699585}
   m_Layer: 0
-  m_Name: Boncukludis9
+  m_Name: Piece_9
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18068,7 +18068,7 @@ Transform:
   - {fileID: 3597155243619325608}
   - {fileID: 4515127709688029756}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 14
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1863344222670500484
 MeshFilter:
@@ -20311,7 +20311,7 @@ GameObject:
   - component: {fileID: 1004599216769701157}
   - component: {fileID: 8760726789814165278}
   m_Layer: 0
-  m_Name: Boncukludis19
+  m_Name: Piece_23
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20360,7 +20360,7 @@ Transform:
   - {fileID: 1645510155049862709}
   - {fileID: 45366565361145472}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 4
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7600201337422958073
 MeshFilter:
@@ -30996,7 +30996,7 @@ GameObject:
   - component: {fileID: 6625859460658266200}
   - component: {fileID: 119484252888051816}
   m_Layer: 0
-  m_Name: Boncukludis8
+  m_Name: Piece_10
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31045,7 +31045,7 @@ Transform:
   - {fileID: 1911181184683678172}
   - {fileID: 5598731321201551485}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 15
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &837959419882565540
 MeshFilter:
@@ -35675,7 +35675,7 @@ GameObject:
   - component: {fileID: 2265281140354418372}
   - component: {fileID: 7811461331838155045}
   m_Layer: 0
-  m_Name: Boncukludis6
+  m_Name: Piece_12
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35724,7 +35724,7 @@ Transform:
   - {fileID: 4378330570732550769}
   - {fileID: 6197021013973153719}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 17
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7399806120887600108
 MeshFilter:
@@ -38968,7 +38968,7 @@ GameObject:
   - component: {fileID: 6638050915400899977}
   - component: {fileID: 6155737657939218152}
   m_Layer: 0
-  m_Name: Boncukludis2
+  m_Name: Piece_16
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39017,7 +39017,7 @@ Transform:
   - {fileID: 128451533289196571}
   - {fileID: 2023558946659763956}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 21
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &212581423577264298
 MeshFilter:
@@ -39870,7 +39870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7214488048939301988}
   m_Layer: 0
-  m_Name: DisKatmanBoncuklu
+  m_Name: Dis_Katman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39887,12 +39887,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 1.05, y: 1, z: 1.05}
   m_Children:
-  - {fileID: 6613710490686521242}
-  - {fileID: 6598801944140271356}
-  - {fileID: 3271449362825931395}
-  - {fileID: 5388130224238857128}
-  - {fileID: 8900352637457546503}
-  - {fileID: 2477234357154217554}
   - {fileID: 2562084512805385350}
   - {fileID: 7564259164325044257}
   - {fileID: 7584024577326778933}
@@ -39911,6 +39905,12 @@ Transform:
   - {fileID: 1327326851252645275}
   - {fileID: 148875978812368715}
   - {fileID: 2799659638728184993}
+  - {fileID: 6613710490686521242}
+  - {fileID: 6598801944140271356}
+  - {fileID: 3271449362825931395}
+  - {fileID: 5388130224238857128}
+  - {fileID: 8900352637457546503}
+  - {fileID: 2477234357154217554}
   m_Father: {fileID: 6525736312597897928}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41776,7 +41776,7 @@ GameObject:
   - component: {fileID: 7988596173949387689}
   - component: {fileID: 2059100263598645279}
   m_Layer: 0
-  m_Name: Boncukludis22
+  m_Name: Piece_20
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41825,7 +41825,7 @@ Transform:
   - {fileID: 2067339988057401582}
   - {fileID: 8027663104430590813}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 1
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &524331959607276251
 MeshFilter:
@@ -41912,7 +41912,7 @@ GameObject:
   - component: {fileID: 2285167058345028958}
   - component: {fileID: 4341715268086885520}
   m_Layer: 0
-  m_Name: Boncukludis5
+  m_Name: Piece_13
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41961,7 +41961,7 @@ Transform:
   - {fileID: 4730713806557385229}
   - {fileID: 5687101347416647219}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 18
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5686837832741370746
 MeshFilter:
@@ -43665,7 +43665,7 @@ GameObject:
   - component: {fileID: 5610257101920884877}
   - component: {fileID: 5280940940466055071}
   m_Layer: 0
-  m_Name: Boncukludis16
+  m_Name: Piece_2
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43714,7 +43714,7 @@ Transform:
   - {fileID: 3238665528510387237}
   - {fileID: 2930827875187297455}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8890053521648790007
 MeshFilter:
@@ -44186,7 +44186,7 @@ GameObject:
   - component: {fileID: 323575884040176952}
   - component: {fileID: 3632530365886733075}
   m_Layer: 0
-  m_Name: Boncukludis7
+  m_Name: Piece_11
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44235,7 +44235,7 @@ Transform:
   - {fileID: 6187529742826373053}
   - {fileID: 3533849490563604724}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 16
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4931267219562332585
 MeshFilter:
@@ -50636,7 +50636,7 @@ GameObject:
   - component: {fileID: 3493981956749368448}
   - component: {fileID: 6207624397014527069}
   m_Layer: 0
-  m_Name: Boncukludis
+  m_Name: Piece_18
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50685,7 +50685,7 @@ Transform:
   - {fileID: 6156904507819662125}
   - {fileID: 3275513417442065011}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 23
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3687426278595170685
 MeshFilter:
@@ -50772,7 +50772,7 @@ GameObject:
   - component: {fileID: 4495801718892751235}
   - component: {fileID: 54346465879202619}
   m_Layer: 0
-  m_Name: Boncukludis17
+  m_Name: Piece_1
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50821,7 +50821,7 @@ Transform:
   - {fileID: 238195606953212124}
   - {fileID: 4552609827782816017}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1636372779711206860
 MeshFilter:
@@ -53679,7 +53679,7 @@ GameObject:
   - component: {fileID: 954524377258382521}
   - component: {fileID: 1062847982164722224}
   m_Layer: 0
-  m_Name: Boncukludis3
+  m_Name: Piece_15
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53728,7 +53728,7 @@ Transform:
   - {fileID: 1036562662097748557}
   - {fileID: 3409223179774446407}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 20
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7942393393757240993
 MeshFilter:
@@ -56433,7 +56433,7 @@ GameObject:
   - component: {fileID: 4914568769977724542}
   - component: {fileID: 7426320559881137833}
   m_Layer: 0
-  m_Name: Boncukludis13
+  m_Name: Piece_5
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56482,7 +56482,7 @@ Transform:
   - {fileID: 7347330848974143120}
   - {fileID: 8527058360244129698}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 10
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6011225600397945239
 MeshFilter:
@@ -56646,7 +56646,7 @@ GameObject:
   - component: {fileID: 2347440803569044831}
   - component: {fileID: 7597637199287995042}
   m_Layer: 0
-  m_Name: Boncukludis18
+  m_Name: Piece_24
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56695,7 +56695,7 @@ Transform:
   - {fileID: 1582146300124613952}
   - {fileID: 4147421137807590094}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 5
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7105901764380470055
 MeshFilter:
@@ -57321,7 +57321,7 @@ GameObject:
   - component: {fileID: 2437888720152131397}
   - component: {fileID: 921501454552736742}
   m_Layer: 0
-  m_Name: Boncukludis11
+  m_Name: Piece_7
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57370,7 +57370,7 @@ Transform:
   - {fileID: 6544796746730937588}
   - {fileID: 6605443127327418933}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 12
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8806487507178948851
 MeshFilter:
@@ -59690,7 +59690,7 @@ GameObject:
   - component: {fileID: 1981528798226941330}
   - component: {fileID: 710365288557142205}
   m_Layer: 0
-  m_Name: Boncukludis23
+  m_Name: Piece_19
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59739,7 +59739,7 @@ Transform:
   - {fileID: 4096151599461667099}
   - {fileID: 4433508443751588557}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 0
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5260472674646461938
 MeshFilter:
@@ -60365,7 +60365,7 @@ GameObject:
   - component: {fileID: 485705939391389407}
   - component: {fileID: 5484314829854058300}
   m_Layer: 0
-  m_Name: Boncukludis15
+  m_Name: Piece_3
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60414,7 +60414,7 @@ Transform:
   - {fileID: 2053234527644853492}
   - {fileID: 6328485550213247831}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4905677865779921045
 MeshFilter:
@@ -60578,7 +60578,7 @@ GameObject:
   - component: {fileID: 5264880824280924848}
   - component: {fileID: 9100687066721142160}
   m_Layer: 0
-  m_Name: Boncukludis1
+  m_Name: Piece_17
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60627,7 +60627,7 @@ Transform:
   - {fileID: 3702930728791527352}
   - {fileID: 8540479103503806395}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 22
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7384122838309288914
 MeshFilter:
@@ -63024,7 +63024,7 @@ GameObject:
   - component: {fileID: 3258082166144150801}
   - component: {fileID: 3420658417681001429}
   m_Layer: 0
-  m_Name: Boncukludis10
+  m_Name: Piece_8
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63073,7 +63073,7 @@ Transform:
   - {fileID: 3858471485449871639}
   - {fileID: 8305729322055129984}
   m_Father: {fileID: 7214488048939301988}
-  m_RootOrder: 13
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6889628572687878597
 MeshFilter:

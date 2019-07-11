@@ -78,10 +78,10 @@ public class Shooter : MonoSingleton<Shooter>
      * METOD ADI :  GoOneStepUp
      * AÇIKLAMA  :  shootStartPosition değerini 1 adım yükseltir.
      */
-    public void GoOneStepUp()
+    public void GoOneStepUp(float yPos)
     {
         _shootStartPosition = new Vector3(_shootStartPosition.x,
-            StageManager.Instance.currentStage.GetCurrentCakePart().transform.position.y + 0.05f,
+            yPos + 0.05f,
             _shootStartPosition.z);
 
         transform.position = _shootStartPosition;

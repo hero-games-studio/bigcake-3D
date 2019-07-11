@@ -27,6 +27,11 @@ public class Painter : MonoSingleton<Painter>
     public Material PieceColoredMaterial = null;
     public Material PieceColoredMaterialWhite = null;
 
+    [Header("Painting Variables")]
+    [SerializeField]
+    private float boundTime = 0.05f;
+    private float previousTime = -0.05f;
+
     [HideInInspector] public bool isPainting = false;
 
     [HideInInspector] public bool nearMiss = false;
@@ -53,6 +58,15 @@ public class Painter : MonoSingleton<Painter>
     private void Update()
     {
         GetInputs();
+
+        if (isPainting)
+        {
+            if (Time.time - previousTime > boundTime)
+            {
+                StageManager.Instance.currentStage.GetCurrentCakePart().PaintPieces();
+                previousTime = Time.time;
+            }
+        }
     }
 
     /*
@@ -74,7 +88,7 @@ public class Painter : MonoSingleton<Painter>
             isPainting = false;
             TurnBack();
         }
-        else 
+        else
         {
             Shooter.Instance.StopSqueeze();
         }

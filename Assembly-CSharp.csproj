@@ -62,23 +62,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BigCake3D\Scripts\Cake.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\CakePart.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Cake\Cake.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Cake\CakePart.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Cake\Cream.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Cake\Piece.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Cake\PieceState.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\CollisionChecker.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\Cream.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\GameManager.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Holder.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Managers\DataManager.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Managers\ParticleManager.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Managers\ScoreManager.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Managers\StageManager.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\Managers\UiManager.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\MonoSingleton.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Obstacle.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Painter.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\ParticleManager.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\Piece.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\PieceState.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Shooter.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Stage.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\StageManager.cs" />
-    <Compile Include="Assets\BigCake3D\Scripts\UiManager.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\UserData.cs" />
     <Compile Include="Assets\ThirdParty\_Creepy_Cat\3D Games Effects Pack Free\Example_02\InstanceExample.cs" />
     <Compile Include="Assets\ThirdParty\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\ThirdParty\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />

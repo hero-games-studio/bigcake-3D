@@ -12,3 +12,7 @@ public  class AnimatorParameters
     public static readonly int P_NEARMISS = Animator.StringToHash("NearMiss");
     public static readonly int P_ISSQUEEZE = Animator.StringToHash("IsSqueeze");
 }
+public class OtherData
+{
+    public static readonly string USERDATA_PATH = Application.persistentDataPath + "/userData.dat";
+}

@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 4195484908804876977}
   - component: {fileID: 4760569596179587498}
   m_Layer: 0
-  m_Name: pCylinder221
+  m_Name: Piece_15
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -965,7 +965,7 @@ Transform:
   - {fileID: 8794486731423321114}
   - {fileID: 5837814066574536729}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 1
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2861969577416704350
 MeshFilter:
@@ -982,7 +982,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879269075758971408}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1899,7 +1899,7 @@ GameObject:
   - component: {fileID: 5440024198685059554}
   - component: {fileID: 6455726122835149129}
   m_Layer: 0
-  m_Name: pCylinder211
+  m_Name: Piece_9
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1926,7 +1926,7 @@ Transform:
   - {fileID: 3271473799930820456}
   - {fileID: 2819570666590390176}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7175825922490388670
 MeshFilter:
@@ -1943,7 +1943,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565814713883361828}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3014,7 +3014,7 @@ GameObject:
   - component: {fileID: 8393575856648087503}
   - component: {fileID: 4510005248775291497}
   m_Layer: 0
-  m_Name: pCylinder222
+  m_Name: Piece_14
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3041,7 +3041,7 @@ Transform:
   - {fileID: 356967323074024774}
   - {fileID: 5813092676910230849}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 0
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5369603554928905354
 MeshFilter:
@@ -3058,7 +3058,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2572490010131254806}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3205,7 +3205,7 @@ GameObject:
   - component: {fileID: 7693801409323187862}
   - component: {fileID: 3809620952462874538}
   m_Layer: 0
-  m_Name: pCylinder220
+  m_Name: Piece_16
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3232,7 +3232,7 @@ Transform:
   - {fileID: 6019992216488196810}
   - {fileID: 3510946797093932424}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 2
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1518081219827191398
 MeshFilter:
@@ -3249,7 +3249,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2628067032856268929}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3319,7 +3319,7 @@ GameObject:
   - component: {fileID: 7221465983280663361}
   - component: {fileID: 6298025664681319915}
   m_Layer: 0
-  m_Name: pCylinder212
+  m_Name: Piece_8
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3346,7 +3346,7 @@ Transform:
   - {fileID: 4506829651091422102}
   - {fileID: 8845881249848014775}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8272740797380320254
 MeshFilter:
@@ -3363,7 +3363,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2714282332482253332}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3433,7 +3433,7 @@ GameObject:
   - component: {fileID: 7789369011216137953}
   - component: {fileID: 7262430823118291425}
   m_Layer: 0
-  m_Name: pCylinder216
+  m_Name: Piece_4
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3460,7 +3460,7 @@ Transform:
   - {fileID: 5054884030696415521}
   - {fileID: 7925126718795654313}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5038888305753280664
 MeshFilter:
@@ -3477,7 +3477,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2732940424208057517}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3560,9 +3560,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 1.05, y: 1, z: 1.05}
   m_Children:
-  - {fileID: 6378288169287447762}
-  - {fileID: 2820101701148324711}
-  - {fileID: 8724917941458047708}
   - {fileID: 6170839145768608441}
   - {fileID: 5485421553966192223}
   - {fileID: 232930317191512389}
@@ -3576,6 +3573,9 @@ Transform:
   - {fileID: 7256959195455676124}
   - {fileID: 9092610340133384679}
   - {fileID: 1855847614109257385}
+  - {fileID: 6378288169287447762}
+  - {fileID: 2820101701148324711}
+  - {fileID: 8724917941458047708}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4209,7 +4209,7 @@ GameObject:
   - component: {fileID: 3556971786208991234}
   - component: {fileID: 726894253904688531}
   m_Layer: 0
-  m_Name: pCylinder214
+  m_Name: Piece_6
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4236,7 +4236,7 @@ Transform:
   - {fileID: 5141806499508152577}
   - {fileID: 4043792602321465389}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3778746388397435986
 MeshFilter:
@@ -4253,7 +4253,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3355868931611149601}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4400,7 +4400,7 @@ GameObject:
   - component: {fileID: 8512655206309069704}
   - component: {fileID: 100082726961292727}
   m_Layer: 0
-  m_Name: pCylinder210
+  m_Name: Piece_10
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4427,7 +4427,7 @@ Transform:
   - {fileID: 6976386251286404462}
   - {fileID: 6809414354430290694}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1149757578389825567
 MeshFilter:
@@ -4444,7 +4444,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3428615060116311236}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5515,7 +5515,7 @@ GameObject:
   - component: {fileID: 6837741228068831916}
   - component: {fileID: 6890393556692995101}
   m_Layer: 0
-  m_Name: pCylinder209
+  m_Name: Piece_11
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5542,7 +5542,7 @@ Transform:
   - {fileID: 420871021335548470}
   - {fileID: 6471814611686557848}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 13
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5626528852399142625
 MeshFilter:
@@ -5559,7 +5559,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4141001627890516912}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6707,7 +6707,7 @@ GameObject:
   - component: {fileID: 3165302344523500928}
   - component: {fileID: 5235513980862484229}
   m_Layer: 0
-  m_Name: pCylinder208
+  m_Name: Piece_12
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6734,7 +6734,7 @@ Transform:
   - {fileID: 8179587434339764109}
   - {fileID: 3038063074164374635}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 14
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &148940116043302619
 MeshFilter:
@@ -6751,7 +6751,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4975679542266866217}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -7052,7 +7052,7 @@ GameObject:
   - component: {fileID: 3965514295849182287}
   - component: {fileID: 3836124725352530528}
   m_Layer: 0
-  m_Name: pCylinder219
+  m_Name: Piece_1
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7079,7 +7079,7 @@ Transform:
   - {fileID: 2955524244803753756}
   - {fileID: 1789799127076217225}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1447520062504372986
 MeshFilter:
@@ -7096,7 +7096,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5157352679476585738}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8629,7 +8629,7 @@ GameObject:
   - component: {fileID: 4653936753040322064}
   - component: {fileID: 7880819027845512431}
   m_Layer: 0
-  m_Name: pCylinder217
+  m_Name: Piece_3
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8656,7 +8656,7 @@ Transform:
   - {fileID: 1529648381329725715}
   - {fileID: 3058325311868611975}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7914307819036951441
 MeshFilter:
@@ -8673,7 +8673,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5988234962215043860}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8820,7 +8820,7 @@ GameObject:
   - component: {fileID: 5070407471607827902}
   - component: {fileID: 2781530494756694165}
   m_Layer: 0
-  m_Name: pCylinder207
+  m_Name: Piece_13
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8847,7 +8847,7 @@ Transform:
   - {fileID: 4848114379843627483}
   - {fileID: 5776624102407425899}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7754737337325877431
 MeshFilter:
@@ -8864,7 +8864,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6059779260041504374}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9858,7 +9858,7 @@ GameObject:
   - component: {fileID: 3436228391825185769}
   - component: {fileID: 4022519909925396444}
   m_Layer: 0
-  m_Name: pCylinder218
+  m_Name: Piece_2
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9885,7 +9885,7 @@ Transform:
   - {fileID: 6565448833436387278}
   - {fileID: 2627478259349581169}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3696119649296063855
 MeshFilter:
@@ -9902,7 +9902,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7225078420309692247}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10973,7 +10973,7 @@ GameObject:
   - component: {fileID: 5152653058765403828}
   - component: {fileID: 6213231569224279777}
   m_Layer: 0
-  m_Name: pCylinder213
+  m_Name: Piece_7
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11000,7 +11000,7 @@ Transform:
   - {fileID: 6133675921899699908}
   - {fileID: 3306710042666579770}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6560978603464047276
 MeshFilter:
@@ -11017,7 +11017,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7989566159069133685}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12242,7 +12242,7 @@ GameObject:
   - component: {fileID: 8775824202189792858}
   - component: {fileID: 1641628611016622900}
   m_Layer: 0
-  m_Name: pCylinder215
+  m_Name: Piece_5
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12269,7 +12269,7 @@ Transform:
   - {fileID: 5677724172394022625}
   - {fileID: 7654170251572935813}
   m_Father: {fileID: 2178210487881574217}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8398178708869495940
 MeshFilter:
@@ -12286,7 +12286,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788805638973586425}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
