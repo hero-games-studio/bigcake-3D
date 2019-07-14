@@ -141,9 +141,10 @@ public class StageManager : MonoSingleton<StageManager>
         currentStage.currentPartIndex++;
         if (currentStage.currentPartIndex >= currentStage.cakeParts.Count)
         {
+            Painter.Instance.MissionStage = true;
             currentStage.topping.SetActive(true);
-            FallDown(currentStage.topping.transform, currentStage.topping.transform.position, false, true);
-            Invoke("ExecNextStage", 1.5f);
+            currentStage.topping.GetComponent<Animator>().Play(AnimatorParameters.P_TOPPINGANIM);
+            Invoke("ExecNextStage", 2.05f);
         }
         else
         {
@@ -160,6 +161,7 @@ public class StageManager : MonoSingleton<StageManager>
      */
     private void ExecNextStage()
     {
+        ParticleManager.Instance.PlayFireworks();
         ResetPositions();
         GetNextStage();
     }
@@ -181,8 +183,6 @@ public class StageManager : MonoSingleton<StageManager>
      */
     private void GetNextStage()
     {
-        ParticleManager.Instance.PlayFireworks();
-        Painter.Instance.MissionStage = true;
         uiManager.ShowMissionState((currentStageIndex + 1).ToString());
     }
 

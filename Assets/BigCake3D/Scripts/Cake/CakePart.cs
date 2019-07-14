@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,18 +7,18 @@ public class CakePart : MonoBehaviour
 {
     #region Variables
     protected readonly float speed = 2.0f;
-    protected Vector3 rotateScale = new Vector3(0.0f, -7.5f, 0.0f);
+    protected Vector3 rotateScale = new Vector3(0.0f, -3.5f, 0.0f);
     protected List<Piece> childPieces = new List<Piece>();
 
     private Transform parentTransform = null;
 
+    private float rotateDuration = -0.675f;
     private int childIndex = 0;
     #endregion
 
     #region Builtin Methods
     private void Awake()
     {
-
         parentTransform = transform.parent;
         childPieces = GetComponentsInChildren<Piece>().ToList();
     }
@@ -60,8 +59,8 @@ public class CakePart : MonoBehaviour
      * METOD ADI :  RotateMe
      * AÇIKLAMA  :  objenin yavaş bir şekilde döndürülme işlemini yapar.
      */
-    public void RotateMe() =>
-        parentTransform.DOLocalRotate(rotateScale, -.75f, RotateMode.LocalAxisAdd);
+    public void RotateMe() => parentTransform.DORotate(
+        rotateScale, rotateDuration, RotateMode.LocalAxisAdd);// Debug.Log("Rotate");
 
 
     /*
@@ -70,6 +69,7 @@ public class CakePart : MonoBehaviour
      */
     public void ResetPart()
     {
+        childIndex = 0;
         foreach (var piece in childPieces)
         {
             piece.SetUnColored();

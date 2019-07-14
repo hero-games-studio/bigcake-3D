@@ -6,19 +6,19 @@ public class StageCreator : EditorWindow
     #region Variables
     private GameObject[] cakePrefabs = new GameObject[5];
     private GameObject obstacles = null;
-    private GameObject topping = null;
+    private GameObject toppingPrefab = null;
     private GameObject[] creamLayers = new GameObject[3];
 
     private int stageCount = 0;
     private int layerCount = 0;
 
     private Vector3 startPosition = new Vector3(0.0f, 0.1f, 0.0f);
-    private float cakeStep = 0.245f;
+    private float cakeStep = 0.345f;
     private float creamStep = 0.3f;
     #endregion
 
     #region Builtin Methods
-    [MenuItem("Tools/Stage Creator")]
+    [MenuItem("Tools/Big Cake/Stage Creator")]
     private static void Init()
     {
         StageCreator stageCreator = (StageCreator)GetWindow(typeof(StageCreator));
@@ -37,7 +37,7 @@ public class StageCreator : EditorWindow
         GUILayout.Space(15);
         obstacles = (GameObject)EditorGUILayout.ObjectField("Obstacles Prefab : ", obstacles, typeof(Object), true);
 
-        topping = (GameObject)EditorGUILayout.ObjectField("Topping Prefab : ", topping, typeof(Object), true);
+        toppingPrefab = (GameObject)EditorGUILayout.ObjectField("Topping Prefab : ", toppingPrefab, typeof(Object), true);
 
         GUILayout.Space(15);
         EditorGUILayout.LabelField("Krema Katmanları");
@@ -67,7 +67,8 @@ public class StageCreator : EditorWindow
     {
         GameObject stage = new GameObject();
         GameObject cakeLayers = new GameObject();
-        GameObject obstacle = Instantiate(obstacles);
+        GameObject obstacle = Instantiate(obstacles, startPosition, Quaternion.Euler(0, 0, 0));
+        GameObject topping = Instantiate(toppingPrefab);
 
         cakeLayers.transform.SetParent(stage.transform);
         obstacle.transform.SetParent(stage.transform);
@@ -79,20 +80,20 @@ public class StageCreator : EditorWindow
         for (int i = 0; i < layerCount; i++)
         {
             int cakeIndex = Random.Range(0, cakePrefabs.Length);
-            GameObject cake = Instantiate(cakePrefabs[cakeIndex]);
-            cake.transform.position = startPosition;
+            GameObject cake = Instantiate(cakePrefabs[cakeIndex], startPosition, Quaternion.Euler(0, 0, 0));
 
             int index = Random.Range(0, creamLayers.Length);
             startPosition.y += creamStep;
-            GameObject cream = Instantiate(creamLayers[index]);
-            cream.transform.position = startPosition;
+            GameObject cream = Instantiate(creamLayers[index], startPosition, Quaternion.Euler(0, 0, 0));
 
             startPosition.y += cakeStep;
 
             cake.transform.SetParent(cakeLayers.transform);
             cream.transform.SetParent(cakeLayers.transform);
         }
+        startPosition.y += 0.330f - cakeStep;
         topping.transform.position = startPosition;
+        topping.transform.rotation = Quaternion.Euler(270, 0, 0);
         topping.transform.SetParent(cakeLayers.transform);
         startPosition = new Vector3(0.0f, 0.1f, 0.0f);
     }

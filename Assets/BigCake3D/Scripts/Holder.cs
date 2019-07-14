@@ -11,6 +11,7 @@ public  class AnimatorParameters
 {
     public static readonly int P_NEARMISS = Animator.StringToHash("NearMiss");
     public static readonly int P_ISSQUEEZE = Animator.StringToHash("IsSqueeze");
+    public static readonly int P_TOPPINGANIM = Animator.StringToHash("ToppingAnimation");
 }
 public class OtherData
 {

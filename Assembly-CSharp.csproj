@@ -68,6 +68,7 @@
     <Compile Include="Assets\BigCake3D\Scripts\Cake\Piece.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Cake\PieceState.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\CollisionChecker.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\ExtensionMethods.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Holder.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Managers\DataManager.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Managers\GameManager.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\BigCake3D\Scripts\Managers\UiManager.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\MonoSingleton.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Obstacle.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\PaintCollisionChecker.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Painter.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Shooter.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Stage.cs" />

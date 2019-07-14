@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Painter : MonoSingleton<Painter>
 {
@@ -12,12 +11,11 @@ public class Painter : MonoSingleton<Painter>
     [SerializeField]
     private Vector3 _shooterDefaultPosition = new Vector3(0, 0, -3.5f);
 
-    [Header("Topping")]
+    [Header("Paint Bound")]
     [SerializeField]
-    private GameObject _toppingPrefab = null;
+    private float boundTime = 0.05f;
 
-    public Transform ToppingTransform { get; set; }
-
+    private float previousTime = -0.05f;
 
     [HideInInspector]
     public bool MissionStage { get; set; } = false;
@@ -26,11 +24,6 @@ public class Painter : MonoSingleton<Painter>
     public Material PieceUnColoredMaterial = null;
     public Material PieceColoredMaterial = null;
     public Material PieceColoredMaterialWhite = null;
-
-    [Header("Painting Variables")]
-    [SerializeField]
-    private float boundTime = 0.05f;
-    private float previousTime = -0.05f;
 
     [HideInInspector] public bool isPainting = false;
 
@@ -41,18 +34,6 @@ public class Painter : MonoSingleton<Painter>
     private void Awake()
     {
         MissionStage = false;
-        ToppingTransform = Instantiate(_toppingPrefab).transform;
-        ResetToppingPosition();
-    }
-
-    /*
-     * METOD ADI :  ResetToppingPosition
-     * AÇIKLAMA  :  Topping objesinin pozisyonunu ayarlar.
-     */
-    public void ResetToppingPosition()
-    {
-        ToppingTransform.position = new Vector3(0.0f, 75.0f, 0.0f);
-        ToppingTransform.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -112,5 +93,6 @@ public class Painter : MonoSingleton<Painter>
         Shooter.Instance.StopSqueeze();
         StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
     }
+
     #endregion
 }

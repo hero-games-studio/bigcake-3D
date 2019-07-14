@@ -83,7 +83,6 @@ public class Shooter : MonoSingleton<Shooter>
         _shootStartPosition = new Vector3(_shootStartPosition.x,
             yPos + 0.05f,
             _shootStartPosition.z);
-
         transform.position = _shootStartPosition;
     }
     #endregion

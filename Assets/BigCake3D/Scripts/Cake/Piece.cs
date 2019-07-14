@@ -29,28 +29,25 @@ public class Piece : MonoBehaviour
     public void SetColored()
     {
         _collider.enabled = false;
-        if (Painter.Instance.isPainting)
+        _meshRenderer.enabled = true;
+
+        ChangeChildrenVisibility(true);
+
+        if (State == PieceState.UnColored)
         {
-            _meshRenderer.enabled = true;
-
-            ChangeChildrenVisibility(true);
-
-            if (State == PieceState.UnColored)
+            ScoreManager.Instance.AddScore();
+            if (transform.parent.GetComponentInParent<Cream>() != null)
             {
-                ScoreManager.Instance.AddScore();
-                if (transform.parent.GetComponentInParent<Cream>() != null)
-                {
-                    _meshRenderer.material = Painter.Instance.PieceColoredMaterialWhite;
-                    ScaleLerp(Random.Range(0.2f, 0.45f));
-                }
-                else
-                {
-                    ScaleLerp(Random.Range(0.25f, 0.35f));
-                }
+                _meshRenderer.material = Painter.Instance.PieceColoredMaterialWhite;
+                ScaleLerp(Random.Range(0.2f, 0.45f));
             }
-            State = PieceState.Colored;
-            StageManager.Instance.RotateAndCheckCakePart();
+            else
+            {
+                ScaleLerp(Random.Range(0.25f, 0.35f));
+            }
         }
+        State = PieceState.Colored;
+        StageManager.Instance.RotateAndCheckCakePart();
         _uiManager.UpdateScoreText();
     }
 
