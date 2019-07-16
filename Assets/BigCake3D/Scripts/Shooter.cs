@@ -13,7 +13,7 @@ public class Shooter : MonoSingleton<Shooter>
     [SerializeField]
     private Vector3 _shootStartPosition = new Vector3(0, -0.375f, -1.5f);
 
-    private float _multiple = 7.5f;
+    private float multiply = 10.0f;
 
     [SerializeField]
     private Animator creamSqueezeAnimator = null;
@@ -44,12 +44,11 @@ public class Shooter : MonoSingleton<Shooter>
 
         var position = transform.position;
         targetPosition.y = position.y;
-        for (float timer = 0.0f; timer < 1.0f; timer += Time.deltaTime * _multiple)
+        for (float timer = 0.0f; timer < 1.0f; timer += Time.deltaTime * multiply)
         {
             transform.position = Vector3.Lerp(position, targetPosition, timer);
             yield return null;
         }
-        transform.position = targetPosition;
     }
 
     /*

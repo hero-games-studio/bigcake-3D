@@ -113,7 +113,7 @@ public class UiManager : MonoBehaviour
         ScoreManager.Instance.ResetNearMiss();
         UpdateNearMissSlider();
         Painter.Instance.nearMiss = true;
-        StartCoroutine(StageManager.Instance.ClearCurrentPartWithNearMiss());
+        StageManager.Instance.ClearCurrentPartWithNearMiss();
     }
 
     /*

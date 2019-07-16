@@ -28,6 +28,7 @@ public class Painter : MonoSingleton<Painter>
     [HideInInspector] public bool isPainting = false;
 
     [HideInInspector] public bool nearMiss = false;
+    [HideInInspector] public bool fail = false;
     #endregion
 
     #region All Methods
@@ -56,16 +57,26 @@ public class Painter : MonoSingleton<Painter>
      */
     private void GetInputs()
     {
+        if (MissionStage)
+        {
+            TurnBack();
+        }
+
         if ((Input.GetMouseButton(0) && !MissionStage) | nearMiss)
         {
-            if (!isPainting && !StageManager.Instance.fallingDown)
+            if (!isPainting && !StageManager.Instance.fallingDown && !fail)
             {
                 StartApproach();
                 isPainting = true;
             }
+            else if (fail)
+            {
+                TurnBack();
+            }
         }
         else if (Input.GetMouseButtonUp(0) && !MissionStage)
         {
+            fail = false;
             isPainting = false;
             TurnBack();
         }
@@ -90,9 +101,9 @@ public class Painter : MonoSingleton<Painter>
      */
     public void TurnBack()
     {
+        isPainting = false;
         Shooter.Instance.StopSqueeze();
         StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
     }
-
     #endregion
 }

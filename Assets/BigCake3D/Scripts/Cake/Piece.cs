@@ -1,25 +1,27 @@
-﻿using DG.Tweening;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
     public PieceState State = PieceState.UnColored;
     private MeshRenderer _meshRenderer = null;
-    private Collider _collider = null;
+    //private Collider _collider = null;
     private UiManager _uiManager = null;
+    private Vector3 pieceScale;
+    private float multiply = 1.5f;
+
+    private WaitForSeconds delay;
 
     public MeshRenderer PieceMeshRenderer { get { return _meshRenderer; } }
+    public int index = 0;
 
-    private Vector3 pieceScale;
-    private float multiply = 1.35f;
     private void Awake()
     {
-        multiply = GetComponentInParent<Cream>() != null ? 0.65f : 1.35f;
         pieceScale = transform.localScale;
         _uiManager = FindObjectOfType<UiManager>();
         _meshRenderer = GetComponent<Renderer>() as MeshRenderer;
-        _collider = GetComponent<Collider>();
+        //_collider = GetComponent<Collider>();
+        delay = new WaitForSeconds(OtherData.duration * Time.deltaTime);
     }
 
     /*
@@ -28,27 +30,23 @@ public class Piece : MonoBehaviour
      */
     public void SetColored()
     {
-        _collider.enabled = false;
+        //_collider.enabled = false;
         _meshRenderer.enabled = true;
 
         ChangeChildrenVisibility(true);
-
+        
         if (State == PieceState.UnColored)
         {
+            State = PieceState.Colored;
             ScoreManager.Instance.AddScore();
             if (transform.parent.GetComponentInParent<Cream>() != null)
             {
                 _meshRenderer.material = Painter.Instance.PieceColoredMaterialWhite;
-                ScaleLerp(Random.Range(0.2f, 0.45f));
             }
-            else
-            {
-                ScaleLerp(Random.Range(0.25f, 0.35f));
-            }
+            StartCoroutine(ScaleLerp());
         }
-        State = PieceState.Colored;
-        StageManager.Instance.RotateAndCheckCakePart();
         _uiManager.UpdateScoreText();
+        StageManager.Instance.RotateAndCheckCakePart();
     }
 
     private void ChangeChildrenVisibility(bool visiblity)
@@ -64,10 +62,15 @@ public class Piece : MonoBehaviour
      * AÇIKLAMA  :  Objenin localScale değerini 0 dan objenin başlangıç localScale
      *              değerine doğru arttırır.     
      */
-    private void ScaleLerp(float time)
+    private IEnumerator ScaleLerp()
     {
         transform.localScale = new Vector3(0.0f, transform.localScale.y, 0.0f);
-        transform.DOScale(pieceScale, time);
+        for (float time = 0; time < 1.0f; time += Time.deltaTime * multiply)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, pieceScale, time);
+            yield return delay;
+        }
+        transform.localScale = pieceScale;
     }
 
     /*
@@ -80,7 +83,7 @@ public class Piece : MonoBehaviour
         {
             _meshRenderer.material = Painter.Instance.PieceUnColoredMaterial;
         }
-        _collider.enabled = true;
+        //_collider.enabled = true;
         _meshRenderer.enabled = false;
 
         ChangeChildrenVisibility(false);

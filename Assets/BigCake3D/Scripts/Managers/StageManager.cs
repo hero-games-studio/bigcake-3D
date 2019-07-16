@@ -87,8 +87,10 @@ public class StageManager : MonoSingleton<StageManager>
             Painter.Instance.nearMiss = false;
             currentStage.obstacle.SetActive(true);
         }
+
         StartCoroutine(FallDown(currentStage.obstacle.transform, obstaclePosition, true));
         currentStage.GetCurrentCakePart().gameObject.SetActive(true);
+        currentStage.GetCurrentCakePart().ResetRotation();
         if (currentStage.GetCurrentCakePart() as Cream)
         {
             foreach (Piece piece in
@@ -96,7 +98,7 @@ public class StageManager : MonoSingleton<StageManager>
             {
                 piece.PieceMeshRenderer.enabled = false;
             }
-            currentStage.GetCurrentCakePart().ShowFirstPiece();
+            //currentStage.GetCurrentCakePart().ShowFirstPiece();
         }
         StartCoroutine(FallDown(currentStage.GetCurrentCakePart().transform,
             currentStage.GetCurrentCakePart().transform.position, false));
@@ -108,14 +110,16 @@ public class StageManager : MonoSingleton<StageManager>
      */
     public void RotateAndCheckCakePart()
     {
-        currentStage.GetCurrentCakePart().RotateMe();
-
         if (currentStage.GetCurrentCakePart().IsPartCompelete())
         {
             Painter.Instance.TurnBack();
             Painter.Instance.MissionStage = false;
 
             GetNextPart();
+        }
+        else
+        {
+            currentStage.GetCurrentCakePart().RotateMe();
         }
     }
 
@@ -125,9 +129,9 @@ public class StageManager : MonoSingleton<StageManager>
      */
     public void ResetCurrentPart()
     {
+        Painter.Instance.TurnBack();
         currentStage.GetCurrentCakePart().ResetPart();
         StopAllCoroutines();
-        Painter.Instance.TurnBack();
     }
 
     /*
@@ -137,6 +141,7 @@ public class StageManager : MonoSingleton<StageManager>
      */
     private void GetNextPart()
     {
+        Painter.Instance.TurnBack();
         ParticleManager.Instance.PlayStarRing(currentStage.GetCurrentCakePart().transform.position);
         currentStage.currentPartIndex++;
         if (currentStage.currentPartIndex >= currentStage.cakeParts.Count)
@@ -144,7 +149,7 @@ public class StageManager : MonoSingleton<StageManager>
             Painter.Instance.MissionStage = true;
             currentStage.topping.SetActive(true);
             currentStage.topping.GetComponent<Animator>().Play(AnimatorParameters.P_TOPPINGANIM);
-            Invoke("ExecNextStage", 2.05f);
+            Invoke("ExecNextStage", 2.0f);
         }
         else
         {
@@ -161,6 +166,7 @@ public class StageManager : MonoSingleton<StageManager>
      */
     private void ExecNextStage()
     {
+        Painter.Instance.TurnBack();
         ParticleManager.Instance.PlayFireworks();
         ResetPositions();
         GetNextStage();
@@ -190,11 +196,10 @@ public class StageManager : MonoSingleton<StageManager>
      * METOD ADI :  ClearCurrentPartWithNearMiss
      * AÇIKLAMA  :  Nearmiss clear butonuna basıldığında geçerli olan partı tamamen boyar.
      */
-    public IEnumerator ClearCurrentPartWithNearMiss()
+    public void ClearCurrentPartWithNearMiss()
     {
         currentStage.obstacle.SetActive(false);
         Shooter.Instance.StartSqueeze();
-        yield return delayNearMiss;
     }
 
     /*

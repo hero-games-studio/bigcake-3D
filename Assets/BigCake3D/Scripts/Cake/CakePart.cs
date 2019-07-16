@@ -6,14 +6,15 @@ using UnityEngine;
 public class CakePart : MonoBehaviour
 {
     #region Variables
-    protected readonly float speed = 2.0f;
-    protected Vector3 rotateScale = new Vector3(0.0f, -3.5f, 0.0f);
+    protected Vector3 rotateScale = new Vector3(0.0f, -12.0f, 0.0f);
     protected List<Piece> childPieces = new List<Piece>();
 
     private Transform parentTransform = null;
 
-    private float rotateDuration = -0.675f;
     private int childIndex = 0;
+
+    private bool canRotate = true;
+
     #endregion
 
     #region Builtin Methods
@@ -21,6 +22,12 @@ public class CakePart : MonoBehaviour
     {
         parentTransform = transform.parent;
         childPieces = GetComponentsInChildren<Piece>().ToList();
+        rotateScale.y = -360.0f / childPieces.Count;
+        for (int i = 0; i < childPieces.Count; i++)
+        {
+            childPieces[i].index = i;
+        }
+
     }
     #endregion
 
@@ -42,26 +49,38 @@ public class CakePart : MonoBehaviour
                 break;
             }
         }
-
         return allColored;
     }
 
+    /*
+     * METOD ADI :  PaintPieces
+     * AÇIKLAMA  :  Geçerli indexteki piece'nin boyanma işlemini başlatır.
+     */
     public void PaintPieces()
     {
         if (childIndex >= childPieces.Count)
         {
             childIndex = 0;
         }
-        childPieces[childIndex++].SetColored();
+
+        if (canRotate)
+        {
+            canRotate = false;
+            childPieces[childIndex++].SetColored();
+        }
     }
 
     /*
      * METOD ADI :  RotateMe
      * AÇIKLAMA  :  objenin yavaş bir şekilde döndürülme işlemini yapar.
      */
-    public void RotateMe() => parentTransform.DORotate(
-        rotateScale, rotateDuration, RotateMode.LocalAxisAdd);// Debug.Log("Rotate");
-
+    public void RotateMe()
+    {
+        parentTransform.DORotate(rotateScale, OtherData.duration, RotateMode.LocalAxisAdd).OnComplete(() =>
+        {
+            canRotate = true;
+        });
+    }
 
     /*
      * METOD ADI :  ResetPart
@@ -69,7 +88,6 @@ public class CakePart : MonoBehaviour
      */
     public void ResetPart()
     {
-        childIndex = 0;
         foreach (var piece in childPieces)
         {
             piece.SetUnColored();
@@ -77,5 +95,16 @@ public class CakePart : MonoBehaviour
     }
 
     public void ShowFirstPiece() => childPieces[0].SetColored();
+
+    public void ResetRotation()
+    {
+        int count = GetComponentsInChildren<Piece>().Length;
+        transform.parent.localRotation = Quaternion.Euler(
+            0.0f,
+                count == 32 ? (360.0f / count) * 0.85f :
+                count == 24 ? (360.0f / count) * 1.15f :
+                (360.0f / count) * 1.5f, 
+            0.0f);
+    }
     #endregion
 }

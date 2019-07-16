@@ -1,28 +1,50 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class DataManager
+public class DataManager<T> where T : IUserData
 {
-    public void Save(UserData data)
+    public T data { get; set; }
+
+    private static DataManager<T> instance = null;
+
+    private DataManager() { }
+
+    public static DataManager<T> Instance()
+    {
+        if (instance == null)
+        {
+            instance = new DataManager<T>();
+        }
+
+        return instance;
+    }
+
+    public void Save(T data)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream file = File.Create(OtherData.USERDATA_PATH);
+        FileStream file;
+
+        file = File.Open(OtherData.USERDATA_PATH, FileMode.OpenOrCreate);
 
         formatter.Serialize(file, data);
         file.Close();
     }
 
-    public UserData Load()
+    public void Load()
     {
-        UserData data = null;
         if (File.Exists(OtherData.USERDATA_PATH))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream file = File.Open(OtherData.USERDATA_PATH, FileMode.Open);
 
-            data = (UserData) formatter.Deserialize(file);
+            data = (T)formatter.Deserialize(file);
+            file.Close();
         }
-        return data;
+        else
+        {
+            data.Init();
+            Save(data);
+            Load();
+        }
     }
-
 }
