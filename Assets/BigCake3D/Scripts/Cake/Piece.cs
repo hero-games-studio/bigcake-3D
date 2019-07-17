@@ -8,7 +8,7 @@ public class Piece : MonoBehaviour
     //private Collider _collider = null;
     private UiManager _uiManager = null;
     private Vector3 pieceScale;
-    private float multiply = 1.5f;
+    private float multiply = 2.0f;
 
     private WaitForSeconds delay;
 

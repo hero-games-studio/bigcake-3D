@@ -113,7 +113,6 @@ public class StageManager : MonoSingleton<StageManager>
         if (currentStage.GetCurrentCakePart().IsPartCompelete())
         {
             Painter.Instance.TurnBack();
-            Painter.Instance.MissionStage = false;
 
             GetNextPart();
         }

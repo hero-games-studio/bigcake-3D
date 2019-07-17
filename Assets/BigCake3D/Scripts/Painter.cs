@@ -57,11 +57,6 @@ public class Painter : MonoSingleton<Painter>
      */
     private void GetInputs()
     {
-        if (MissionStage)
-        {
-            TurnBack();
-        }
-
         if ((Input.GetMouseButton(0) && !MissionStage) | nearMiss)
         {
             if (!isPainting && !StageManager.Instance.fallingDown && !fail)
@@ -104,6 +99,7 @@ public class Painter : MonoSingleton<Painter>
         isPainting = false;
         Shooter.Instance.StopSqueeze();
         StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
+        nearMiss = MissionStage = false;
     }
     #endregion
 }

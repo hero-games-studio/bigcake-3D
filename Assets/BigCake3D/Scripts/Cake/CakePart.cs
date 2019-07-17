@@ -14,7 +14,7 @@ public class CakePart : MonoBehaviour
     private int childIndex = 0;
 
     private bool canRotate = true;
-
+    private float multiply = 2.0f;
     #endregion
 
     #region Builtin Methods
@@ -101,9 +101,9 @@ public class CakePart : MonoBehaviour
         int count = GetComponentsInChildren<Piece>().Length;
         transform.parent.localRotation = Quaternion.Euler(
             0.0f,
-                count == 32 ? (360.0f / count) * 0.85f :
+                count >= 32 ? (360.0f / count) * 0.85f :
                 count == 24 ? (360.0f / count) * 1.15f :
-                (360.0f / count) * 1.5f, 
+                (360.0f / count) * 1.5f,
             0.0f);
     }
     #endregion
