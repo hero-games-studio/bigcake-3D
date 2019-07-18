@@ -67,7 +67,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
         _uiManager.UpdateNearMissSlider();
     }
     #endregion
-
+    /*
     private void OnGUI()
     {
         if (GUI.Button(new Rect(50, 50, 250, 125), "Tıkla"))
@@ -76,4 +76,5 @@ public class ScoreManager : MonoSingleton<ScoreManager>
             _uiManager.UpdateNearMissSlider();
         }
     }
+    */
 }

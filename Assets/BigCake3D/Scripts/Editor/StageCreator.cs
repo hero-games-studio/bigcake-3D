@@ -12,9 +12,11 @@ public class StageCreator : EditorWindow
     private int stageCount = 0;
     private int layerCount = 0;
 
-    private Vector3 startPosition = new Vector3(0.0f, 0.1f, 0.0f);
-    private float cakeStep = 0.345f;
-    private float creamStep = 0.3f;
+    private Vector3 startPosition = new Vector3(0.0f, 0.0f, 0.0f);
+    private float cakeStep = 0.25f;
+    private float creamStep = 0.35f;
+
+    private int block = 2;
     #endregion
 
     #region Builtin Methods
@@ -31,7 +33,7 @@ public class StageCreator : EditorWindow
         EditorGUILayout.BeginVertical();
         for (int i = 0; i < cakePrefabs.Length; i++)
         {
-            cakePrefabs[i] = 
+            cakePrefabs[i] =
                 (GameObject)EditorGUILayout.ObjectField("Pandispanya Prefab : ", cakePrefabs[i], typeof(Object), true);
         }
         GUILayout.Space(15);
@@ -80,21 +82,26 @@ public class StageCreator : EditorWindow
         for (int i = 0; i < layerCount; i++)
         {
             int cakeIndex = Random.Range(0, cakePrefabs.Length);
-            GameObject cake = Instantiate(cakePrefabs[cakeIndex], startPosition, Quaternion.Euler(0, 0, 0));
+            GameObject cake = Instantiate(cakePrefabs[cakeIndex], startPosition, Quaternion.Euler(0, 100, 0));
 
             int index = Random.Range(0, creamLayers.Length);
             startPosition.y += creamStep;
-            GameObject cream = Instantiate(creamLayers[index], startPosition, Quaternion.Euler(0, 0, 0));
+            GameObject cream = Instantiate(creamLayers[index], startPosition, Quaternion.Euler(0, 100, 0));
 
             startPosition.y += cakeStep;
 
             cake.transform.SetParent(cakeLayers.transform);
             cream.transform.SetParent(cakeLayers.transform);
         }
-        startPosition.y += 0.330f - cakeStep;
+        startPosition.y += cakeStep;
         topping.transform.position = startPosition;
         topping.transform.rotation = Quaternion.Euler(270, 0, 0);
         topping.transform.SetParent(cakeLayers.transform);
+        stageCount++;
+        if (stageCount % block == 0)
+        {
+            layerCount++;
+        }
         startPosition = new Vector3(0.0f, 0.1f, 0.0f);
     }
     #endregion

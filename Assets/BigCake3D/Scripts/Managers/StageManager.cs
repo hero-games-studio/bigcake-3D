@@ -130,7 +130,6 @@ public class StageManager : MonoSingleton<StageManager>
     {
         Painter.Instance.TurnBack();
         currentStage.GetCurrentCakePart().ResetPart();
-        StopAllCoroutines();
     }
 
     /*
@@ -168,7 +167,7 @@ public class StageManager : MonoSingleton<StageManager>
         Painter.Instance.TurnBack();
         ParticleManager.Instance.PlayFireworks();
         ResetPositions();
-        GetNextStage();
+        GetNextStage();        
     }
 
     /*
