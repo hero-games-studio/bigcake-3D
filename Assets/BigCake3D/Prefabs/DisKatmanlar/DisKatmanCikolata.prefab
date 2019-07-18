@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &4035100170824946024
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -197,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &3676706264547968321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -302,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &4378895946151869781
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -407,6 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &4268772358432824659
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -512,6 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &2533861397371850728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -617,6 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &6168250031518872864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -722,6 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &7483349550770024984
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -827,6 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &6476851839419932608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -932,6 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &4740936767704478119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1099,6 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &8504843348936232207
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1204,6 +1214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &5900458448022176206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1309,6 +1320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &4459189569231754224
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1414,6 +1426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &680923957815966742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1519,6 +1532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &7923071176088861688
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1624,6 +1638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &5402544748603510491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1729,6 +1744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &7286641582549130848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1834,6 +1850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &1029573628368939889
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1939,6 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &8784707919803550075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2044,6 +2062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &1148540342696590747
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2149,6 +2168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &1799781138301959458
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2254,6 +2274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &2264804342592347998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2359,6 +2380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &2176422004465079554
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2464,6 +2486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &5041023079480043591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2569,6 +2592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &2170729162549000629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2674,6 +2698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &8958733840964175217
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2779,6 +2804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &7731478912370195620
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2884,6 +2910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &6875670809678572410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2989,6 +3016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &5979403827644064871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3094,6 +3122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &1672581027768113805
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3199,6 +3228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &7651285083588425204
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3304,6 +3334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &7198959290829082422
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3409,6 +3440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  index: 0
 --- !u!65 &5239126111341407711
 BoxCollider:
   m_ObjectHideFlags: 0

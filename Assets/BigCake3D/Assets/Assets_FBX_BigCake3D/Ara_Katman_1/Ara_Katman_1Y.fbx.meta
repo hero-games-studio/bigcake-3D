@@ -3,7 +3,12 @@ guid: a1168bb471be27948adb29ee8c1c0db9
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pandispanya4
+    second: {fileID: 2100000, guid: d41f8ad39a3c0ab489f8e0b9ac285f0a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

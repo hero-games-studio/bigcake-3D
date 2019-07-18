@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/BigCake3D/Scenes/Game.unity
+- path: Assets/BigCake3D/Scenes/Game_New.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
