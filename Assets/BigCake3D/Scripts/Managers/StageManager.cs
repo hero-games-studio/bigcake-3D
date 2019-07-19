@@ -48,8 +48,8 @@ public class StageManager : MonoSingleton<StageManager>
     {
         fallingDown = true;
 
-        var pos = obstacle ? tr.position : topping ?
-            new Vector3(tr.position.x, 50.0f, tr.position.z) : new Vector3(tr.position.x, 6.0f, tr.position.z);
+        var pos = obstacle ? tr.position :
+            topping ? new Vector3(tr.position.x, 50.0f, tr.position.z) : new Vector3(tr.position.x, 6.0f, tr.position.z);
         tr.gameObject.SetActive(true);
         for (float time = 0.0f; time < 1.0f; time += Time.deltaTime)
         {
@@ -167,7 +167,7 @@ public class StageManager : MonoSingleton<StageManager>
         Painter.Instance.TurnBack();
         ParticleManager.Instance.PlayFireworks();
         ResetPositions();
-        GetNextStage();        
+        GetNextStage();
     }
 
     /*
@@ -176,7 +176,7 @@ public class StageManager : MonoSingleton<StageManager>
      */
     private void IncreaseCakePartPosititon()
     {
-        obstaclePosition.y = currentStage.GetCurrentCakePart().transform.position.y + 0.1f;
+        obstaclePosition.y = currentStage.GetCurrentCakePart().transform.position.y - 0.1f;
         cakePosition += isCake ? cakePositionStepSize : creamPositionStepSize;
         isCake = !isCake;
     }

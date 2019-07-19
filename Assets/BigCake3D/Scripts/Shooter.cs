@@ -49,6 +49,7 @@ public class Shooter : MonoSingleton<Shooter>
             transform.position = Vector3.Lerp(position, targetPosition, timer);
             yield return null;
         }
+        transform.position = targetPosition;
     }
 
     /*
