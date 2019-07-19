@@ -14,9 +14,6 @@ public class UiManager : MonoBehaviour
     private Slider _nearMissSlider = null;
 
     [SerializeField]
-    private Button _nearMissButton = null;
-
-    [SerializeField]
     private Animator _nearMissAnimator = null;
 
     [Header("Mission State")]
@@ -98,7 +95,6 @@ public class UiManager : MonoBehaviour
             _nearMissAnimator.SetTrigger(AnimatorParameters.P_NEARMISS);
             Invoke("ResetNearMissTrigger", 1.1f);
         }
-        _nearMissButton.interactable = ScoreManager.Instance.GetNearMiss() >= 10.0f;
         _nearMissSlider.value = ScoreManager.Instance.GetNearMiss() * 0.1f;
     }
 
@@ -108,12 +104,14 @@ public class UiManager : MonoBehaviour
      */
     public void ClearCurrentStageLayer()
     {
-        Painter.Instance.MissionStage = true;
-        _nearMissButton.interactable = false;
-        ScoreManager.Instance.ResetNearMiss();
-        UpdateNearMissSlider();
-        Painter.Instance.nearMiss = true;
-        StageManager.Instance.ClearCurrentPartWithNearMiss();
+        if (_nearMissSlider.value >= 1.0f)
+        {
+            Painter.Instance.MissionStage = true;
+            ScoreManager.Instance.ResetNearMiss();
+            UpdateNearMissSlider();
+            Painter.Instance.nearMiss = true;
+            StageManager.Instance.ClearCurrentPartWithNearMiss();
+        }
     }
 
     /*

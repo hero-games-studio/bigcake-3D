@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/BigCake3D/Scenes/Game_Old_Not_Light_Baked.unity
-    guid: 9810e6cb35640994a948a062322dccbd
+    path: Assets/BigCake3D/Scenes/Game_New.unity
+    guid: b0ae32c35e52dbd4a85f78313c0333bd
   m_configObjects: {}

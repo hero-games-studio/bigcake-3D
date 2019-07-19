@@ -72,8 +72,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_55FF7EFC: {r: 0.8745098, g: 0.5108266, b: 0.1607843, a: 0}
-    - Color_64F0EF6E: {r: 0.5188679, g: 0.2689654, b: 0.08566214, a: 0}
+    - Color_55FF7EFC: {r: 0.8113208, g: 0.8039216, b: 0.26666668, a: 0}
+    - Color_64F0EF6E: {r: 0.8745098, g: 1, b: 0.6862745, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

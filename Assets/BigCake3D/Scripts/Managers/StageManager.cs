@@ -197,6 +197,7 @@ public class StageManager : MonoSingleton<StageManager>
     public void ClearCurrentPartWithNearMiss()
     {
         currentStage.obstacle.SetActive(false);
+        Painter.Instance.StartApproach();
         Shooter.Instance.StartSqueeze();
     }
 

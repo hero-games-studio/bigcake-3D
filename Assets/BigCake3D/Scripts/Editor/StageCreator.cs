@@ -98,11 +98,11 @@ public class StageCreator : EditorWindow
         topping.transform.rotation = Quaternion.Euler(270, 0, 0);
         topping.transform.SetParent(cakeLayers.transform);
         stageCount++;
-        if (stageCount % block == 0)
+        if (stageCount % block == 0 && layerCount <= 7)
         {
             layerCount++;
         }
-        startPosition = new Vector3(0.0f, 0.1f, 0.0f);
+        startPosition = new Vector3(0.0f, 0.0f, 0.0f);
     }
     #endregion
 }
