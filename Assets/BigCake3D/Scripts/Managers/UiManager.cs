@@ -16,6 +16,9 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     private Animator _nearMissAnimator = null;
 
+    [SerializeField]
+    private Animator _nearMissPulseAnimator = null;
+
     [Header("Mission State")]
     [SerializeField]
     private GameObject _missionStatePanel = null;
@@ -70,6 +73,8 @@ public class UiManager : MonoBehaviour
     {
         StopAllCoroutines();
         Painter.Instance.TurnBack();
+        Painter.Instance.MissionStage = true;
+        Painter.Instance.nearMiss = false;
         _missionStatePanel.SetActive(true);
         _levelNumberText.text = stageNumber;
     }
@@ -80,6 +85,7 @@ public class UiManager : MonoBehaviour
      */
     public void HideMissionState()
     {
+        Painter.Instance.nearMiss = true;
         Painter.Instance.MissionStage = false;
         _missionStatePanel.SetActive(false);
     }
@@ -96,6 +102,8 @@ public class UiManager : MonoBehaviour
             Invoke("ResetNearMissTrigger", 1.1f);
         }
         _nearMissSlider.value = ScoreManager.Instance.GetNearMiss() * 0.1f;
+        _nearMissPulseAnimator.SetBool(AnimatorParameters.P_PULSE,
+            ScoreManager.Instance.GetNearMiss() >= 10.0f);
     }
 
     /*

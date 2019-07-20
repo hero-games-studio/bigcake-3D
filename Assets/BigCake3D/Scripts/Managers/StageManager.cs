@@ -82,15 +82,10 @@ public class StageManager : MonoSingleton<StageManager>
      */
     private void PrepareCurrentPart()
     {
-        if (Painter.Instance.nearMiss)
-        {
-            Painter.Instance.nearMiss = false;
-            currentStage.obstacle.SetActive(true);
-        }
-
         StartCoroutine(FallDown(currentStage.obstacle.transform, obstaclePosition, true));
         currentStage.GetCurrentCakePart().gameObject.SetActive(true);
         currentStage.GetCurrentCakePart().ResetRotation();
+        Shooter.Instance.SetCreamMaterial(currentStage.GetCurrentCakePart().GetPieceColor());
         if (currentStage.GetCurrentCakePart() as Cream)
         {
             foreach (Piece piece in
@@ -102,6 +97,12 @@ public class StageManager : MonoSingleton<StageManager>
         }
         StartCoroutine(FallDown(currentStage.GetCurrentCakePart().transform,
             currentStage.GetCurrentCakePart().transform.position, false));
+        if (Painter.Instance.nearMiss)
+        {
+            Painter.Instance.nearMiss = false;
+            currentStage.obstacle.SetActive(true);
+        }
+        Painter.Instance.MissionStage = false;
     }
 
     /*
@@ -207,6 +208,7 @@ public class StageManager : MonoSingleton<StageManager>
      */
     public void PrepareNextStage()
     {
+        Painter.Instance.MissionStage = true;
         ParticleManager.Instance.StopFireworks();
         ResetPositions();
         currentStage.stage.SetActive(false);
@@ -220,7 +222,7 @@ public class StageManager : MonoSingleton<StageManager>
         PrepareCurrentStage();
         uiManager.HideMissionState();
         uiManager.UpdateProgressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
-     currentStageIndex + 1, currentStageIndex + 2);
+        currentStageIndex + 1, currentStageIndex + 2);
     }
 
     /*

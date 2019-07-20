@@ -18,6 +18,9 @@ public class Shooter : MonoSingleton<Shooter>
     [SerializeField]
     private Animator creamSqueezeAnimator = null;
 
+    [SerializeField]
+    private Renderer creamRenderer = null;
+
     /*
      * METOD ADI :  ResetShootStartPosition
      * AÇIKLAMA  :  shootStartPosition değerini sıfırlar.
@@ -84,6 +87,11 @@ public class Shooter : MonoSingleton<Shooter>
             yPos + 0.05f,
             _shootStartPosition.z);
         transform.position = _shootStartPosition;
+    }
+
+    public void SetCreamMaterial(Material material)
+    {
+        creamRenderer.material = material;
     }
     #endregion
 }

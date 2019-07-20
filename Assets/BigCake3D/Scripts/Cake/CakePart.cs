@@ -15,6 +15,7 @@ public class CakePart : MonoBehaviour
 
     private bool canRotate = true;
     private float multiply = 2.0f;
+
     #endregion
 
     #region Builtin Methods
@@ -27,11 +28,13 @@ public class CakePart : MonoBehaviour
         {
             childPieces[i].index = i;
         }
-
     }
     #endregion
 
     #region Custom Methods
+    public Material GetPieceColor() =>
+        childPieces[0].GetComponent<Renderer>().material;
+
     /*
      * METOD ADI :  IsPartCompelete
      * AÇIKLAMA  :  Objenin bütün alt objelerinin boyanıp boyanmadığını
