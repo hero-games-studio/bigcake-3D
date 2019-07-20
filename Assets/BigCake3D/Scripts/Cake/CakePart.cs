@@ -14,7 +14,6 @@ public class CakePart : MonoBehaviour
     private int childIndex = 0;
 
     private bool canRotate = true;
-    private float multiply = 2.0f;
 
     #endregion
 

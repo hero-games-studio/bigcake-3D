@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
 
 public class StageManager : MonoSingleton<StageManager>
 {
@@ -34,6 +35,7 @@ public class StageManager : MonoSingleton<StageManager>
 
     private void Awake()
     {
+        GameAnalytics.Initialize();
         PrepareCurrentStage();
         uiManager.UpdateProgressBar(0,
             currentStageIndex + 1, currentStageIndex + 2);
@@ -145,6 +147,9 @@ public class StageManager : MonoSingleton<StageManager>
         currentStage.currentPartIndex++;
         if (currentStage.currentPartIndex >= currentStage.cakeParts.Count)
         {
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, Application.version,
+                currentStageIndex.ToString("00000"), ScoreManager.Instance.GetScore());
+
             Painter.Instance.MissionStage = true;
             currentStage.topping.SetActive(true);
             currentStage.topping.GetComponent<Animator>().Play(AnimatorParameters.P_TOPPINGANIM);
@@ -213,6 +218,10 @@ public class StageManager : MonoSingleton<StageManager>
         ResetPositions();
         currentStage.stage.SetActive(false);
         currentStage.ResetStage();
+
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start,
+            Application.version, currentStageIndex.ToString("0000"));
+
         currentStageIndex++;
         if (currentStageIndex >= stages.Count)
         {

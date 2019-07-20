@@ -4,6 +4,8 @@ ScriptsOnlyBuild:
     - Cake
     - CollisionChecker
     - Cream
+    - GameAnalyticsSDK.Events.GA_SpecialEvents
+    - GameAnalyticsSDK.GameAnalytics
     - GameAnalyticsSDK.Setup.Settings
     - Obstacle
     - Painter
@@ -92,37 +94,39 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9784}
-    - Class: 114
       Script: {instanceID: 9786}
     - Class: 114
-      Script: {instanceID: 9792}
+      Script: {instanceID: 9788}
     - Class: 114
       Script: {instanceID: 9794}
     - Class: 114
-      Script: {instanceID: 9798}
+      Script: {instanceID: 9796}
     - Class: 114
-      Script: {instanceID: 9806}
+      Script: {instanceID: 9800}
     - Class: 114
-      Script: {instanceID: 9840}
+      Script: {instanceID: 9808}
     - Class: 114
       Script: {instanceID: 9842}
     - Class: 114
-      Script: {instanceID: 10058}
+      Script: {instanceID: 9844}
     - Class: 114
-      Script: {instanceID: 10172}
+      Script: {instanceID: 10060}
     - Class: 114
-      Script: {instanceID: 10256}
+      Script: {instanceID: 10174}
     - Class: 114
-      Script: {instanceID: 10386}
+      Script: {instanceID: 10258}
     - Class: 114
-      Script: {instanceID: 10390}
+      Script: {instanceID: 10388}
     - Class: 114
-      Script: {instanceID: 10742}
+      Script: {instanceID: 10392}
     - Class: 114
-      Script: {instanceID: 10752}
+      Script: {instanceID: 10744}
     - Class: 114
-      Script: {instanceID: 10776}
+      Script: {instanceID: 10754}
+    - Class: 114
+      Script: {instanceID: 10778}
+    - Class: 114
+      Script: {instanceID: 10780}
     - Class: 114
       Script: {instanceID: 11106}
     - Class: 114
@@ -140,13 +144,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11492}
     - Class: 114
-      Script: {instanceID: 11654}
+      Script: {instanceID: 11614}
     - Class: 114
-      Script: {instanceID: 11774}
+      Script: {instanceID: 11652}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11772}
     - Class: 114
-      Script: {instanceID: 11868}
+      Script: {instanceID: 11816}
+    - Class: 114
+      Script: {instanceID: 11864}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
