@@ -29,29 +29,15 @@ public class Piece : MonoBehaviour
     public void SetColored()
     {
         _meshRenderer.enabled = true;
-
-        ChangeChildrenVisibility(true);
-        
+                
         if (State == PieceState.UnColored)
         {
             State = PieceState.Colored;
             ScoreManager.Instance.AddScore();
-            /*if (transform.parent.GetComponentInParent<Cream>() != null)
-            {
-                _meshRenderer.material = Painter.Instance.PieceColoredMaterialWhite;
-            }*/
             StartCoroutine(ScaleLerp());
         }
         _uiManager.UpdateScoreText();
         StageManager.Instance.RotateAndCheckCakePart();
-    }
-
-    private void ChangeChildrenVisibility(bool visiblity)
-    {
-        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
-        {
-            renderer.enabled = visiblity;
-        }
     }
 
     /*
@@ -76,14 +62,8 @@ public class Piece : MonoBehaviour
      */
     public void SetUnColored(bool nearMiss = false)
     {
-        /*if (transform.parent.GetComponentInParent<Cream>() != null)
-        {
-            _meshRenderer.material = Painter.Instance.PieceUnColoredMaterial;
-        }*/
         _meshRenderer.enabled = false;
-
-        ChangeChildrenVisibility(false);
-
+        
         State = PieceState.UnColored;
         _uiManager.UpdateScoreText();
         if (nearMiss)

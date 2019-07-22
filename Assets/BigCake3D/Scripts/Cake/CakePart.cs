@@ -14,7 +14,6 @@ public class CakePart : MonoBehaviour
     private int childIndex = 0;
 
     private bool canRotate = true;
-
     #endregion
 
     #region Builtin Methods

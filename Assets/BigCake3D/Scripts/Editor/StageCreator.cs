@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
+using System.Linq;
 
 public class StageCreator : EditorWindow
 {
     #region Variables
-    private GameObject[] cakePrefabs = new GameObject[5];
-    private GameObject obstacles = null;
+    private GameObject[] cakePrefabs = new GameObject[3];
+    private GameObject[] obstacles = new GameObject[7];
     private GameObject toppingPrefab = null;
     private GameObject[] creamLayers = new GameObject[3];
 
@@ -13,8 +15,9 @@ public class StageCreator : EditorWindow
     private int layerCount = 0;
 
     private Vector3 startPosition = new Vector3(0.0f, 0.0f, 0.0f);
-    private float cakeStep = 0.25f;
-    private float creamStep = 0.35f;
+    private float cakeStep = 0.275f;
+    private float creamStep = 0.325f;
+    private float toppingStep = 0.1f;
 
     private int block = 2;
     #endregion
@@ -37,7 +40,10 @@ public class StageCreator : EditorWindow
                 (GameObject)EditorGUILayout.ObjectField("Pandispanya Prefab : ", cakePrefabs[i], typeof(Object), true);
         }
         GUILayout.Space(15);
-        obstacles = (GameObject)EditorGUILayout.ObjectField("Obstacles Prefab : ", obstacles, typeof(Object), true);
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            obstacles[i] = (GameObject)EditorGUILayout.ObjectField("Obstacles Prefab : " + (i+1), obstacles[i], typeof(Object), true);
+        }
 
         toppingPrefab = (GameObject)EditorGUILayout.ObjectField("Topping Prefab : ", toppingPrefab, typeof(Object), true);
 
@@ -69,7 +75,8 @@ public class StageCreator : EditorWindow
     {
         GameObject stage = new GameObject();
         GameObject cakeLayers = new GameObject();
-        GameObject obstacle = Instantiate(obstacles, startPosition, Quaternion.Euler(0, 0, 0));
+        int ind = Random.Range(0, obstacles.Length);
+        GameObject obstacle = Instantiate(obstacles[ind], startPosition, Quaternion.Euler(0, 0, 0));
         GameObject topping = Instantiate(toppingPrefab);
 
         cakeLayers.transform.SetParent(stage.transform);
@@ -93,7 +100,7 @@ public class StageCreator : EditorWindow
             cake.transform.SetParent(cakeLayers.transform);
             cream.transform.SetParent(cakeLayers.transform);
         }
-        startPosition.y += cakeStep;
+        startPosition.y += toppingStep;
         topping.transform.position = startPosition;
         topping.transform.rotation = Quaternion.Euler(270, 0, 0);
         topping.transform.SetParent(cakeLayers.transform);
