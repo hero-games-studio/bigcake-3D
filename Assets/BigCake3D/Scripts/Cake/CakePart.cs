@@ -32,7 +32,7 @@ public class CakePart : MonoBehaviour
 
     #region Custom Methods
     public Material GetPieceColor() =>
-        childPieces[0].GetComponent<Renderer>().material;
+        GetComponentsInChildren<Piece>()[0].GetComponent<Renderer>().material;
 
     /*
      * METOD ADI :  IsPartCompelete

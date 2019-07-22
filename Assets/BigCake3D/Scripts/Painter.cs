@@ -29,6 +29,7 @@ public class Painter : MonoSingleton<Painter>
 
     [HideInInspector] public bool nearMiss = false;
     [HideInInspector] public bool fail = false;
+    [HideInInspector] public bool goingUp = false;
     #endregion
 
     #region All Methods
@@ -57,7 +58,7 @@ public class Painter : MonoSingleton<Painter>
      */
     private void GetInputs()
     {
-        if ((Input.GetMouseButton(0) && !MissionStage) | nearMiss)
+        if (!goingUp && (Input.GetMouseButton(0) && !MissionStage) | nearMiss)
         {
             if (!isPainting && !StageManager.Instance.fallingDown && !fail)
             {

@@ -7,7 +7,9 @@ public class StageManager : MonoSingleton<StageManager>
 {
     #region Variables
     public List<Stage> stages;
-    private int currentStageIndex = 0;
+
+    [HideInInspector]
+    public int currentStageIndex = 0;
 
     [HideInInspector]
     public bool fallingDown = false;
@@ -29,6 +31,8 @@ public class StageManager : MonoSingleton<StageManager>
     [SerializeField] private UiManager uiManager = null;
 
     private WaitForSeconds delayNearMiss = new WaitForSeconds(0.75f);
+
+    DataManager dataManager;
     #endregion
 
     #region Methods 
@@ -36,7 +40,19 @@ public class StageManager : MonoSingleton<StageManager>
     private void Awake()
     {
         GameAnalytics.Initialize();
+
+        dataManager = DataManager.Instance;
+        dataManager.Load();
+
+        currentStageIndex = dataManager.data.level;
+
+        for (int i = 0; i < currentStageIndex; i++)
+        {
+            stages[i].stage.SetActive(false);
+        }
+
         PrepareCurrentStage();
+
         uiManager.UpdateProgressBar(0,
             currentStageIndex + 1, currentStageIndex + 2);
     }
@@ -50,6 +66,7 @@ public class StageManager : MonoSingleton<StageManager>
     {
         fallingDown = true;
 
+        Painter.Instance.goingUp = true;
         var pos = obstacle ? tr.position :
             topping ? new Vector3(tr.position.x, 50.0f, tr.position.z) : new Vector3(tr.position.x, 6.0f, tr.position.z);
         tr.gameObject.SetActive(true);
@@ -64,7 +81,6 @@ public class StageManager : MonoSingleton<StageManager>
         {
             Shooter.Instance.GoOneStepUp(target.y);
         }
-        fallingDown = false;
     }
 
     /*
@@ -116,7 +132,7 @@ public class StageManager : MonoSingleton<StageManager>
         if (currentStage.GetCurrentCakePart().IsPartCompelete())
         {
             Painter.Instance.TurnBack();
-
+            Shooter.Instance.StopSqueeze();
             GetNextPart();
         }
         else
@@ -143,6 +159,7 @@ public class StageManager : MonoSingleton<StageManager>
     private void GetNextPart()
     {
         Painter.Instance.TurnBack();
+
         ParticleManager.Instance.PlayStarRing(currentStage.GetCurrentCakePart().transform.position);
         currentStage.currentPartIndex++;
         if (currentStage.currentPartIndex >= currentStage.cakeParts.Count)
@@ -223,6 +240,15 @@ public class StageManager : MonoSingleton<StageManager>
             Application.version, currentStageIndex.ToString("0000"));
 
         currentStageIndex++;
+
+        dataManager.data.bestScore =
+            dataManager.data.bestScore < ScoreManager.Instance.GetScore() ?
+            ScoreManager.Instance.GetScore() : dataManager.data.bestScore;
+
+        dataManager.data.level = currentStageIndex;
+
+        dataManager.Save();
+
         if (currentStageIndex >= stages.Count)
         {
             currentStageIndex = 0;

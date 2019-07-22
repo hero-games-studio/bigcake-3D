@@ -83,10 +83,14 @@ public class Shooter : MonoSingleton<Shooter>
      */
     public void GoOneStepUp(float yPos)
     {
+        //Painter.Instance.fail = true;
         _shootStartPosition = new Vector3(_shootStartPosition.x,
             yPos + 0.05f,
             _shootStartPosition.z);
         transform.position = _shootStartPosition;
+
+        StageManager.Instance.fallingDown = false;
+        Painter.Instance.goingUp = false;
     }
 
     public void SetCreamMaterial(Material material)

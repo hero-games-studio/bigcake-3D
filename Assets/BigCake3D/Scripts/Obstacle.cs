@@ -18,6 +18,9 @@ public class Obstacle : MonoBehaviour
      */
     private void RotateObstacles()
     {
-        transform.Rotate(Vector3.up, _increaseRotationScale * Time.deltaTime);
+        transform.Rotate(Vector3.up, (_increaseRotationScale * Time.deltaTime) +
+            ( (StageManager.Instance.currentStageIndex+1) *
+            StageManager.Instance.currentStage.currentPartIndex+1 >= 5 ?
+            5 : StageManager.Instance.currentStage.currentPartIndex + 1) * Time.deltaTime);
     }
 }

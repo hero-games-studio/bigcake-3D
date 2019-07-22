@@ -86,8 +86,8 @@ public class UiManager : MonoBehaviour
     public void HideMissionState()
     {
         Painter.Instance.nearMiss = true;
-        Painter.Instance.MissionStage = false;
         _missionStatePanel.SetActive(false);
+        Painter.Instance.MissionStage = false;
     }
 
     /*
@@ -114,7 +114,6 @@ public class UiManager : MonoBehaviour
     {
         if (_nearMissSlider.value >= 1.0f)
         {
-            Painter.Instance.MissionStage = true;
             ScoreManager.Instance.ResetNearMiss();
             UpdateNearMissSlider();
             Painter.Instance.nearMiss = true;
