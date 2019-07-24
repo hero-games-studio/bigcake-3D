@@ -125,7 +125,6 @@ public class UiManager : MonoBehaviour
         if (_nearMissSlider.value >= 1.0f)
         {
             ScoreManager.Instance.ResetNearMiss();
-            UpdateNearMissSlider();
             Painter.Instance.nearMiss = true;
             StageManager.Instance.ClearCurrentPartWithNearMiss();
         }
