@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class UiManager : MonoBehaviour
@@ -58,11 +59,15 @@ public class UiManager : MonoBehaviour
      * METOD ADI :  UpdateProgressBar
      * AÇIKLAMA  :  ProgressBar'ı günceller
      */
-    public void UpdateProgressBar(float barValue, int currentLevel, int nextLevel)
+    public IEnumerator UpdateProgressBar(float barValue, int currentLevel, int nextLevel)
     {
-        progressBarSlider.value = barValue;
-        currentLevelText.text = currentLevel.ToString();
-        nextLevelText.text = nextLevel.ToString();
+		for(float time = 0.0f; time < 1.0f; time += Time.deltaTime * 2.5f)
+		{
+			progressBarSlider.value = Mathf.Lerp(progressBarSlider.value, barValue, time);
+			yield return null;
+		}
+		currentLevelText.text = currentLevel.ToString();
+		nextLevelText.text = nextLevel.ToString();
     }
 
     /*
@@ -94,14 +99,19 @@ public class UiManager : MonoBehaviour
      * METOD ADI :  UpdateNearMissSlider
      * AÇIKLAMA  :  NearMiss slider'ini NearMiss değerine göre günceller.
      */
-    public void UpdateNearMissSlider(bool nearMiss = false)
+    public IEnumerator UpdateNearMissSlider(bool nearMiss = false)
     {
         if (nearMiss)
         {
             _nearMissAnimator.SetTrigger(AnimatorParameters.P_NEARMISS);
             Invoke("ResetNearMissTrigger", 1.1f);
         }
-        _nearMissSlider.value = ScoreManager.Instance.GetNearMiss() * 0.1f;
+		for(float time = 0.0f; time <1.0f; time += Time.deltaTime * 3.0f)
+		{
+			_nearMissSlider.value = 
+				Mathf.Lerp(_nearMissSlider.value, ScoreManager.Instance.GetNearMiss() * 0.1f, time);
+				yield return null;
+		}
         _nearMissPulseAnimator.SetBool(AnimatorParameters.P_PULSE,
             ScoreManager.Instance.GetNearMiss() >= 10.0f);
     }

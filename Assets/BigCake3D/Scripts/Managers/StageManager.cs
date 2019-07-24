@@ -53,8 +53,8 @@ public class StageManager : MonoSingleton<StageManager>
 
         PrepareCurrentStage();
 
-        uiManager.UpdateProgressBar(0,
-            currentStageIndex + 1, currentStageIndex + 2);
+        StartCoroutine(uiManager.UpdateProgressBar(0,
+            currentStageIndex + 1, currentStageIndex + 2));
     }
 
     /*
@@ -177,8 +177,8 @@ public class StageManager : MonoSingleton<StageManager>
             IncreaseCakePartPosititon();
             PrepareCurrentPart();
         }
-        uiManager.UpdateProgressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
-            currentStageIndex + 1, currentStageIndex + 2);
+        StartCoroutine(uiManager.UpdateProgressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
+            currentStageIndex + 1, currentStageIndex + 2));
     }
 
     /*
@@ -256,8 +256,8 @@ public class StageManager : MonoSingleton<StageManager>
         }
         PrepareCurrentStage();
         uiManager.HideMissionState();
-        uiManager.UpdateProgressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
-        currentStageIndex + 1, currentStageIndex + 2);
+        StartCoroutine(uiManager.UpdateProgressBar((float)currentStage.currentPartIndex / currentStage.cakeParts.Count,
+        currentStageIndex + 1, currentStageIndex + 2));
     }
 
     /*
