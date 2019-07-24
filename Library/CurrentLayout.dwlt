@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 9}
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 33
+  controlID: 69
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 494}
   m_MaxSize: {x: 22012, y: 14044}
   vertical: 1
-  controlID: 124
+  controlID: 61
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 494}
   m_MaxSize: {x: 22012, y: 14044}
   vertical: 0
-  controlID: 125
+  controlID: 62
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &10
 MonoBehaviour:
@@ -487,20 +487,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/BigCake3D/Assets/Assets_FBX_BigCake3D/Yeni_Engeller
+    - Assets/BigCake3D/Sprites/nearMiss_BG
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/BigCake3D/Assets/Assets_FBX_BigCake3D/Yeni_Engeller
+  - Assets/BigCake3D/Sprites/nearMiss_BG
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\GOKAY\Downloads\BigCake3D\bigcake-3D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 345}
-    m_SelectedIDs: ee030100
-    m_LastClickedID: 66542
-    m_ExpandedIDs: 000000002630000028320000ce34000012360000663900007c390000d83a0000103b00005a3d0000a83d0000183e00003c400000a24200008403010086030100880301008a0301008c0301008e0301009003010092030100940301009603010000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: f03e0000
+    m_LastClickedID: 16112
+    m_ExpandedIDs: 000000002e300000d63400001c36000070390000e83a0000aa3c00005c400000c2420000a4030100a6030100a8030100aa030100ac030100ae030100b0030100b2030100b4030100b603010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -528,7 +528,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002630000028320000ce3400001236000066390000d83a0000103b00005a3d0000a83d00003c400000a24200008403010086030100880301008a0301008c0301008e03010090030100920301009403010096030100
+    m_ExpandedIDs: 000000002e30000030320000d63400001c36000070390000e83a0000783d0000c63d0000363e00005c400000c2420000a4030100a6030100a8030100aa030100ac030100ae030100b0030100b2030100b4030100b6030100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -559,18 +559,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000ec5000006a4800000c4f000088520000e84800007a5100005c480000c64800009cd30100002e0000cab90000522f00001ea80e008a4b0000264c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Yeni_Engel_O
-      m_OriginalName: Yeni_Engel_O
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 66560
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 3}
     m_CreateAssetUtility:
@@ -648,9 +648,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: d6030100
       m_LastClickedID: 0
-      m_ExpandedIDs: 8efbffff
+      m_ExpandedIDs: 6efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -710,9 +710,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.2452943, y: -2.5, z: 8.719453}
+    m_Target: {x: -5.684635, y: 24.717232, z: -12.6462345}
     speed: 2
-    m_Value: {x: -1.2452943, y: -2.5, z: 8.719453}
+    m_Value: {x: -5.684635, y: 24.717232, z: -12.6462345}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -741,13 +741,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.39542285, y: -0.0059130085, z: 0.0023339363, w: -0.91856974}
+    m_Target: {x: -0.43352184, y: -0.10276309, z: 0.04961686, w: -0.89398414}
     speed: 2
-    m_Value: {x: -0.3953853, y: -0.007290236, z: 0.002926819, w: -0.91848177}
+    m_Value: {x: -0.43352184, y: -0.10276309, z: 0.049616855, w: -0.8939841}
   m_Size:
     m_Target: 3.6115541
     speed: 2
-    m_Value: 3.3115542
+    m_Value: 3.6115541
   m_Ortho:
     m_Target: 0
     speed: 2
