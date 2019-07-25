@@ -136,6 +136,5 @@ public class UiManager : MonoBehaviour
      */
     private void ResetNearMissTrigger() =>
         _nearMissAnimator.ResetTrigger(AnimatorParameters.P_NEARMISS);
-
     #endregion
 }

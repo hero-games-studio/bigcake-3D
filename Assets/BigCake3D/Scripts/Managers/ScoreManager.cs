@@ -63,7 +63,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     public void ResetNearMiss()
     {
         _nearMiss = 0.0f;
-        _uiManager.UpdateNearMissSlider();
+        StartCoroutine(_uiManager.UpdateNearMissSlider());
     }
     #endregion
     /*
