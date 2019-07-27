@@ -12,13 +12,10 @@ public class UiManager : MonoBehaviour
 
     [Header("Near Miss")]
     [SerializeField]
-    private Slider _nearMissSlider = null;
+    private Image _nearMissBar = null;
 
     [SerializeField]
     private Animator _nearMissAnimator = null;
-
-    [SerializeField]
-    private Animator _nearMissPulseAnimator = null;
 
     [Header("Mission State")]
     [SerializeField]
@@ -43,7 +40,7 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         UpdateScoreText();
-        UpdateNearMissSlider();
+        StartCoroutine(UpdateNearMissSlider());
     }
 
     /*
@@ -61,13 +58,13 @@ public class UiManager : MonoBehaviour
      */
     public IEnumerator UpdateProgressBar(float barValue, int currentLevel, int nextLevel)
     {
-		for(float time = 0.0f; time < 1.0f; time += Time.deltaTime * 2.5f)
-		{
-			progressBarSlider.value = Mathf.Lerp(progressBarSlider.value, barValue, time);
-			yield return null;
-		}
-		currentLevelText.text = currentLevel.ToString();
-		nextLevelText.text = nextLevel.ToString();
+        for (float time = 0.0f; time < 1.0f; time += Time.deltaTime * 2.5f)
+        {
+            progressBarSlider.value = Mathf.Lerp(progressBarSlider.value, barValue, time);
+            yield return null;
+        }
+        currentLevelText.text = currentLevel.ToString();
+        nextLevelText.text = nextLevel.ToString();
     }
 
     /*
@@ -79,7 +76,6 @@ public class UiManager : MonoBehaviour
         StopAllCoroutines();
         Painter.Instance.TurnBack();
         Painter.Instance.MissionStage = true;
-        Painter.Instance.nearMiss = false;
         _missionStatePanel.SetActive(true);
         _levelNumberText.text = stageNumber;
     }
@@ -90,7 +86,6 @@ public class UiManager : MonoBehaviour
      */
     public void HideMissionState()
     {
-        Painter.Instance.nearMiss = true;
         _missionStatePanel.SetActive(false);
         Painter.Instance.MissionStage = false;
     }
@@ -101,19 +96,32 @@ public class UiManager : MonoBehaviour
      */
     public IEnumerator UpdateNearMissSlider(bool nearMiss = false)
     {
-        if (nearMiss)
+        /*   if (nearMiss)
+           {
+               _nearMissAnimator.SetTrigger(AnimatorParameters.P_NEARMISS);
+               Invoke("ResetNearMissTrigger", 1.1f);
+           }*/
+
+        for (float time = 0.0f; time < 1.0f; time += Time.deltaTime * 3.0f)
         {
-            _nearMissAnimator.SetTrigger(AnimatorParameters.P_NEARMISS);
-            Invoke("ResetNearMissTrigger", 1.1f);
+            _nearMissBar.fillAmount =
+                Mathf.Lerp(_nearMissBar.fillAmount, ScoreManager.Instance.GetNearMiss() * 0.1f, time);
+            yield return null;
         }
-		for(float time = 0.0f; time <1.0f; time += Time.deltaTime * 3.0f)
-		{
-			_nearMissSlider.value = 
-				Mathf.Lerp(_nearMissSlider.value, ScoreManager.Instance.GetNearMiss() * 0.1f, time);
-				yield return null;
-		}
-        _nearMissPulseAnimator.SetBool(AnimatorParameters.P_PULSE,
-            ScoreManager.Instance.GetNearMiss() >= 10.0f);
+
+        if (_nearMissBar.fillAmount >= 1.0f && !Painter.Instance.isCleaning)
+        {
+            Painter.Instance.isCleaning = true;
+            ClearCurrentStageLayer();
+        }
+        else if(_nearMissBar.fillAmount <= 0.0f && Painter.Instance.isCleaning)
+        {
+            Painter.Instance.isCleaning = false;
+            ClearCurrentStageLayer();
+        }
+
+        _nearMissBar.transform.parent.gameObject.SetActive(!(_nearMissBar.fillAmount <= 0.0f));
+
     }
 
     /*
@@ -122,12 +130,7 @@ public class UiManager : MonoBehaviour
      */
     public void ClearCurrentStageLayer()
     {
-        if (_nearMissSlider.value >= 1.0f)
-        {
-            ScoreManager.Instance.ResetNearMiss();
-            Painter.Instance.nearMiss = true;
-            StageManager.Instance.ClearCurrentPartWithNearMiss();
-        }
+        StageManager.Instance.ClearCurrentPartWithNearMiss(!Painter.Instance.isCleaning);
     }
 
     /*

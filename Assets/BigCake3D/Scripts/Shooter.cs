@@ -13,8 +13,6 @@ public class Shooter : MonoSingleton<Shooter>
     [SerializeField]
     private Vector3 _shootStartPosition = new Vector3(0, -0.375f, -1.5f);
 
-    private float multiply = 10.0f;
-
     [SerializeField]
     private Animator creamSqueezeAnimator = null;
 
@@ -34,7 +32,7 @@ public class Shooter : MonoSingleton<Shooter>
      * METOD ADI :  ChangePosition
      * AÇIKLAMA  :  Shooter objesinin pozisyonunu parametre olarak gönderilen pozisyona eşitler.
      */
-    public IEnumerator ChangePosition(Vector3 targetPosition, bool squeeze)
+    public void ChangePosition(Vector3 targetPosition, bool squeeze)
     {
         if (!squeeze)
         {
@@ -45,14 +43,14 @@ public class Shooter : MonoSingleton<Shooter>
             StartSqueeze();
         }
 
-        var position = transform.position;
+        /*var position = transform.position;
         targetPosition.y = position.y;
         for (float timer = 0.0f; timer < 1.0f; timer += Time.deltaTime * multiply)
         {
             transform.position = Vector3.Lerp(position, targetPosition, timer);
             yield return null;
         }
-        transform.position = targetPosition;
+        transform.position = targetPosition;*/
     }
 
     /*

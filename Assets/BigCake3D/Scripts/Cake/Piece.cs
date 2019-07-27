@@ -68,7 +68,7 @@ public class Piece : MonoBehaviour
         _uiManager.UpdateScoreText();
         if (nearMiss)
         {
-            _uiManager.UpdateNearMissSlider();
+            StartCoroutine(_uiManager.UpdateNearMissSlider());
         }
     }
 }

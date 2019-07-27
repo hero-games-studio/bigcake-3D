@@ -69,7 +69,10 @@ public class StageManager : MonoSingleton<StageManager>
         Painter.Instance.goingUp = true;
         var pos = obstacle ? tr.position :
             topping ? new Vector3(tr.position.x, 50.0f, tr.position.z) : new Vector3(tr.position.x, 6.0f, tr.position.z);
-        tr.gameObject.SetActive(true);
+        if (!obstacle)
+        {
+            tr.gameObject.SetActive(true);
+        }
         for (float time = 0.0f; time < 1.0f; time += Time.deltaTime)
         {
             tr.position = Vector3.Lerp(pos, target, time);
@@ -115,11 +118,12 @@ public class StageManager : MonoSingleton<StageManager>
         }
         StartCoroutine(FallDown(currentStage.GetCurrentCakePart().transform,
             currentStage.GetCurrentCakePart().transform.position, false));
-        if (Painter.Instance.nearMiss)
+
+        if (!Painter.Instance.isCleaning)
         {
-            Painter.Instance.nearMiss = false;
             currentStage.obstacle.SetActive(true);
         }
+
         Painter.Instance.MissionStage = false;
     }
 
@@ -217,11 +221,9 @@ public class StageManager : MonoSingleton<StageManager>
      * METOD ADI :  ClearCurrentPartWithNearMiss
      * AÇIKLAMA  :  Nearmiss clear butonuna basıldığında geçerli olan partı tamamen boyar.
      */
-    public void ClearCurrentPartWithNearMiss()
+    public void ClearCurrentPartWithNearMiss(bool ac)
     {
-        currentStage.obstacle.SetActive(false);
-        Painter.Instance.StartApproach();
-        Shooter.Instance.StartSqueeze();
+        currentStage.obstacle.SetActive(ac);
     }
 
     /*

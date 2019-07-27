@@ -35,7 +35,8 @@ public class ScoreManager : MonoSingleton<ScoreManager>
      */
     public void AddNearMiss(float point = 1)
     {
-        _nearMiss = _nearMiss >= 10.0f ? 10.0f : _nearMiss + point;
+        _nearMiss = _nearMiss <= 0.0f ? 0.0f : _nearMiss;
+        _nearMiss = /*_nearMiss >= 10.0f ? 10.0f : */_nearMiss + point;
         StartCoroutine(_uiManager.UpdateNearMissSlider(true));
     }
 
@@ -54,7 +55,8 @@ public class ScoreManager : MonoSingleton<ScoreManager>
      * METOD ADI :  GetNearMiss
      * AÇIKLAMA  :  Near miss değerini döndürür.
      */
-    public float GetNearMiss() => _nearMiss;
+    public float GetNearMiss() => _nearMiss < 0.0f ? 0.0f : _nearMiss;
+    public float GetNerMiss() => _nearMiss;
 
     /*
      * METOD ADI :  ResetNearMiss

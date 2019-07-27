@@ -13,6 +13,7 @@ public  class AnimatorParameters
     public static readonly int P_ISSQUEEZE = Animator.StringToHash("IsSqueeze");
     public static readonly int P_TOPPINGANIM = Animator.StringToHash("ToppingAnimation");
     public static readonly int P_PULSE = Animator.StringToHash("Pulse");
+    public static readonly int P_LOOKCAKE = Animator.StringToHash("LookCake");
 }
 public class OtherData
 {

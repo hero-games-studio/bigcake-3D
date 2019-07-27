@@ -74,6 +74,7 @@
     <Compile Include="Assets\BigCake3D\Scripts\Cake\Cream.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Cake\Piece.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Cake\PieceState.cs" />
+    <Compile Include="Assets\BigCake3D\Scripts\CameraLook.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\CollisionChecker.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\ExtensionMethods.cs" />
     <Compile Include="Assets\BigCake3D\Scripts\Holder.cs" />

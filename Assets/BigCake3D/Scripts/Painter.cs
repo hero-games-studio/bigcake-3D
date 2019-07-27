@@ -27,9 +27,9 @@ public class Painter : MonoSingleton<Painter>
 
     [HideInInspector] public bool isPainting = false;
 
-    [HideInInspector] public bool nearMiss = false;
     [HideInInspector] public bool fail = false;
     [HideInInspector] public bool goingUp = false;
+    [HideInInspector] public bool isCleaning = false;
     #endregion
 
     #region All Methods
@@ -40,8 +40,6 @@ public class Painter : MonoSingleton<Painter>
 
     private void Update()
     {
-        GetInputs();
-
         if (isPainting)
         {
             if (Time.time - previousTime > boundTime)
@@ -49,7 +47,21 @@ public class Painter : MonoSingleton<Painter>
                 StageManager.Instance.currentStage.GetCurrentCakePart().PaintPieces();
                 previousTime = Time.time;
             }
+
+            if (StageManager.Instance.currentStage.obstacle.activeInHierarchy)
+            {
+                ScoreManager.Instance.AddNearMiss(Time.deltaTime * 2.5f);
+            }
+            else
+            {
+                ScoreManager.Instance.AddNearMiss(-Time.deltaTime * 2.5f);
+            }
         }
+        else
+        {
+            ScoreManager.Instance.AddNearMiss(-Time.deltaTime * 1.25f);
+        }
+        GetInputs();
     }
 
     /*
@@ -58,7 +70,7 @@ public class Painter : MonoSingleton<Painter>
      */
     private void GetInputs()
     {
-        if (!goingUp && (Input.GetMouseButton(0) && !MissionStage) | nearMiss)
+        if (!goingUp && (Input.GetMouseButton(0) && !MissionStage))
         {
             if (!isPainting && !StageManager.Instance.fallingDown && !fail)
             {
@@ -73,7 +85,6 @@ public class Painter : MonoSingleton<Painter>
         else if (Input.GetMouseButtonUp(0) && !MissionStage)
         {
             fail = false;
-            isPainting = false;
             TurnBack();
         }
         else
@@ -88,7 +99,7 @@ public class Painter : MonoSingleton<Painter>
      */
     public void StartApproach()
     {
-        StartCoroutine(Shooter.Instance.ChangePosition(_paintingStartPosition, true));
+        Shooter.Instance.StartSqueeze();
     }
 
     /*
@@ -99,8 +110,7 @@ public class Painter : MonoSingleton<Painter>
     {
         isPainting = false;
         Shooter.Instance.StopSqueeze();
-        StartCoroutine(Shooter.Instance.ChangePosition(_shooterDefaultPosition, false));
-        nearMiss = MissionStage = false;
+        MissionStage = false;
     }
     #endregion
 }
