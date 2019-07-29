@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Cake
+    - CameraLook
     - CollisionChecker
     - Cream
     - GameAnalyticsSDK.Events.GA_SpecialEvents
@@ -33,14 +34,15 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
-    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -94,65 +96,65 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9786}
+      Script: {instanceID: 9828}
     - Class: 114
-      Script: {instanceID: 9788}
+      Script: {instanceID: 9830}
     - Class: 114
-      Script: {instanceID: 9794}
-    - Class: 114
-      Script: {instanceID: 9796}
-    - Class: 114
-      Script: {instanceID: 9800}
-    - Class: 114
-      Script: {instanceID: 9808}
+      Script: {instanceID: 9836}
     - Class: 114
       Script: {instanceID: 9842}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9850}
     - Class: 114
-      Script: {instanceID: 10060}
+      Script: {instanceID: 9884}
     - Class: 114
-      Script: {instanceID: 10174}
+      Script: {instanceID: 9886}
     - Class: 114
-      Script: {instanceID: 10258}
+      Script: {instanceID: 10106}
     - Class: 114
-      Script: {instanceID: 10388}
+      Script: {instanceID: 10224}
     - Class: 114
-      Script: {instanceID: 10392}
+      Script: {instanceID: 10308}
     - Class: 114
-      Script: {instanceID: 10744}
+      Script: {instanceID: 10360}
     - Class: 114
-      Script: {instanceID: 10754}
+      Script: {instanceID: 10442}
     - Class: 114
-      Script: {instanceID: 10778}
+      Script: {instanceID: 10448}
     - Class: 114
-      Script: {instanceID: 10780}
+      Script: {instanceID: 10810}
     - Class: 114
-      Script: {instanceID: 11106}
+      Script: {instanceID: 10820}
     - Class: 114
-      Script: {instanceID: 11116}
+      Script: {instanceID: 10844}
     - Class: 114
-      Script: {instanceID: 11226}
+      Script: {instanceID: 10846}
     - Class: 114
-      Script: {instanceID: 11296}
+      Script: {instanceID: 11174}
+    - Class: 114
+      Script: {instanceID: 11184}
     - Class: 114
       Script: {instanceID: 11298}
     - Class: 114
-      Script: {instanceID: 11360}
+      Script: {instanceID: 11370}
     - Class: 114
       Script: {instanceID: 11372}
     - Class: 114
-      Script: {instanceID: 11492}
+      Script: {instanceID: 11434}
     - Class: 114
-      Script: {instanceID: 11614}
+      Script: {instanceID: 11446}
     - Class: 114
-      Script: {instanceID: 11652}
+      Script: {instanceID: 11566}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11688}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11726}
     - Class: 114
-      Script: {instanceID: 11864}
+      Script: {instanceID: 11846}
+    - Class: 114
+      Script: {instanceID: 11892}
+    - Class: 114
+      Script: {instanceID: 11940}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -704,6 +706,12 @@ ScriptsOnlyBuild:
     className: ScoreManager
   - hash:
       serializedVersion: 2
+      Hash: 508db3cd160712a6bf88eb9f48a9e06e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraLook
+  - hash:
+      serializedVersion: 2
       Hash: 303ad70ce203ad874efe2965d0fbcff9
     assemblyName: Unity.Analytics.Tracker.dll
     namespaceName: UnityEngine.Analytics
@@ -806,13 +814,13 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: fddc503d3aa4bb615ef47c81faac2d23
+      Hash: 49e66552b34958c55121ddb7f81e5bfc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UiManager
   - hash:
       serializedVersion: 2
-      Hash: 44e97b4f2d63fa58db78489514790e8d
+      Hash: 6076cadf79c9682ec2cb4b3b530e1dba
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Painter
@@ -1058,7 +1066,7 @@ ScriptsOnlyBuild:
     className: SkyboxChanger
   - hash:
       serializedVersion: 2
-      Hash: c3fe453202dfcf13313891d71ac71747
+      Hash: 96bdb85140816ff7d24259b13db8a1be
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StageManager
@@ -1204,4 +1212,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/BigCake3D/Scenes/Game_New.unity
   playerPath: C:/All Projects/Unity Projects/Build&Keystore/BigCake 3D/Big Cake 3D
-    20July2019.apk
+    29July2019-B.apk
