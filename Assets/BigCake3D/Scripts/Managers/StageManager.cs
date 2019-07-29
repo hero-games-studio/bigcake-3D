@@ -27,6 +27,8 @@ public class StageManager : MonoSingleton<StageManager>
     [SerializeField] private Vector3 cakePositionStepSize = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField] private Vector3 creamPositionStepSize = new Vector3(0.0f, 0.0f, 0.0f);
 
+    [SerializeField] private CameraLook cameraLook = null;
+
     [Header("Scripts")]
     [SerializeField] private UiManager uiManager = null;
 
@@ -174,7 +176,8 @@ public class StageManager : MonoSingleton<StageManager>
             Painter.Instance.MissionStage = true;
             currentStage.topping.SetActive(true);
             currentStage.topping.GetComponent<Animator>().Play(AnimatorParameters.P_TOPPINGANIM);
-            Invoke("ExecNextStage", 2.0f);
+
+            cameraLook.Look();
         }
         else
         {
@@ -189,12 +192,11 @@ public class StageManager : MonoSingleton<StageManager>
      * METOD ADI :  ExecNextStage
      * AÇIKLAMA  :  Bir sonraki Stage'i başlatmadan önce pozisyonları sıfırlar ve Stage'i başlatır.
      */
-    private void ExecNextStage()
+    public void ExecNextStage()
     {
         Painter.Instance.TurnBack();
         ParticleManager.Instance.PlayFireworks();
         ResetPositions();
-        GetNextStage();
     }
 
     /*
@@ -212,7 +214,7 @@ public class StageManager : MonoSingleton<StageManager>
      * METOD ADI :  GetNextStage
      * AÇIKLAMA  :  Bir sonraki Stage'i başlatır.
      */
-    private void GetNextStage()
+    public void GetNextStage()
     {
         uiManager.ShowMissionState((currentStageIndex + 1).ToString());
     }

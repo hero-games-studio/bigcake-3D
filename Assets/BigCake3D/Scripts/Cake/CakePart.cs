@@ -67,7 +67,7 @@ public class CakePart : MonoBehaviour
         if (canRotate)
         {
             canRotate = false;
-            childPieces[childIndex++].SetColored();
+            childPieces[childIndex++]?.SetColored();
         }
     }
 
