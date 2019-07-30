@@ -6,12 +6,9 @@ using UnityEngine;
 public class CameraLook : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private Transform shooterTransform = null;
-    private Vector3 distance;
-    private bool finished = false;
-
-    [SerializeField] private new Camera camera = null;
-    private Camera cameraInit = null;
+    [SerializeField]
+    private GameObject shooterObj = null;
+    private Vector3 offset;
 
     private Transform transformInit = null;
     private Animator animator = null;
@@ -20,24 +17,20 @@ public class CameraLook : MonoBehaviour
     private List<CakePart> cakeParts = null;
     private float rotateYScale = 0.0f;
     private float duration = 1.0f;
+    private float time = 0.125f;
     #endregion
 
     #region Builtin Methods
-    private void Awake()
+    private void Start()
     {
         animator = GetComponent<Animator>();
-        cameraInit = camera;
         transformInit = transform;
-        distance = transform.position - shooterTransform.position;
+        offset = transform.position - shooterObj.transform.position;
     }
 
     private void LateUpdate()
     {
-        if (!finished)
-        {
-            transform.position =
-                Vector3.Lerp(transform.position, shooterTransform.position + distance, Time.deltaTime);
-        }
+        transform.position = shooterObj.transform.position + offset;
     }
     #endregion
 
@@ -46,13 +39,14 @@ public class CameraLook : MonoBehaviour
     {
         cakeParts = StageManager.Instance.currentStage.cakeParts;
         cakePartCount = cakeParts.Count;
-        rotateYScale = 360.0f / cakePartCount;       
+        rotateYScale = 360.0f / cakePartCount;
         StartCoroutine(LookAndRotate());
     }
 
     private IEnumerator LookAndRotate()
     {
         Painter.Instance.MissionStage = true;
+        transform.position = new Vector3(transform.position.x, cakeParts[0].transform.position.y, transform.position.z); 
         animator.SetTrigger(AnimatorParameters.P_LOOKCAKE);
         for (int i = 0; i < cakePartCount; i++)
         {
