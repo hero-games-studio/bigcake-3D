@@ -59,7 +59,10 @@ public class Painter : MonoSingleton<Painter>
         }
         else
         {
-            ScoreManager.Instance.AddNearMiss(-Time.deltaTime * 1.25f);
+            if (!MissionStage)
+            {
+                ScoreManager.Instance.AddNearMiss(-Time.deltaTime * 1.25f);
+            }
         }
         GetInputs();
     }

@@ -17,6 +17,6 @@ public  class AnimatorParameters
 }
 public class OtherData
 {
-    public static readonly string USERDATA_PATH = Application.persistentDataPath + "/userData.dat";
+    public static readonly string USERDATA_PATH = Application.persistentDataPath + "/userData.bc3d";
     public static readonly float duration = 0.15f;
 }

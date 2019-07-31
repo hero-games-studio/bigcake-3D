@@ -17,7 +17,7 @@ public class CameraLook : MonoBehaviour
     private List<CakePart> cakeParts = null;
     private float rotateYScale = 0.0f;
     private float duration = 1.0f;
-    private float time = 0.125f;
+    private bool rotating = false;
     #endregion
 
     #region Builtin Methods
@@ -30,13 +30,17 @@ public class CameraLook : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = shooterObj.transform.position + offset;
+        if (!rotating)
+        {
+            transform.position = shooterObj.transform.position + offset;
+        }
     }
     #endregion
 
     #region Custom Methods
     public void Look()
     {
+        rotating = true;
         cakeParts = StageManager.Instance.currentStage.cakeParts;
         cakePartCount = cakeParts.Count;
         rotateYScale = 360.0f / cakePartCount;
@@ -46,21 +50,25 @@ public class CameraLook : MonoBehaviour
     private IEnumerator LookAndRotate()
     {
         Painter.Instance.MissionStage = true;
-        transform.position = new Vector3(transform.position.x, cakeParts[0].transform.position.y, transform.position.z); 
+        //transform.position = new Vector3(transform.position.x, cakeParts[0].transform.position.y, transform.position.z); 
         animator.SetTrigger(AnimatorParameters.P_LOOKCAKE);
-        for (int i = 0; i < cakePartCount; i++)
-        {
-            Vector3 pos =
-                new Vector3(transform.position.x, cakeParts[i].transform.position.y, transform.position.z);
-            transform.DOMove(pos, duration);
-            yield return null;
-        }
-
+        //for (int i = 0; i < cakePartCount; i++)
+        //{
+        //    Vector3 pos =
+        //        new Vector3(transform.position.x, cakeParts[i].transform.position.y, transform.position.z);
+        //    transform.DOMove(pos, duration);
+        //    yield return null;
+        //}
+        yield return null;
         transform.DOMove(transformInit.position, duration);
 
         StageManager.Instance.ExecNextStage();
     }
 
-    public void ShowNextStage() => StageManager.Instance.GetNextStage();
+    public void ShowNextStage()
+    {
+        rotating = false;
+        StageManager.Instance.GetNextStage();
+    }
     #endregion
 }
