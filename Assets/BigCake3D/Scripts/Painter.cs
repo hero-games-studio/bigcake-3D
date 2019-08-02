@@ -64,6 +64,7 @@ public class Painter : MonoSingleton<Painter>
                 ScoreManager.Instance.AddNearMiss(-Time.deltaTime * 1.25f);
             }
         }
+
         GetInputs();
     }
 

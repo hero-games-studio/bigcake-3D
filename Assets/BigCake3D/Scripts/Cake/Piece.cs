@@ -12,7 +12,6 @@ public class Piece : MonoBehaviour
     private WaitForSeconds delay;
 
     public MeshRenderer PieceMeshRenderer { get { return _meshRenderer; } }
-    public int index = 0;
 
     private void Awake()
     {

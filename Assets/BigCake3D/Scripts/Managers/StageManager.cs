@@ -178,6 +178,8 @@ public class StageManager : MonoSingleton<StageManager>
             currentStage.topping.GetComponent<Animator>().Play(AnimatorParameters.P_TOPPINGANIM);
 
             cameraLook.Look();
+			
+			currentStage.currentPartIndex = 0;
         }
         else
         {

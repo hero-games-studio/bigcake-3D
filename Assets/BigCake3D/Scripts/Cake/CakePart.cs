@@ -14,6 +14,8 @@ public class CakePart : MonoBehaviour
     private int childIndex = 0;
 
     private bool canRotate = true;
+
+    private Material creamMaterial = null;
     #endregion
 
     #region Builtin Methods
@@ -22,16 +24,14 @@ public class CakePart : MonoBehaviour
         parentTransform = transform.parent;
         childPieces = GetComponentsInChildren<Piece>().ToList();
         rotateScale.y = -360.0f / childPieces.Count;
-        for (int i = 0; i < childPieces.Count; i++)
-        {
-            childPieces[i].index = i;
-        }
     }
     #endregion
 
     #region Custom Methods
-    public Material GetPieceColor() =>
-        GetComponentsInChildren<Piece>()[0].GetComponent<Renderer>().material;
+    public Material GetPieceColor()
+    {
+        return GetComponentsInChildren<Piece>()[0].GetComponent<Renderer>().material;
+    }
 
     /*
      * METOD ADI :  IsPartCompelete
@@ -99,13 +99,13 @@ public class CakePart : MonoBehaviour
 
     public void ResetRotation()
     {
-        int count = GetComponentsInChildren<Piece>().Length;
-        transform.parent.localRotation = Quaternion.Euler(
-            0.0f,
-                count >= 32 ? (360.0f / count) * 0.85f :
-                count == 24 ? (360.0f / count) * 1.15f :
-                (360.0f / count) * 1.5f,
-            0.0f);
+         int count = GetComponentsInChildren<Piece>().Length;
+         transform.parent.localRotation = Quaternion.Euler(
+             0.0f,
+                 count >= 32 ? (360.0f / count) * 0.85f :
+                 count == 24 ? (360.0f / count) * 1.15f :
+                 (360.0f / count) * 1.5f,
+             0.0f);
     }
     #endregion
 }
