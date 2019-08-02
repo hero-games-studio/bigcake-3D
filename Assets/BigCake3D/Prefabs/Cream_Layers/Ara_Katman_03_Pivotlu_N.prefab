@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84086520762796742}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &131467657598113811
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +139,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131467657598113811}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -183,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &500770381073898308
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +230,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500770381073898308}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -275,7 +273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &980719500826782838
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +321,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980719500826782838}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -367,7 +364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &1214050612075306572
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +412,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214050612075306572}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -459,7 +455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &1382672749294026630
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +503,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382672749294026630}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -551,7 +546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &1682869868495426774
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +594,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682869868495426774}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -643,7 +637,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &2437995880487688868
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +685,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2437995880487688868}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -735,7 +728,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &3061880111686070169
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +776,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3061880111686070169}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -827,7 +819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &3373044754855664839
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +867,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3373044754855664839}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -919,7 +910,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &3398655062742513842
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,7 +958,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3398655062742513842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1011,7 +1001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &3745603630954750787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1049,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3745603630954750787}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1103,7 +1092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &3802103114169467311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,7 +1140,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3802103114169467311}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1195,7 +1183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &4323645185065971944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1231,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4323645185065971944}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1287,7 +1274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &4770009703563958003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,7 +1322,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4770009703563958003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1379,7 +1365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &5154976615610329494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1413,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5154976615610329494}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1471,7 +1456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &5488865945989622416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,7 +1504,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5488865945989622416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1563,7 +1547,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &6611007679370765031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,7 +1595,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6611007679370765031}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1655,7 +1638,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &6783582017263365277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,7 +1686,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6783582017263365277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1747,7 +1729,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &6991229317271793279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1844,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7005129932889808789}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1906,7 +1887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &7448954953335865981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +1935,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7448954953335865981}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1998,7 +1978,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &7653659126203849736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,7 +2026,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7653659126203849736}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2090,7 +2069,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &7968338867648472796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,7 +2117,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7968338867648472796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2182,7 +2160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &9201642584200123711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,7 +2208,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9201642584200123711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2274,4 +2251,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
