@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &889488829296940821
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &2361755798177949397
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &2407658254997494397
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &3550228876323373395
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &4445921914215303238
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +605,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &4829462165871986671
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +696,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &4984920933096299253
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +787,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &5014765464631615543
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &5167283944854662198
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +969,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &6667372047066946736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1060,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &8117728260014080339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &8490113959492353310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &8751982030971161407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,7 +1333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &8831719148087889139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,7 +1424,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
 --- !u!1 &9069294757930616735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,4 +1515,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
-  index: 0
